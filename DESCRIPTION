@@ -1,16 +1,38 @@
 Package: icorp26
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Supports summer 2026 ICORP SROP
 Version: 0.1.0
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      "Elin", "Waring",
+      email = "elin.waring@gmail.com",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Description: This provides access to the data and 
+   some useful tools to work with it.
+License: GPLv3
 Encoding: UTF-8
 LazyData: true
+Depends:
+    R (>= 4.1.0)
+Imports:
+Suggests:
+    dplyr (>= 1.0.0),
+    ggplot2,
+    knitr,
+    rmarkdown,
+    sf,
+    stats,
+    tidyr
+VignetteBuilder: 
+    knitr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports:
+  dplyr,
+  here,
+  tidyr,
+  ezstats
+Suggests:
+  knitr
