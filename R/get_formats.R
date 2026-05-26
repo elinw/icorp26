@@ -1,6 +1,7 @@
 library(dplyr)
 library(here)
 
+#' @internal
 read_input_statements <- function(filename) {
 
      readLines(filename, encoding="latin1") -> inputs
@@ -140,3 +141,12 @@ format_details <- lapply(format_files, read_input_statements)
                       format_details[[7]])
 
    rss7 <- remove0length(rss7_raw, 7) |> as.data.frame()
+
+# Save the datasets
+   save(rss1, file=here("data/rss1.rda"))
+   save(rss2, file=here("data/rss2.rda"))
+   save(rss3, file=here("data/rss3.rda"))
+   save(rss4, file=here("data/rss4.rda"))
+   save(rss5, file=here("data/rss5.rda"))
+   save(rss6, file=here("data/rss6.rda"))
+   save(rss7, file=here("data/rss7.rda"))

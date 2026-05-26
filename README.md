@@ -28,3 +28,16 @@ the library
 library(icorp26)
 ```
 
+[Learn more about rounds 1 to 5](https://www.cdc.gov/nchs/rss/rss-topics.html)
+
+[You can learn about Round 6](https://www.cdc.gov/nchs/rapid-surveys/documentation/round-6.html)
+
+[You can learn about Round 7](https://www.cdc.gov/nchs/rapid-surveys/documentation/round-7.html)
+
+For your project you should pick one of the rounds, unless you
+have a specific reason. Look at the topics and find 
+the ones that most interest you. 
+
+You should also read about the purpose of the RSS
+system (who decides what the topics are) and about 
+the methodology of the survey.

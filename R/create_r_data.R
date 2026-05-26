@@ -4,29 +4,21 @@ library(tidyr)
 library(dplyr)
 library(stringr)
 # Import and save data
-read_sas(here("sasdata/rss1_puf_t1.sas7bdat")) -> rss1
-read_sas(here("sasdata/rss2_puf_t1.sas7bdat")) -> rss2
-read_sas(here("sasdata/rss3_puf.sas7bdat")) -> rss3
-read_sas(here("sasdata/rss4_puf.sas7bdat")) -> rss4
-read_sas(here("sasdata/rss5_puf.sas7bdat")) -> rss5
-read_sas(here("sasdata/rss6_puf.sas7bdat")) -> rss6
-read_sas(here("sasdata/rss7_puf.sas7bdat")) -> rss7
+read_sas(here("sasdata/rss1_puf_t1.sas7bdat")) -> rss1_raw
+read_sas(here("sasdata/rss2_puf_t1.sas7bdat")) -> rss2_raw
+read_sas(here("sasdata/rss3_puf.sas7bdat")) -> rss3_raw
+read_sas(here("sasdata/rss4_puf.sas7bdat")) -> rss4_raw
+read_sas(here("sasdata/rss5_puf.sas7bdat")) -> rss5_raw
+read_sas(here("sasdata/rss6_puf.sas7bdat")) -> rss6_raw
+read_sas(here("sasdata/rss7_puf.sas7bdat")) -> rss7_raw
 
-# rss1[rss1 < 0] <- NA
-# rss2[rss2 < 0] <- NA
-# rss3[rss3 < 0] <- NA
-# rss3[rss3 < 0] <- NA
-# rss4[rss4 < 0] <- NA
-# rss5[rss5 < 0] <- NA
-# rss6[rss6 < 0] <- NA
-rss1_raw <- rss1
-rss2_raw <- rss2
-rss3_raw <- rss3
-rss4_raw <- rss4
-rss5_raw <- rss5
-rss6_raw <- rss6
-rss7_raw <- rss7
-
+rss1_raw[rss1_raw < 0] <- NA
+rss2_raw[rss2_raw < 0] <- NA
+rss3_raw[rss3_raw < 0] <- NA
+rss4_raw[rss4_raw < 0] <- NA
+rss5_raw[rss5_raw < 0] <- NA
+rss6_raw[rss6_raw < 0] <- NA
+rss7_raw[rss7_raw < 0] <- NA
 save(rss1_raw, file=here("data/rss1_raw.rda"))
 save(rss2_raw, file=here("data/rss2_raw.rda"))
 save(rss3_raw, file=here("data/rss3_raw.rda"))
