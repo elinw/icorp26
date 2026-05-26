@@ -17,22 +17,16 @@ LazyData: true
 Depends:
     R (>= 4.1.0)
 Imports:
-Suggests:
     dplyr (>= 1.0.0),
     ggplot2,
     knitr,
     rmarkdown,
-    sf,
     stats,
     tidyr
+Suggests:
+  knitr
 VignetteBuilder: 
     knitr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
-Imports:
-  dplyr,
-  here,
-  tidyr,
-  ezstats
-Suggests:
-  knitr
+
