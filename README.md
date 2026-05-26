@@ -13,8 +13,8 @@ and others in using the CDC RSS data this summer.
 You can install the development version of icorp26 from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("elinw/icorp26")
+# install.packages("remotes")
+remotes::install_github("elinw/icorp26")
 ```
 
 ## Example
