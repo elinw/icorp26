@@ -1,7 +1,7 @@
 library(dplyr)
 library(here)
 
-#' @internal
+
 read_input_statements <- function(filename) {
 
      readLines(filename, encoding="latin1") -> inputs
@@ -77,8 +77,6 @@ applylabels <- function(x, format_list) {
 }
 
 
-#applylabels(rss1$HIS_GENERAL, format_details[[1]]) -> test2
-
 
 
 
@@ -94,11 +92,27 @@ remove0length <- function(old, number){
 
 format_details <- lapply(format_files, read_input_statements)
 
+rss1_raw[rss1_raw < 0] <- NA
+rss2_raw[rss2_raw < 0] <- NA
+rss3_raw[rss3_raw < 0] <- NA
+rss4_raw[rss4_raw < 0] <- NA
+rss5_raw[rss5_raw < 0] <- NA
+rss6_raw[rss6_raw < 0] <- NA
+rss7_raw[rss7_raw < 0] <- NA
+rss1_raw <- droplevels(rss1_raw)
+rss2_raw <- droplevels(rss2_raw)
+rss3_raw <- droplevels(rss3_raw)
+rss4_raw <- droplevels(rss4_raw)
+rss5_raw <- droplevels(rss5_raw)
+rss6_raw <- droplevels(rss6_raw)
+rss7_raw <- droplevels(rss7_raw)
+
 # Make this an internal function
 # need to do this for each
   rss1_raw <- lapply(rss1_raw[,names(rss1_raw)],
                          applylabels,
                          format_details[[1]])
+
 
    rss1 <- remove0length(rss1_raw, 1)
 # 2
