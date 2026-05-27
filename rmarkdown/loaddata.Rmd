@@ -1,0 +1,41 @@
+
+
+```{r}
+library(here)
+library(tidyr)
+library(dplyr)
+library(stringr)
+```
+
+
+```{r}
+load_formatted_data <- function() {
+     load(file=here("data/rss1.rda"))
+     load(file=here("data/rss2.rda"))
+     load( file=here("data/rss3.rda"))
+     load(file=here("data/rss4.rda"))
+     load(file=here("data/rss5.rda"))
+     load( file=here("data/rss6.rda"))
+     load( file=here("data/rss7.rda"))
+}
+```
+```{r}
+load_raw_data <- function() {
+     load(file=here("data/rss1_raw.rda"))
+     load(file=here("data/rss2_raw.rda"))
+     load( file=here("data/rss3_raw.rda"))
+     load(file=here("data/rss4_raw.rda"))
+     load(file=here("data/rss5_raw.rda"))
+     load( file=here("data/rss6_raw.rda"))
+     load( file=here("data/rss7_raw.rda"))
+}
+```
+
+```{r}
+load(here("data/files_inputs.rda"))
+```
+```{r}
+rss1_raw[ rss1_raw < 0] <- NA
+```
+
+

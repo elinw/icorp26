@@ -93,6 +93,8 @@ remove0length <- function(old, number){
 }
 
 format_details <- lapply(format_files, read_input_statements)
+
+# Make this an internal function
 # need to do this for each
   rss1_raw <- lapply(rss1_raw[,names(rss1_raw)],
                          applylabels,

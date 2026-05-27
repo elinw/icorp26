@@ -1,0 +1,40 @@
+---
+title: "Template Title"
+author: "Your Name"
+date: "The Date"
+output: output_format
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Questions you need to answer in order to make a good
+poster. 
+
+Save this file and fill it out as you are working. 
+
+
+
+*What overall topic are you studying? *  
+
+
+*What round of the RSS data deals with that topic?*  
+ 
+*What are the specific variable names for that topic?*  
+
+*What are the actual survey questions for those variables?*  
+
+*What independent variables do you think will be 
+related to someone's answer to those questions?*  
+
+*What are the names of the variables in the data 
+set that measure you independent variables?*  
+
+*Are there specific groups of the popularion you are focusing on?*
+
+*What have researchers said about this topic?*  
+
+
+
+
