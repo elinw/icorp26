@@ -1,0 +1,31 @@
+---
+title: "rss1 Codebook"
+author: ""
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rss1 codebook}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = FALSE
+)
+```
+```{r}
+library(icorp26)
+library(datawizard)
+```
+
+
+
+
+```{r}
+data_codebook(rss1) |> display()
+```
+```{r}
+
+```
+

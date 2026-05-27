@@ -1,0 +1,74 @@
+---
+title: "First analysis"
+author: "Elin Waring"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{First Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignette illustrates some common things
+you will want or need to do to get started.
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE
+)
+```
+
+First we load the packages we need.
+
+```{r}
+library(icorp26)
+library(easystats)
+library(datawizard)
+```
+
+Let's say you want to use rss1.
+
+[We can look at the codebook here.](https://www.cdc.gov/nchs/data/rss/codebook.pdf)
+
+In R, one of the basic ways to refer to a variable is 
+by combining the name of the dataset and the name of the variable
+with a `$`. 
+
+```
+ dataset_name$variable_name
+```
+
+
+### If you get sick or have an accident, how worried are you that you will be able to pay yourmedical bills?
+
+```{r}
+data_tabulate(rss1$PAY_PAYWORRY)
+```
+
+### Overall Health
+```{r}
+data_tabulate(rss1$HIS_GENERAL)
+```
+
+### Marital Status
+```{r}
+data_tabulate(rss1$MARSTAT) 
+```
+
+
+Some things you should notice:
+
+- The N column tells you how many people answering the survey
+fell into each category.
+
+- The `Raw %` Column includes everyone who was asked.
+
+- The `Valid %` Column includes only the people who answered
+that specific question (not the <NA>s). 
+
+- The `Cumulative %` adds each row to the total percent above it. See if you can follow the logic in the tables above.
+
+
+
+
+
