@@ -11,9 +11,10 @@ Authors@R: c(
   )
 Description: This provides access to the data and 
    some useful tools to work with it.
-License: GPLv3
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
+LazyDataCompression:gzip
 Depends:
     R (>= 4.1.0)
 Imports:
