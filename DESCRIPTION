@@ -17,14 +17,14 @@ LazyData: true
 Depends:
     R (>= 4.1.0)
 Imports:
-    dplyr (>= 1.0.0),
-    ggplot2,
-    rmarkdown,
-    easystats,
-    tidyr
 Suggests:
   knitr,
-  utils
+  utils,
+  dplyr (>= 1.0.0),
+  ggplot2,
+  rmarkdown,
+  easystats,
+  tidyr
 VignetteBuilder: 
     knitr
 Roxygen: list(markdown = TRUE)
@@ -32,4 +32,17 @@ RoxygenNote: 7.3.3
 URL: https://github.com/elinw/icorp26
 BugReports: https://github.com/elinw/icorp26/issues
 Collate:
-
+     "rss1.R"
+     "rss1_raw.R"
+     "rss2.R"
+     "rss2_raw.R"
+     "rss3.R"
+     "rss3_raw.R"
+     "rss4.R"
+     "rss4_raw.R"
+     "rss5.R"
+     "rss5_raw.R"
+     "rss6.R"
+     "rss6_raw.R"
+     "rss7.R"
+     "rss7_raw.R"
