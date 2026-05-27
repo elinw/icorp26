@@ -80,4 +80,19 @@ could be used to address this issue.  See:
 However, for the summer program we are going to 
 ignore this issue and focus on other methods,
 
+## References
+
+CDC. 2026. “NCHS Rapid Surveys System.” https://www.cdc.gov/nchs/rapid-surveys/about/index.html.
+
+Wickham H, Miller E, Smith D (2025). _haven:
+  Import and Export 'SPSS', 'Stata' and 'SAS'
+  Files_. doi:10.32614/CRAN.package.haven
+  <https://doi.org/10.32614/CRAN.package.haven>,
+  R package version 2.5.5,
+  <https://CRAN.R-project.org/package=haven>.
+  
+
+```{r eval=FALSE}
+citation("haven")
+```
 
