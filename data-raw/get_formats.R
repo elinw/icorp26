@@ -43,7 +43,7 @@ read_input_statements <- function(filename) {
 # Create the list of files in the correct order
 rssnumbers <- 1:7
 rssdata_sets <- paste0("rss", rssnumbers)
-format_files_dir <-"sasdata/inputstatements"
+format_files_dir <-"data-raw/inputstatements"
 format_files <- dir(here(format_files_dir))
 format_files <- file.path(format_files_dir,  format_files)
 format_files <- c(format_files[7],
@@ -99,13 +99,6 @@ rss4_raw[rss4_raw < 0] <- NA
 rss5_raw[rss5_raw < 0] <- NA
 rss6_raw[rss6_raw < 0] <- NA
 rss7_raw[rss7_raw < 0] <- NA
-rss1_raw <- droplevels(rss1_raw)
-rss2_raw <- droplevels(rss2_raw)
-rss3_raw <- droplevels(rss3_raw)
-rss4_raw <- droplevels(rss4_raw)
-rss5_raw <- droplevels(rss5_raw)
-rss6_raw <- droplevels(rss6_raw)
-rss7_raw <- droplevels(rss7_raw)
 
 # Make this an internal function
 # need to do this for each
@@ -114,41 +107,41 @@ rss7_raw <- droplevels(rss7_raw)
                          format_details[[1]])
 
 
-   rss1 <- remove0length(rss1_raw, 1)
+   rss1 <- remove0length(rss1_raw, 1) |> as.data.frame() |> droplevels()
 # 2
    rss2_raw <- lapply(rss2_raw[names(rss2_raw)],
                       applylabels,
                       format_details[[2]])
 
-   rss2 <- remove0length(rss2_raw, 2) |> as.data.frame()
+   rss2 <- remove0length(rss2_raw, 2) |> as.data.frame()  |> droplevels()
 
    # 3
    rss3_raw <- lapply(rss3_raw[names(rss3_raw)],
                       applylabels,
                       format_details[[3]])
 
-   rss3 <- remove0length(rss3_raw, 3) |> as.data.frame()
+   rss3 <- remove0length(rss3_raw, 3) |> as.data.frame()  |> droplevels()
 
    # 4
    rss4_raw <- lapply(rss4_raw[names(rss4_raw)],
                       applylabels,
                       format_details[[4]])
 
-   rss4 <- remove0length(rss4_raw, 4) |> as.data.frame()
+   rss4 <- remove0length(rss4_raw, 4) |> as.data.frame()  |> droplevels()
 
    # 5
    rss5_raw <- lapply(rss5_raw[names(rss5_raw)],
                       applylabels,
                       format_details[[5]])
 
-   rss5 <- remove0length(rss5_raw, 5) |> as.data.frame()
+   rss5 <- remove0length(rss5_raw, 5) |> as.data.frame()  |> droplevels()
 
    # 6
    rss6_raw <- lapply(rss6_raw[names(rss6_raw)],
                       applylabels,
                       format_details[[6]])
 
-   rss6 <- remove0length(rss6_raw, 6) |> as.data.frame()
+   rss6 <- remove0length(rss6_raw, 6) |> as.data.frame()  |> droplevels()
 
    # 7
    rss7_raw <- rss7_raw |> dplyr::select(-VET_COMBAT)
@@ -156,7 +149,7 @@ rss7_raw <- droplevels(rss7_raw)
                       applylabels,
                       format_details[[7]])
 
-   rss7 <- remove0length(rss7_raw, 7) |> as.data.frame()
+   rss7 <- remove0length(rss7_raw, 7) |> as.data.frame()  |> droplevels()
 
 # Save the datasets
    save(rss1, file=here("data/rss1.rda"))
