@@ -21,7 +21,7 @@ Imports:
     ggplot2,
     knitr,
     rmarkdown,
-    stats,
+    easystats,
     tidyr
 Suggests:
   knitr
