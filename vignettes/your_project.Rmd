@@ -45,3 +45,17 @@ set that measure you independent variables?*
 
 
 
+## How to make your own copy of this file.
+
+Click on:
+
+File > New > Rmarkdown  
+
+On the popup select "From Template."  
+
+Look on the list of templates for the icorp26
+template called "Your Project."
+
+Save the file. To be organized, save it in a folder
+called rmarkown.
+

@@ -1,0 +1,83 @@
+---
+title: "Introduction"
+author: "Elin Waring"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Your project}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This summer we are using data from the Rapid Surveys
+System that is part of the National Center for
+Health Statistics. The NCHS is part of the 
+Centers for Disease Control and Prevention.
+
+[The RSS system](https://www.cdc.gov/nchs/rss/about.html) is designed to allow organizations
+within CDC to quickly do topical surveys on emerging
+issues. 
+
+> Rapid Surveys can be used to:
+
+> - Collect data on niche, emerging, or priority health topics
+> - Close health information gaps
+> - Learn how values and beliefs can affect access, care, and wellness
+> - Assess questionnaire design to ensure data collection is meaningful
+>Rapid Surveys are fielded several times each year using probability-based commercial online panels. Each survey includes a broad range of questions based on CDC’s needs at that time, so no two Rapid Surveys are alike.
+
+The whole system is  well documented, with 
+detailed codebooks and methodological information.
+
+_Because of rapid change in government websites, make sure
+that you download codebooks and other important
+documentation._
+
+The data are currently (May, 2026) provided 
+as SAS data sets with input code.  To 
+create the data sets in this package the data
+sets were converted using the _haven_ package.
+The simple converted data sets are included as 
+`rss1_raw` through `rss7_raw`. 
+
+For the data sets `rss1` through `rss7` more complex
+data preparation steps were taken. 
+
+- Missing data (all values with negative numbers) were converted to `NA` in R  
+
+- SAS format information was extracted from the input files. Variables with formats were converted to factors.
+
+- As of now, the ordered attribute for the factors is not
+included. However labels should be in the correct order.
+
+## Technical caution
+
+As explained in the documentation, correct estimates
+of standard errors requires that sample weights be 
+used. However, the weights are not part of the public
+data sets.  As a result, estimates of standard
+errors are smaller than what they should be, leading
+to increased risk of incorrect results of traditional hypothesis
+tests. That is, results will appear to be
+statistically significant when there is no 
+difference in the population. The null hypothesis
+will be rejected incorrectly.
+
+It may be that Multilevel Regression Post Stratification (Mr P)
+could be used to address this issue.  See:
+
+- [Mr. P Case Studies](https://bookdown.org/jl5522/MRP-case-studies/introduction-to-mrp.html)  
+ 
+- [Multilevel Regression with Post Stratifcation](https://en.wikipedia.org/wiki/Multilevel_regression_with_poststratification) 
+
+However, for the summer program we are going to 
+ignore this issue and focus on other methods,
+
+
