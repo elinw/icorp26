@@ -77,9 +77,29 @@ applylabels <- function(x, format_list) {
 }
 
 
+get_var_labels <- function(filename){
+     readLines(filename, encoding="latin1") -> inputs
+     inputs_lc <- inputs |> tolower() |>  trimws()
+     labeldeffirst <- max(which( grepl ("label",
+                                        inputs_lc,
+                                    fixed = TRUE) )
+                                  )
+     inputs_lc[labeldeffirst] <- sub("label",
+                                     "",
+                                     inputs_lc[labeldeffirst]
+                                     )
+     labeldeflast <- max(which(inputs_lc %in% "run;")) -1
+     inputs_lc <- sub(";",
+                                     "",
+                                     inputs_lc,
+                                    fixed = TRUE
+     )
+     inputs_lc <- inputs_lc[labeldeffirst:labeldeflast]
+     inputs_lc <- inputs_lc[inputs_lc != ""]
+     inputs_lc <- inputs_lc[!is.na(inputs_lc)]
 
-
-
+     inputs_lc
+}
 
 remove0length <- function(old, number){
      #old <-
@@ -102,39 +122,51 @@ rss7_raw[rss7_raw < 0] <- NA
 
 # Make this an internal function
 # need to do this for each
-  rss1_raw <- lapply(rss1_raw[,names(rss1_raw)],
+rss1_raw <- lapply(rss1_raw[,names(rss1_raw)],
                          applylabels,
                          format_details[[1]])
+rss1 <- remove0length(rss1_raw, 1) |> as.data.frame() |> droplevels()
 
-
-   rss1 <- remove0length(rss1_raw, 1) |> as.data.frame() |> droplevels()
+ add_var_labels <- function(old, new){
+      att <- lapply(old, attr, "label")
+      attnames <- names(att)
+      newnames <- names(new)
+        for (v in 1:length(att)) {
+             if (attnames[v] %in%  newnames) {
+                attr(new[,attnames[v]], "label") <- att[[v]]
+             }
+        }
+       new
+ }
+ add_var_labels(rss1_raw, rss1) ->  rss1
 # 2
    rss2_raw <- lapply(rss2_raw[names(rss2_raw)],
                       applylabels,
                       format_details[[2]])
 
    rss2 <- remove0length(rss2_raw, 2) |> as.data.frame()  |> droplevels()
-
+   add_var_labels(rss2_raw, rss2) ->  rss2
    # 3
    rss3_raw <- lapply(rss3_raw[names(rss3_raw)],
                       applylabels,
                       format_details[[3]])
 
    rss3 <- remove0length(rss3_raw, 3) |> as.data.frame()  |> droplevels()
-
+   add_var_labels(rss3_raw, rss3) ->  rss3
    # 4
    rss4_raw <- lapply(rss4_raw[names(rss4_raw)],
                       applylabels,
                       format_details[[4]])
 
    rss4 <- remove0length(rss4_raw, 4) |> as.data.frame()  |> droplevels()
-
+   add_var_labels(rss4_raw, rss4) ->  rss4
    # 5
    rss5_raw <- lapply(rss5_raw[names(rss5_raw)],
                       applylabels,
                       format_details[[5]])
 
    rss5 <- remove0length(rss5_raw, 5) |> as.data.frame()  |> droplevels()
+   add_var_labels(rss5_raw, rss5) ->  rss5
 
    # 6
    rss6_raw <- lapply(rss6_raw[names(rss6_raw)],
@@ -142,6 +174,7 @@ rss7_raw[rss7_raw < 0] <- NA
                       format_details[[6]])
 
    rss6 <- remove0length(rss6_raw, 6) |> as.data.frame()  |> droplevels()
+   add_var_labels(rss6_raw, rss6) ->  rss6
 
    # 7
    rss7_raw <- rss7_raw |> dplyr::select(-VET_COMBAT)
@@ -150,7 +183,7 @@ rss7_raw[rss7_raw < 0] <- NA
                       format_details[[7]])
 
    rss7 <- remove0length(rss7_raw, 7) |> as.data.frame()  |> droplevels()
-
+   add_var_labels(rss7_raw, rss7) ->  rss7
 # Save the datasets
    save(rss1, file=here("data/rss1.rda"))
    save(rss2, file=here("data/rss2.rda"))
