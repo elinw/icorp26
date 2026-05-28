@@ -42,7 +42,22 @@ set that measure you independent variables?*
 
 *What have researchers said about this topic?*  
 
+## As you continue working you will want to answer 
+these questions.
 
+What is your overall research question?
+
+What is your specific hypothesis? 
+
+What is the data source and how was it collected? 
+
+What analyses did you do? 
+
+What are your results? 
+
+What are you conclusions? 
+
+What possible future research 
 
 
 ## How to make your own copy of this file.
@@ -58,4 +73,6 @@ template called "Your Project."
 
 Save the file. To be organized, save it in a folder
 called rmarkown.
+
+OR 
 
