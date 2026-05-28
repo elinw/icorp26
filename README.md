@@ -17,7 +17,7 @@ You can install the development version of icorp26 from [GitHub](https://github.
 remotes::install_github("elinw/icorp26")
 ```
 
-## Example
+## Data sets 
 
 For students, right now the package contains the 
 data sets rss1 through rss7.  You should 

@@ -31,7 +31,7 @@ issues.
 > - Close health information gaps
 > - Learn how values and beliefs can affect access, care, and wellness
 > - Assess questionnaire design to ensure data collection is meaningful
->Rapid Surveys are fielded several times each year using probability-based commercial online panels. Each survey includes a broad range of questions based on CDC’s needs at that time, so no two Rapid Surveys are alike.
+>   - Rapid Surveys are fielded several times each year using probability-based commercial online panels. Each survey includes a broad range of questions based on CDC’s needs at that time, so no two Rapid Surveys are alike.
 
 The whole system is  well documented, with 
 detailed codebooks and methodological information.
@@ -70,14 +70,32 @@ statistically significant when there is no
 difference in the population. The null hypothesis
 will be rejected incorrectly.
 
-It may be that Multilevel Regression Post Stratification (Mr P)
+For the SROP we will mainly deal with this by using 
+a more stringent criteria to decide whether the 
+results are "statistically significant." If you have taken
+statistics before, you can think of this as saying
+we change the p value for determining if we can reject a
+null hypothesis from .05 to .025.  If you don't know
+what this means, don't worry about it. We will discuss
+this more later in the summer. 
+
+Another thing we will do is pay more attention to 
+effect size than to the p values. 
+
+If you have taken statistics before you may want to
+try some more complex or sophisticated
+approaches that are not covered in the workshop that is
+great! Feel free to experiment.
+
+If you really want to go deep, 
+it may be that Multilevel Regression Post Stratification (Mr P)
 could be used to address this issue.  See:
 
 - [Mr. P Case Studies](https://bookdown.org/jl5522/MRP-case-studies/introduction-to-mrp.html)  
  
 - [Multilevel Regression with Post Stratifcation](https://en.wikipedia.org/wiki/Multilevel_regression_with_poststratification) 
 
-However, for the summer program we are going to 
+However, for the summer program we are mainly  going to 
 ignore this issue and focus on other methods,
 
 ## References
