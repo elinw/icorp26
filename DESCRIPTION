@@ -28,7 +28,9 @@ Suggests:
   ggplot2,
   easystats,
   tidyr,
-  gt
+  gt,
+  pkgdown,
+  posterdown
 VignetteBuilder: 
     knitr
 Roxygen: list(markdown = TRUE)
