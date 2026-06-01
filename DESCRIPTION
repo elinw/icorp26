@@ -29,8 +29,7 @@ Suggests:
   easystats,
   tidyr,
   gt,
-  pkgdown,
-  posterdown
+  pkgdown
 VignetteBuilder: 
     knitr
 Roxygen: list(markdown = TRUE)
