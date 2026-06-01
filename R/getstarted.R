@@ -13,24 +13,38 @@ library(here)
 #' @export
 getstarted <-function(project = "srop2026" ){
      usethis::create_project(path = project, open = FALSE)
-     dir.create(here::here("srop2026/rmarkdown"))
-     dir.create(here::here("srop2026/data"))
-     dir.create(here::here("srop2026/R"))
-     rmarkdown::draft("srop2026/rmarkdown/your-project.Rmd",
+     if (!dir.exists(here::here("srop2026/rmarkdown"))){
+          dir.create(here::here("srop2026/rmarkdown"))
+     }
+     if (!dir.exists(here::here("srop2026/data"))){
+         dir.create(here::here("srop2026/data"))
+     }
+     if (!dir.exists(here::here("srop2026/R"))){
+           dir.create(here::here("srop2026/R"))
+     }
+     if (!file.exists("srop2026/rmarkdown/your-project.Rmd")) {
+       rmarkdown::draft("srop2026/rmarkdown/your-project.Rmd",
                template = "your-project",
                package = "icorp26",
-               edit = FALSE
+               edit = FALSE,
          )
-     rmarkdown::draft("srop2026/rmarkdown/first_analysis.Rmd",
+     }
+     if (!file.exists("srop2026/rmarkdown/first_analysis.Rmd")) {
+
+       rmarkdown::draft("srop2026/rmarkdown/first_analysis.Rmd",
                package = "icorp26",
                template = "first_analysis",
                edit = FALSE
          )
-     rmarkdown::draft("srop2026/rmarkdown/poster.Rmd",
-                      package = "icorp26",
-                      template = "poster",
-                      edit = FALSE
-     )
+     }
+     if (!file.exists("srop2026/rmarkdown/poster.Rmd")) {
+
+          rmarkdown::draft("srop2026/rmarkdown/poster.Rmd",
+                           package = "icorp26",
+                           template = "poster",
+                           edit = FALSE
+          )
+     }
 }
 
 #' create_starter
