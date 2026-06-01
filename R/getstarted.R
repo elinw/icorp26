@@ -16,12 +16,34 @@ getstarted <-function(project = "srop2026" ){
      dir.create(here::here("srop2026/rmarkdown"))
      dir.create(here::here("srop2026/data"))
      dir.create(here::here("srop2026/R"))
-     usethis::use_template("rmarkdown/your-project/skeleton/skeleton.Rmd",
+     rmarkdown::draft("srop2026/rmarkdown/your-project.Rmd",
+               template = "your-project",
                package = "icorp26",
-               save_as =
-           here::here("srop2026/rmarkdown/your-project.Rmd"))
-     useths::use_template("rmarkdown/first_analysis/skeleton/skeleton.Rmd",
-                          package = "icorp26",
-         save_as =
-           here::here("srop2026/rmarkdown/first_analysis.Rmd"))
+               edit = FALSE
+         )
+     rmarkdown::draft("srop2026/rmarkdown/first_analysis.Rmd",
+               package = "icorp26",
+               template = "first_analysis",
+               edit = FALSE
+         )
+     rmarkdown::draft("srop2026/rmarkdown/poster.Rmd",
+                      package = "icorp26",
+                      template = "poster",
+                      edit = FALSE
+     )
+}
+
+#' create_starter
+#'
+#' Creates a starter rmarkdown file
+#'
+#' @param filename Name of the file to create
+#'
+#' @export
+create_starter <- function (filename) {
+     rmarkdown::draft(here::here("rmarkdown",
+                                filename),
+                      package = "icorp26",
+                      template = "starter")
+
 }

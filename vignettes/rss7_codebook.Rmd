@@ -16,14 +16,15 @@ knitr::opts_chunk$set(
 ```
 ```{r}
 library(icorp26)
-library(datawizard)
+library(easystats)
+
 ```
 
 
 
 
 ```{r}
-data_codebook(rss7) |> display()
+data_codebook(rss7) 
 ```
 
 

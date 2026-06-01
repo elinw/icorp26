@@ -8,24 +8,23 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   echo = FALSE
 )
 ```
+
 ```{r}
 library(icorp26)
-library(datawizard)
+library(easystats)
 ```
-
-
-
 
 ```{r}
 data_codebook(rss1) |> display()
 ```
-```{r}
-summary(rss1$P_INCOME_R)
-```
 
+```{r}
+report(rss1)
+```

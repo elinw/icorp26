@@ -27,7 +27,7 @@ variable are associated with differences in another
 variable.
 
 ```{r}
-data_tabulate(rss1$PAY_PAYWORRY, by = rss1$P_AGE)
+data_tabulate(rss1$PAY_PAYWORRY, by = rss1$HIS_GENERAL)
 ```
 
 
@@ -36,6 +36,8 @@ data_tabulate(rss1$PAY_PAYWORRY, by = rss1$P_AGE)
 data_tabulate(rss1$CVL_DEPRESS,
               by = rss1$LONGCOVID,
               remove_na = TRUE,
-              proportions = "column")
+              proportions = "column",
+              name = "LC is Depression") |> 
+     print_html()
 ```
 
