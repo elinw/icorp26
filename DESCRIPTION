@@ -27,7 +27,8 @@ Suggests:
   dplyr (>= 1.0.0),
   ggplot2,
   easystats,
-  tidyr
+  tidyr,
+  gt
 VignetteBuilder: 
     knitr
 Roxygen: list(markdown = TRUE)
