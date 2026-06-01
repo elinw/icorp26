@@ -16,7 +16,7 @@ getstarted <-function(project = "srop2026" ){
      if (!dir.exists(here::here("srop2026/rmarkdown"))){
           dir.create(here::here("srop2026/rmarkdown"))
      }
-     if (!dir.exists(here::here("srop2026/data"))){
+     if (!dir.exists("srop2026/data")){
          dir.create(here::here("srop2026/data"))
      }
      if (!dir.exists(here::here("srop2026/R"))){

@@ -3,17 +3,20 @@ title: "Your Title"
 author:
   - name: "Your Name"
     affil: 1
+affiliation:
+  - num: 1
+    address: Dept. of Something, Lehman College
 column_numbers: 3 
-logoright_name: https&#58;//raw.githubusercontent.com/elinw/icorp26/c34a9b74b3fbd736b667872fdc52af1767f56654/inst/images/SMALL_LehmanLogo_BlueGreen_Verticalcopy.png
+logoright_name: https&#58;//raw.githubusercontent.com/elinw/icorp26/refs/heads/main/inst/images/LehmanLogo_White_Vertical.png
 logoleft_name: https&#58;//raw.githubusercontent.com/elinw/icorp26/c34a9b74b3fbd736b667872fdc52af1767f56654/inst/images/icorplogo.jpg
 output: 
   posterdown::posterdown_html:
     self_contained: false
 bibliography: packages.bib
 primary_colour: "#00365B"
-secondary_colour: "#0061A0"
-accent_colour:
-sectitle_bgcol: "#84BD00"
+secondary_colour: "#ffffff"
+accent_colour: "#0061A0"
+sectitle_bgcol: "#00365B"
 ---
 
 ```{r setup, include=FALSE}
