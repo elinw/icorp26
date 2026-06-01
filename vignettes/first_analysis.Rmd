@@ -19,11 +19,12 @@ knitr::opts_chunk$set(
 ```
 
 First we load the packages we need.
+In R, packages are collections of useful data
 
 ```{r}
 library(icorp26)
 library(easystats)
-library(datawizard)
+library(here)
 ```
 
 Let's say you want to use rss1.
@@ -58,17 +59,128 @@ data_tabulate(rss1$MARSTAT)
 
 Some things you should notice:
 
-- The N column tells you how many people answering the survey
+ - The N column tells you how many people answering the survey
 fell into each category.
 
-- The `Raw %` Column includes everyone who was asked.
+ - The `Raw %` Column includes everyone who was asked.
 
-- The `Valid %` Column includes only the people who answered
+ - The `Valid %` Column includes only the people who answered
 that specific question (not the <NA>s). 
 
-- The `Cumulative %` adds each row to the total percent above it. See if you can follow the logic in the tables above.
+ - At the top you can see: total N=7599 valid N=7557. The 
+ difference of these two numbers (7599 - 7557) is 42 which
+ is the same as the number of people have <NA>. 
+
+- The `Cumulative %` adds each row to the total percent above it. See if you can follow the logic in the tables above.  This column is not relevant for variables that 
+do not have some kind of ordering. Looking at our three
+tables, the first two (how worried they are about losing
+pay and overall self-reported health status _do_ have 
+order) while the third, maritial status, does not. 
+
+## A little bit more
+
+R is very powerful in giving us many options for 
+making our data easier to understand and our results
+better looking.  Let's explore a bit.
+
+### Marital Status
+
+First, we can remove the missing data. In that
+case the valid and complete data are the same.
+
+```{r}
+data_tabulate(rss1$MARSTAT, remove_na = TRUE) 
+```
+
+Then we can make our table look nicer by
+using a customized "print" function.
 
 
 
+```{r}
+data_tabulate(rss1$MARSTAT, remove_na = TRUE) |> 
+     print_md()
 
+data_tabulate(rss1$MARSTAT, remove_na = TRUE) |> 
+     print_html()
+
+```
+
+There are always a lot of different ways to do things
+in R. The code chunk below is another way. 
+
+When you search for help or try to use AI to help you
+do things you will see many different approaches. 
+That's fine; feel free to experiment. But always 
+chek to make sure that the advice you get actually
+works.
+
+
+```{r}
+report_table(rss1$MARSTAT, remove_na = TRUE) |> print_md()
+```
+
+```{r}
+data_tabulate(rss1$P_INCOME_R, remove_na = TRUE) |>
+     print_md()
+```
+
+We can see that income is given in a lot of categories
+rather than exact number. But the categories are 
+evenly spaced in $5000 steps until we get to the top
+value of $150,000 or more. 
+
+Because of this we cam treat this variable as though it
+is a number and do things like calculate the mean and
+median.
+
+```{r}
+mean(as.numeric(rss1$P_INCOME_R))
+```
+
+The value that cuts the sample into lower and upper halves 
+is called the median.  The median here is 12. The 
+12th category is "$75,000 to $84,999".  Look 
+at the cumulative distribution in the first table
+of income.   There are 7599 valid values If we divide
+that by two we get 3799.5.  3754 values are in the 
+categories  "$60,000 to $74,999" or lower. To
+get to 3799 or 3800 we need to look in the next 
+highest category.
+
+```{r}
+median(as.numeric(rss1$P_INCOME_R))
+```
+```{r}
+summary(as.numeric(rss1$P_INCOME_R))
+```
+
+The summary shows the overall distribution of income,
+including the highest and lowest values (Max and Min) and
+the median and mean.  The 1st Quartile is the point 
+the cuts off the bottom 25% while the 3rd Quartile
+cuts off the bottom 75%. Look at the cumulative 
+distribution and make sure you can see why. 
+
+We can even do fancy things like combine results together
+and get an automated paragraph (although there are not that
+many options like this and you can look at its problems by
+seeing what happens if you use `P_GENDERID` instead of
+`P_GENDER`).
+
+```{r}
+participants <- 
+ report_participants(
+       rss1,
+       age = NULL,
+       sex = "P_GENDER",
+       education = NULL,
+       race = "P_RACE_R",
+  ) 
+```
+
+`r participants`
+
+
+There are many more things that you can do 
 

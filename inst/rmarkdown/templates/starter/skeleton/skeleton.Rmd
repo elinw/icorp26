@@ -11,6 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 # Most of the time you will want these 
+library(here)
 library(icorp26)
 library(easystats)
 ```

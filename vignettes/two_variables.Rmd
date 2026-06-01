@@ -1,0 +1,41 @@
+---
+title: "two_variables"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{two_variables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(icorp26)
+library(easystats)
+library(here)
+```
+
+Most of the time in research we are interested 
+in understanding the relationships between variables.
+That is, we want to know whether differences in one
+variable are associated with differences in another
+variable.
+
+```{r}
+data_tabulate(rss1$PAY_PAYWORRY, by = rss1$P_AGE)
+```
+
+
+
+```{r}
+data_tabulate(rss1$CVL_DEPRESS,
+              by = rss1$LONGCOVID,
+              remove_na = TRUE,
+              proportions = "column")
+```
+

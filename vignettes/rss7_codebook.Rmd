@@ -27,3 +27,6 @@ data_codebook(rss7) |> display()
 ```
 
 
+```{r}
+report(rss7)
+```

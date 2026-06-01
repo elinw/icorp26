@@ -26,6 +26,6 @@ library(datawizard)
 data_codebook(rss1) |> display()
 ```
 ```{r}
-
+summary(rss1$P_INCOME_R)
 ```
 
