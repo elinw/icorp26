@@ -4,12 +4,15 @@ author:
   - name: 
     affil: 1
 column_numbers: 3
-logoright_name: 
-logoleft_name: 
+logoright_name: https://github.com/elinw/icorp26/blob/c34a9b74b3fbd736b667872fdc52af1767f56654/inst/images/SMALL_LehmanLogo_BlueGreen_Verticalcopy.png
+logoleft_name: https://github.com/elinw/icorp26/blob/c34a9b74b3fbd736b667872fdc52af1767f56654/inst/images/icorplogo.jpg
 output: 
   posterdown::posterdown_html:
     self_contained: false
 bibliography: packages.bib
+primary_colour:#0061A0
+secondary_colour:#84BD00
+accent_colour:
 ---
 
 ```{r setup, include=FALSE}
