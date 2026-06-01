@@ -2,7 +2,7 @@
 title: "A basic template"
 author: ""
 date: sys.date()
-output: output_format
+output: html_document
 ---
 
 ```{r setup, include=FALSE}

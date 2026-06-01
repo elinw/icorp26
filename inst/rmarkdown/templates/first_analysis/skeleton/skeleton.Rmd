@@ -2,21 +2,16 @@
 title: "First Analysis"
 author: "Your Name"
 date: "The Date"
-output: output_format
+
 ---
 
-```{r setup, include=FALSE}
+```{r setup1, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 This template illustrates some common things
 you will want or need to do to get started.
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE
-)
-```
 
 First we load the packages we need.
 In R, packages are collections of useful data
