@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">icorp26</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.7</span>
       </span>
     </div>
 
@@ -79,6 +79,9 @@
       <a href="../articles/rss7_codebook.html">rss7 Codebook</a>
     </li>
     <li>
+      <a href="../articles/two_variables.html">two_variables</a>
+    </li>
+    <li>
       <a href="../articles/your_project.html">Your project</a>
     </li>
   </ul>
@@ -107,7 +110,7 @@
       <h1 data-toc-skip>rss1 Codebook</h1>
                         <h4 data-toc-skip class="author"></h4>
             
-            <h4 data-toc-skip class="date">2026-05-28</h4>
+            <h4 data-toc-skip class="date">2026-06-01</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/elinw/icorp26/blob/main/vignettes/rss1_codebook.Rmd" class="external-link"><code>vignettes/rss1_codebook.Rmd</code></a></small>
       <div class="hidden name"><code>rss1_codebook.Rmd</code></div>
@@ -116,6 +119,12 @@
 
     
     
+<pre><code><span><span class="co">## # Attaching packages: easystats 0.7.6</span></span>
+<span><span class="co">## ✔ bayestestR  0.18.1   ✔ correlation 0.8.8 </span></span>
+<span><span class="co">## ✔ datawizard  1.3.1    ✔ effectsize  1.0.2 </span></span>
+<span><span class="co">## ✔ insight     1.5.1    ✔ modelbased  0.15.0</span></span>
+<span><span class="co">## ✔ performance 0.17.0   ✔ parameters  0.29.1</span></span>
+<span><span class="co">## ✔ report      0.6.4    ✔ see         0.14.0</span></span></code></pre>
 <table style="width:100%;" class="table">
 <caption>rss1 (7599 rows and 173 variables, 173 shown)</caption>
 <colgroup>
@@ -6702,7 +6711,459 @@ only)</td>
 </tr>
 </tbody>
 </table>
-</div>
+<pre><code><span><span class="co">## The data contains 7599 observations of the following 173 variables:</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">##   - HIS_GENERAL: 5 levels, namely Excellent (n = 632, 8.32%), Very good (n =</span></span>
+<span><span class="co">## 2788, 36.69%), Good (n = 2976, 39.16%), Fair (n = 1015, 13.36%), Poor (n = 172,</span></span>
+<span><span class="co">## 2.26%) and missing (n = 16, 0.21%)</span></span>
+<span><span class="co">##   - CHR_HYPEV: 2 levels, namely No (n = 4656, 61.27%), Yes (n = 2903, 38.20%) and</span></span>
+<span><span class="co">## missing (n = 40, 0.53%)</span></span>
+<span><span class="co">##   - CHR_HYPDIF: 2 levels, namely No (n = 302, 3.97%), Yes (n = 2548, 33.53%) and</span></span>
+<span><span class="co">## missing (n = 4749, 62.50%)</span></span>
+<span><span class="co">##   - CHR_HYP12M: 2 levels, namely No (n = 145, 1.91%), Yes (n = 2373, 31.23%) and</span></span>
+<span><span class="co">## missing (n = 5081, 66.86%)</span></span>
+<span><span class="co">##   - CHR_HYPMED: 2 levels, namely No (n = 446, 5.87%), Yes (n = 2442, 32.14%) and</span></span>
+<span><span class="co">## missing (n = 4711, 61.99%)</span></span>
+<span><span class="co">##   - CHR_CHLEV: 2 levels, namely No (n = 4569, 60.13%), Yes (n = 2944, 38.74%) and</span></span>
+<span><span class="co">## missing (n = 86, 1.13%)</span></span>
+<span><span class="co">##   - CHR_CHDEV: 2 levels, namely No (n = 7105, 93.50%), Yes (n = 464, 6.11%) and</span></span>
+<span><span class="co">## missing (n = 30, 0.39%)</span></span>
+<span><span class="co">##   - CHR_ASEV: 2 levels, namely No (n = 6336, 83.38%), Yes (n = 1168, 15.37%) and</span></span>
+<span><span class="co">## missing (n = 95, 1.25%)</span></span>
+<span><span class="co">##   - CHR_CANEV: 2 levels, namely No (n = 6588, 86.70%), Yes (n = 954, 12.55%) and</span></span>
+<span><span class="co">## missing (n = 57, 0.75%)</span></span>
+<span><span class="co">##   - DIB_PREDIB: 2 levels, namely No (n = 5633, 74.13%), Yes (n = 1902, 25.03%)</span></span>
+<span><span class="co">## and missing (n = 64, 0.84%)</span></span>
+<span><span class="co">##   - DIB_GESDIB: 2 levels, namely No (n = 3599, 47.36%), Yes (n = 296, 3.90%) and</span></span>
+<span><span class="co">## missing (n = 3704, 48.74%)</span></span>
+<span><span class="co">##   - DIB_DIBEV: 2 levels, namely No (n = 6573, 86.50%), Yes (n = 981, 12.91%) and</span></span>
+<span><span class="co">## missing (n = 45, 0.59%)</span></span>
+<span><span class="co">##   - BMI_PREGNOW: 2 levels, namely No (n = 1704, 22.42%), Yes (n = 47, 0.62%) and</span></span>
+<span><span class="co">## missing (n = 5848, 76.96%)</span></span>
+<span><span class="co">##   - BMICAT: 5 levels, namely Underweight (BMI &lt;18.50) (n = 125, 1.64%), Healthy</span></span>
+<span><span class="co">## weight (18.50 &lt;= BMI &lt; 25.00) (n = 2125, 27.96%), Overweight (25.00 &lt;= BMI &lt;</span></span>
+<span><span class="co">## 30.00) (n = 2468, 32.48%), Obese (BMI &gt;= 30.00) (n = 2741, 36.07%) and Unknown</span></span>
+<span><span class="co">## (n = 140, 1.84%)</span></span>
+<span><span class="co">##   - SOC_ERRANDS: 4 levels, namely No difficulty (n = 6295, 82.84%), Some</span></span>
+<span><span class="co">## difficulty (n = 956, 12.58%), A lot of difficulty (n = 273, 3.59%), Cannot do</span></span>
+<span><span class="co">## this at all (n = 53, 0.70%) and missing (n = 22, 0.29%)</span></span>
+<span><span class="co">##   - SOC_PARACTIV: 4 levels, namely No difficulty (n = 5808, 76.43%), Some</span></span>
+<span><span class="co">## difficulty (n = 1227, 16.15%), A lot of difficulty (n = 417, 5.49%), Cannot do</span></span>
+<span><span class="co">## this at all (n = 73, 0.96%) and missing (n = 74, 0.97%)</span></span>
+<span><span class="co">##   - SOC_SCWRKLIM: 2 levels, namely No (n = 5891, 77.52%), Yes (n = 1669, 21.96%)</span></span>
+<span><span class="co">## and missing (n = 39, 0.51%)</span></span>
+<span><span class="co">##   - PAY_PAYWORRY: 3 levels, namely Very worried (n = 1104, 14.53%), Somewhat</span></span>
+<span><span class="co">## worried (n = 2740, 36.06%), Not at all worried (n = 3726, 49.03%) and missing</span></span>
+<span><span class="co">## (n = 29, 0.38%)</span></span>
+<span><span class="co">##   - CVL_HEARDEV: 2 levels, namely No (n = 2215, 29.15%), Yes (n = 5359, 70.52%)</span></span>
+<span><span class="co">## and missing (n = 25, 0.33%)</span></span>
+<span><span class="co">##   - CVL_REAL: 4 levels, namely Strongly disagree (n = 152, 2.00%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 237, 3.12%), Somewhat agree (n = 1532, 20.16%), Strongly agree (n</span></span>
+<span><span class="co">## = 2890, 38.03%) and missing (n = 2788, 36.69%)</span></span>
+<span><span class="co">##   - CVL_REAL_O: 7 levels, namely Displayed 1st (n = 791, 10.41%), Displayed 2nd</span></span>
+<span><span class="co">## (n = 758, 9.97%), Displayed 3rd (n = 786, 10.34%), Displayed 4th (n = 754,</span></span>
+<span><span class="co">## 9.92%), Displayed 5th (n = 714, 9.40%), Displayed 6th (n = 806, 10.61%),</span></span>
+<span><span class="co">## Displayed 7th (n = 752, 9.90%) and missing (n = 2238, 29.45%)</span></span>
+<span><span class="co">##   - CVL_SERIOUS: 4 levels, namely Strongly disagree (n = 175, 2.30%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 266, 3.50%), Somewhat agree (n = 1553, 20.44%), Strongly agree (n</span></span>
+<span><span class="co">## = 2770, 36.45%) and missing (n = 2835, 37.31%)</span></span>
+<span><span class="co">##   - CVL_SERIOUS_O: 7 levels, namely Displayed 1st (n = 757, 9.96%), Displayed 2nd</span></span>
+<span><span class="co">## (n = 771, 10.15%), Displayed 3rd (n = 741, 9.75%), Displayed 4th (n = 766,</span></span>
+<span><span class="co">## 10.08%), Displayed 5th (n = 807, 10.62%), Displayed 6th (n = 743, 9.78%),</span></span>
+<span><span class="co">## Displayed 7th (n = 776, 10.21%) and missing (n = 2238, 29.45%)</span></span>
+<span><span class="co">##   - CVL_DEPRESS: 4 levels, namely Strongly disagree (n = 1557, 20.49%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 1292, 17.00%), Somewhat agree (n = 905, 11.91%), Strongly agree</span></span>
+<span><span class="co">## (n = 340, 4.47%) and missing (n = 3505, 46.12%)</span></span>
+<span><span class="co">##   - CVL_DEPRESS_O: 7 levels, namely Displayed 1st (n = 779, 10.25%), Displayed</span></span>
+<span><span class="co">## 2nd (n = 732, 9.63%), Displayed 3rd (n = 759, 9.99%), Displayed 4th (n = 780,</span></span>
+<span><span class="co">## 10.26%), Displayed 5th (n = 731, 9.62%), Displayed 6th (n = 810, 10.66%),</span></span>
+<span><span class="co">## Displayed 7th (n = 770, 10.13%) and missing (n = 2238, 29.45%)</span></span>
+<span><span class="co">##   - CVL_NORMPAIN: 4 levels, namely Strongly disagree (n = 1740, 22.90%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 1547, 20.36%), Somewhat agree (n = 852, 11.21%), Strongly agree</span></span>
+<span><span class="co">## (n = 208, 2.74%) and missing (n = 3252, 42.80%)</span></span>
+<span><span class="co">##   - CVL_NORMPAIN_O: 7 levels, namely Displayed 1st (n = 757, 9.96%), Displayed</span></span>
+<span><span class="co">## 2nd (n = 835, 10.99%), Displayed 3rd (n = 766, 10.08%), Displayed 4th (n = 755,</span></span>
+<span><span class="co">## 9.94%), Displayed 5th (n = 788, 10.37%), Displayed 6th (n = 730, 9.61%),</span></span>
+<span><span class="co">## Displayed 7th (n = 730, 9.61%) and missing (n = 2238, 29.45%)</span></span>
+<span><span class="co">##   - CVL_EMPLOYER: 4 levels, namely Strongly disagree (n = 221, 2.91%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 486, 6.40%), Somewhat agree (n = 2044, 26.90%), Strongly agree (n</span></span>
+<span><span class="co">## = 1875, 24.67%) and missing (n = 2973, 39.12%)</span></span>
+<span><span class="co">##   - CVL_EMPLOYER_O: 7 levels, namely Displayed 1st (n = 773, 10.17%), Displayed</span></span>
+<span><span class="co">## 2nd (n = 747, 9.83%), Displayed 3rd (n = 757, 9.96%), Displayed 4th (n = 792,</span></span>
+<span><span class="co">## 10.42%), Displayed 5th (n = 750, 9.87%), Displayed 6th (n = 786, 10.34%),</span></span>
+<span><span class="co">## Displayed 7th (n = 756, 9.95%) and missing (n = 2238, 29.45%)</span></span>
+<span><span class="co">##   - CVL_MEDIA: 4 levels, namely Strongly disagree (n = 1363, 17.94%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 1293, 17.02%), Somewhat agree (n = 1066, 14.03%), Strongly agree</span></span>
+<span><span class="co">## (n = 481, 6.33%) and missing (n = 3396, 44.69%)</span></span>
+<span><span class="co">##   - CVL_MEDIA_O: 7 levels, namely Displayed 1st (n = 775, 10.20%), Displayed 2nd</span></span>
+<span><span class="co">## (n = 760, 10.00%), Displayed 3rd (n = 749, 9.86%), Displayed 4th (n = 718,</span></span>
+<span><span class="co">## 9.45%), Displayed 5th (n = 784, 10.32%), Displayed 6th (n = 763, 10.04%),</span></span>
+<span><span class="co">## Displayed 7th (n = 812, 10.69%) and missing (n = 2238, 29.45%)</span></span>
+<span><span class="co">##   - CVL_PASSED: 4 levels, namely Strongly disagree (n = 2146, 28.24%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 821, 10.80%), Somewhat agree (n = 338, 4.45%), Strongly agree (n</span></span>
+<span><span class="co">## = 203, 2.67%) and missing (n = 4091, 53.84%)</span></span>
+<span><span class="co">##   - CVL_PASSED_O: 7 levels, namely Displayed 1st (n = 729, 9.59%), Displayed 2nd</span></span>
+<span><span class="co">## (n = 758, 9.97%), Displayed 3rd (n = 803, 10.57%), Displayed 4th (n = 796,</span></span>
+<span><span class="co">## 10.48%), Displayed 5th (n = 787, 10.36%), Displayed 6th (n = 723, 9.51%),</span></span>
+<span><span class="co">## Displayed 7th (n = 765, 10.07%) and missing (n = 2238, 29.45%)</span></span>
+<span><span class="co">##   - CVL_COVIDEV: 2 levels, namely No (n = 3436, 45.22%), Yes (n = 4140, 54.48%)</span></span>
+<span><span class="co">## and missing (n = 23, 0.30%)</span></span>
+<span><span class="co">##   - CVL_SYMPT3M: 2 levels, namely No (n = 3271, 43.05%), Yes (n = 843, 11.09%)</span></span>
+<span><span class="co">## and missing (n = 3485, 45.86%)</span></span>
+<span><span class="co">##   - CVL_LONGCVEV: 2 levels, namely No (n = 2951, 38.83%), Yes (n = 198, 2.61%)</span></span>
+<span><span class="co">## and missing (n = 4450, 58.56%)</span></span>
+<span><span class="co">##   - LONGCOVID: 3 levels, namely Yes (n = 879, 11.57%), No (n = 2376, 31.27%),</span></span>
+<span><span class="co">## Never had COVID (n = 3436, 45.22%) and missing (n = 908, 11.95%)</span></span>
+<span><span class="co">##   - CVL_LONGOTH: 2 levels, namely No (n = 3804, 50.06%), Yes (n = 1513, 19.91%)</span></span>
+<span><span class="co">## and missing (n = 2282, 30.03%)</span></span>
+<span><span class="co">##   - CVL_LEARNMOR: 6 levels, namely Talk with a doctor or other health care</span></span>
+<span><span class="co">## professional (n = 3487, 45.89%), Talk with family or friends (n = 189, 2.49%),</span></span>
+<span><span class="co">## Get information from the CDC (n = 858, 11.29%), Get information from your state</span></span>
+<span><span class="co">## or local health department (n = 228, 3.00%), Search the internet (n = 2527,</span></span>
+<span><span class="co">## 33.25%), Something else (n = 277, 3.65%) and missing (n = 33, 0.43%)</span></span>
+<span><span class="co">##   - ACC_DNCEXAM: 7 levels, namely Never (n = 87, 1.14%), Less than 12 months ago</span></span>
+<span><span class="co">## (n = 4939, 65.00%), More than 1 year but less than 2 years ago (n = 777,</span></span>
+<span><span class="co">## 10.23%), More than 2 years but less than 3 years ago (n = 484, 6.37%), More</span></span>
+<span><span class="co">## than 3 years but less than 5 years ago (n = 388, 5.11%), More than 5 years but</span></span>
+<span><span class="co">## less than 10 years ago (n = 433, 5.70%), 10 years ago or more (n = 477, 6.28%)</span></span>
+<span><span class="co">## and missing (n = 14, 0.18%)</span></span>
+<span><span class="co">##   - ACC_DNCDELAY: 2 levels, namely No (n = 5676, 74.69%), Yes (n = 1896, 24.95%)</span></span>
+<span><span class="co">## and missing (n = 27, 0.36%)</span></span>
+<span><span class="co">##   - ACC_DNCCOST: 2 levels, namely No (n = 5956, 78.38%), Yes (n = 1557, 20.49%)</span></span>
+<span><span class="co">## and missing (n = 86, 1.13%)</span></span>
+<span><span class="co">##   - ACC_HTHLAST: 7 levels, namely Never (n = 77, 1.01%), Less than 12 months ago</span></span>
+<span><span class="co">## (n = 6123, 80.58%), More than 1 year but less than 2 years ago (n = 597,</span></span>
+<span><span class="co">## 7.86%), More than 2 years but less than 3 years ago (n = 294, 3.87%), More than</span></span>
+<span><span class="co">## 3 years but less than 5 years ago (n = 225, 2.96%), More than 5 years but less</span></span>
+<span><span class="co">## than 10 years ago (n = 161, 2.12%), 10 years ago or more (n = 100, 1.32%) and</span></span>
+<span><span class="co">## missing (n = 22, 0.29%)</span></span>
+<span><span class="co">##   - ACC_HTHUSUAL: 3 levels, namely Yes, there is a single place (n = 4570,</span></span>
+<span><span class="co">## 60.14%), No, there is no place (n = 729, 9.59%), Yes, there is more than one</span></span>
+<span><span class="co">## place (n = 2264, 29.79%) and missing (n = 36, 0.47%)</span></span>
+<span><span class="co">##   - ACC_HTHTYPE: 6 levels, namely I do not go to one place most often (n = 66,</span></span>
+<span><span class="co">## 0.87%), A doctor's office or health center (n = 5751, 75.68%), Urgent care</span></span>
+<span><span class="co">## center or clinic in a drug store or grocery store (n = 659, 8.67%), Hospital</span></span>
+<span><span class="co">## emergency room (n = 143, 1.88%), A VA medical center or VA outpatient clinic (n</span></span>
+<span><span class="co">## = 153, 2.01%), Some other place (n = 54, 0.71%) and missing (n = 773, 10.17%)</span></span>
+<span><span class="co">##   - ACC_HOSP12M: 2 levels, namely No (n = 6950, 91.46%), Yes (n = 628, 8.26%) and</span></span>
+<span><span class="co">## missing (n = 21, 0.28%)</span></span>
+<span><span class="co">##   - ACC_EYE12M: 2 levels, namely No (n = 3233, 42.55%), Yes (n = 4313, 56.76%)</span></span>
+<span><span class="co">## and missing (n = 53, 0.70%)</span></span>
+<span><span class="co">##   - ACC_THER12M: 2 levels, namely No (n = 6500, 85.54%), Yes (n = 1068, 14.05%)</span></span>
+<span><span class="co">## and missing (n = 31, 0.41%)</span></span>
+<span><span class="co">##   - INT_ACCESS: 2 levels, namely No (n = 49, 0.64%) and Yes (n = 7550, 99.36%)</span></span>
+<span><span class="co">##   - INT_HOMEACC: 2 levels, namely No (n = 241, 3.17%), Yes (n = 7257, 95.50%) and</span></span>
+<span><span class="co">## missing (n = 101, 1.33%)</span></span>
+<span><span class="co">##   - INT_USEMED: 2 levels, namely No (n = 1751, 23.04%), Yes (n = 5771, 75.94%)</span></span>
+<span><span class="co">## and missing (n = 77, 1.01%)</span></span>
+<span><span class="co">##   - INT_USEDOC: 2 levels, namely No (n = 3030, 39.87%), Yes (n = 4489, 59.07%)</span></span>
+<span><span class="co">## and missing (n = 80, 1.05%)</span></span>
+<span><span class="co">##   - INT_USETEST: 2 levels, namely No (n = 2577, 33.91%), Yes (n = 4931, 64.89%)</span></span>
+<span><span class="co">## and missing (n = 91, 1.20%)</span></span>
+<span><span class="co">##   - PRV_BPCHECK: 7 levels, namely Never (n = 108, 1.42%), Less than 12 months ago</span></span>
+<span><span class="co">## (n = 6339, 83.42%), More than 1 year but less than 2 years ago (n = 538,</span></span>
+<span><span class="co">## 7.08%), More than 2 years but less than 3 years ago (n = 222, 2.92%), More than</span></span>
+<span><span class="co">## 3 years but less than 5 years ago (n = 173, 2.28%), More than 5 years but less</span></span>
+<span><span class="co">## than 10 years ago (n = 121, 1.59%), 10 years ago or more (n = 69, 0.91%) and</span></span>
+<span><span class="co">## missing (n = 29, 0.38%)</span></span>
+<span><span class="co">##   - PRV_CHLCHECK: 7 levels, namely Never (n = 556, 7.32%), Less than 12 months</span></span>
+<span><span class="co">## ago (n = 5010, 65.93%), More than 1 year but less than 2 years ago (n = 933,</span></span>
+<span><span class="co">## 12.28%), More than 2 years but less than 3 years ago (n = 344, 4.53%), More</span></span>
+<span><span class="co">## than 3 years but less than 5 years ago (n = 299, 3.93%), More than 5 years but</span></span>
+<span><span class="co">## less than 10 years ago (n = 170, 2.24%), 10 years ago or more (n = 118, 1.55%)</span></span>
+<span><span class="co">## and missing (n = 169, 2.22%)</span></span>
+<span><span class="co">##   - PRV_DIBCHECK: 7 levels, namely Never (n = 694, 9.13%), Less than 12 months</span></span>
+<span><span class="co">## ago (n = 4061, 53.44%), More than 1 year but less than 2 years ago (n = 845,</span></span>
+<span><span class="co">## 11.12%), More than 2 years but less than 3 years ago (n = 333, 4.38%), More</span></span>
+<span><span class="co">## than 3 years but less than 5 years ago (n = 287, 3.78%), More than 5 years but</span></span>
+<span><span class="co">## less than 10 years ago (n = 191, 2.51%), 10 years ago or more (n = 139, 1.83%)</span></span>
+<span><span class="co">## and missing (n = 1049, 13.80%)</span></span>
+<span><span class="co">##   - CAN_MAMMEV: 2 levels, namely No (n = 743, 9.78%), Yes (n = 2659, 34.99%) and</span></span>
+<span><span class="co">## missing (n = 4197, 55.23%)</span></span>
+<span><span class="co">##   - CAN_RECENTM: 7 levels, namely Never (n = 4, 0.05%), Less than 12 months ago</span></span>
+<span><span class="co">## (n = 1636, 21.53%), More than 1 year but less than 2 years ago (n = 486,</span></span>
+<span><span class="co">## 6.40%), More than 2 years but less than 3 years ago (n = 174, 2.29%), More than</span></span>
+<span><span class="co">## 3 years but less than 5 years ago (n = 129, 1.70%), More than 5 years but less</span></span>
+<span><span class="co">## than 10 years ago (n = 121, 1.59%), 10 years ago or more (n = 105, 1.38%) and</span></span>
+<span><span class="co">## missing (n = 4944, 65.06%)</span></span>
+<span><span class="co">##   - CAN_BDENSITY: 2 levels, namely No (n = 1154, 15.19%), Yes (n = 1483, 19.52%)</span></span>
+<span><span class="co">## and missing (n = 4962, 65.30%)</span></span>
+<span><span class="co">##   - CAN_BDENSINF_C1: 2 levels, namely Not selected (n = 868, 11.42%), Selected (n</span></span>
+<span><span class="co">## = 613, 8.07%) and missing (n = 6118, 80.51%)</span></span>
+<span><span class="co">##   - CAN_BDENSINF_C2: 2 levels, namely Not selected (n = 655, 8.62%), Selected (n</span></span>
+<span><span class="co">## = 826, 10.87%) and missing (n = 6118, 80.51%)</span></span>
+<span><span class="co">##   - CAN_BDENSINF_C3: 2 levels, namely Not selected (n = 1099, 14.46%), Selected</span></span>
+<span><span class="co">## (n = 382, 5.03%) and missing (n = 6118, 80.51%)</span></span>
+<span><span class="co">##   - CAN_BDENSINF_C4: 2 levels, namely Not selected (n = 1450, 19.08%), Selected</span></span>
+<span><span class="co">## (n = 31, 0.41%) and missing (n = 6118, 80.51%)</span></span>
+<span><span class="co">##   - CAN_DENSE: 2 levels, namely Did not have dense breast tissue (n = 383,</span></span>
+<span><span class="co">## 5.04%), Did have dense breast tissue (n = 1079, 14.20%) and missing (n = 6137,</span></span>
+<span><span class="co">## 80.76%)</span></span>
+<span><span class="co">##   - OVA_TUBETIED: 2 levels, namely No (n = 3179, 41.83%), Yes (n = 676, 8.90%)</span></span>
+<span><span class="co">## and missing (n = 3744, 49.27%)</span></span>
+<span><span class="co">##   - OVA_TUBECUT: 2 levels, namely No (n = 3358, 44.19%), Yes (n = 415, 5.46%) and</span></span>
+<span><span class="co">## missing (n = 3826, 50.35%)</span></span>
+<span><span class="co">##   - OVA_TUBEREM: 2 levels, namely No (n = 3335, 43.89%), Yes (n = 439, 5.78%) and</span></span>
+<span><span class="co">## missing (n = 3825, 50.34%)</span></span>
+<span><span class="co">##   - OVA_OVARIES: 2 levels, namely No (n = 3350, 44.08%), Yes (n = 445, 5.86%) and</span></span>
+<span><span class="co">## missing (n = 3804, 50.06%)</span></span>
+<span><span class="co">##   - GEN_INTRO: 2 levels, namely No (n = 3764, 49.53%), Yes (n = 3796, 49.95%) and</span></span>
+<span><span class="co">## missing (n = 39, 0.51%)</span></span>
+<span><span class="co">##   - GEN_HLTHINS: 4 levels, namely Not at all concerned (n = 1476, 19.42%), A</span></span>
+<span><span class="co">## little concerned (n = 974, 12.82%), Somewhat concerned (n = 820, 10.79%), Very</span></span>
+<span><span class="co">## concerned (n = 501, 6.59%) and missing (n = 3828, 50.38%)</span></span>
+<span><span class="co">##   - GEN_LIFEINS: 4 levels, namely Not at all concerned (n = 1490, 19.61%), A</span></span>
+<span><span class="co">## little concerned (n = 859, 11.30%), Somewhat concerned (n = 786, 10.34%), Very</span></span>
+<span><span class="co">## concerned (n = 624, 8.21%) and missing (n = 3840, 50.53%)</span></span>
+<span><span class="co">##   - GEN_DISAINS: 4 levels, namely Not at all concerned (n = 1427, 18.78%), A</span></span>
+<span><span class="co">## little concerned (n = 903, 11.88%), Somewhat concerned (n = 821, 10.80%), Very</span></span>
+<span><span class="co">## concerned (n = 611, 8.04%) and missing (n = 3837, 50.49%)</span></span>
+<span><span class="co">##   - GEN_JOB: 4 levels, namely Not at all concerned (n = 2468, 32.48%), A little</span></span>
+<span><span class="co">## concerned (n = 570, 7.50%), Somewhat concerned (n = 448, 5.90%), Very concerned</span></span>
+<span><span class="co">## (n = 277, 3.65%) and missing (n = 3836, 50.48%)</span></span>
+<span><span class="co">##   - GEN_TESTEV: 2 levels, namely No (n = 3227, 42.47%), Yes (n = 547, 7.20%) and</span></span>
+<span><span class="co">## missing (n = 3825, 50.34%)</span></span>
+<span><span class="co">##   - CRI_ALCOHOL: 3 levels, namely Decreases risk (n = 98, 1.29%), No effect (n =</span></span>
+<span><span class="co">## 3408, 44.85%), Increases risk (n = 3929, 51.70%) and missing (n = 164, 2.16%)</span></span>
+<span><span class="co">##   - SUN_USEFACE: 5 levels, namely Never (n = 1467, 19.31%), Rarely (n = 1770,</span></span>
+<span><span class="co">## 23.29%), Sometimes (n = 2077, 27.33%), Most of the time (n = 1500, 19.74%),</span></span>
+<span><span class="co">## Always (n = 749, 9.86%) and missing (n = 36, 0.47%)</span></span>
+<span><span class="co">##   - SUN_USESKIN: 5 levels, namely Never (n = 1308, 17.21%), Rarely (n = 1762,</span></span>
+<span><span class="co">## 23.19%), Sometimes (n = 2498, 32.87%), Most of the time (n = 1451, 19.09%),</span></span>
+<span><span class="co">## Always (n = 534, 7.03%) and missing (n = 46, 0.61%)</span></span>
+<span><span class="co">##   - SUN_AFFORD: 4 levels, namely Not important at all (n = 1464, 19.27%),</span></span>
+<span><span class="co">## Slightly important (n = 1899, 24.99%), Moderately important (n = 2354, 30.98%),</span></span>
+<span><span class="co">## Very important (n = 1785, 23.49%) and missing (n = 97, 1.28%)</span></span>
+<span><span class="co">##   - SUN_INGRED: 4 levels, namely Not important at all (n = 1125, 14.80%),</span></span>
+<span><span class="co">## Slightly important (n = 1577, 20.75%), Moderately important (n = 2076, 27.32%),</span></span>
+<span><span class="co">## Very important (n = 2699, 35.52%) and missing (n = 122, 1.61%)</span></span>
+<span><span class="co">##   - SUN_SPRAY: 4 levels, namely Not important at all (n = 2805, 36.91%), Slightly</span></span>
+<span><span class="co">## important (n = 1859, 24.46%), Moderately important (n = 1746, 22.98%), Very</span></span>
+<span><span class="co">## important (n = 1062, 13.98%) and missing (n = 127, 1.67%)</span></span>
+<span><span class="co">##   - SUN_FEEL: 4 levels, namely Not important at all (n = 1484, 19.53%), Slightly</span></span>
+<span><span class="co">## important (n = 1927, 25.36%), Moderately important (n = 1985, 26.12%), Very</span></span>
+<span><span class="co">## important (n = 2083, 27.41%) and missing (n = 120, 1.58%)</span></span>
+<span><span class="co">##   - SUN_NOHARM: 4 levels, namely Strongly disagree (n = 4295, 56.52%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 2000, 26.32%), Somewhat agree (n = 756, 9.95%), Strongly agree (n</span></span>
+<span><span class="co">## = 459, 6.04%) and missing (n = 89, 1.17%)</span></span>
+<span><span class="co">##   - SUN_REAPPLY: 4 levels, namely Strongly disagree (n = 1297, 17.07%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 1619, 21.31%), Somewhat agree (n = 3726, 49.03%), Strongly agree</span></span>
+<span><span class="co">## (n = 837, 11.01%) and missing (n = 120, 1.58%)</span></span>
+<span><span class="co">##   - SUN_SAFETY: 4 levels, namely Strongly disagree (n = 1347, 17.73%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 2165, 28.49%), Somewhat agree (n = 2807, 36.94%), Strongly agree</span></span>
+<span><span class="co">## (n = 1152, 15.16%) and missing (n = 128, 1.68%)</span></span>
+<span><span class="co">##   - SUN_CLOUDY: 4 levels, namely Strongly disagree (n = 2955, 38.89%), Somewhat</span></span>
+<span><span class="co">## disagree (n = 2823, 37.15%), Somewhat agree (n = 1254, 16.50%), Strongly agree</span></span>
+<span><span class="co">## (n = 457, 6.01%) and missing (n = 110, 1.45%)</span></span>
+<span><span class="co">##   - MTL_ANXIETY: 5 levels, namely Never (n = 2315, 30.46%), Daily (n = 1233,</span></span>
+<span><span class="co">## 16.23%), Weekly (n = 1164, 15.32%), Monthly (n = 792, 10.42%), A few times a</span></span>
+<span><span class="co">## year (n = 2017, 26.54%) and missing (n = 78, 1.03%)</span></span>
+<span><span class="co">##   - MTL_ANXMEDS: 2 levels, namely No (n = 6097, 80.23%), Yes (n = 1404, 18.48%)</span></span>
+<span><span class="co">## and missing (n = 98, 1.29%)</span></span>
+<span><span class="co">##   - MTL_ANXLVL: 3 levels, namely A little (n = 2424, 31.90%), A lot (n = 989,</span></span>
+<span><span class="co">## 13.01%), Somewhere in between a little and a lot (n = 1848, 24.32%) and missing</span></span>
+<span><span class="co">## (n = 2338, 30.77%)</span></span>
+<span><span class="co">##   - MTL_DEPRESS: 5 levels, namely Never (n = 3202, 42.14%), Daily (n = 694,</span></span>
+<span><span class="co">## 9.13%), Weekly (n = 699, 9.20%), Monthly (n = 699, 9.20%), A few times a year</span></span>
+<span><span class="co">## (n = 2180, 28.69%) and missing (n = 125, 1.64%)</span></span>
+<span><span class="co">##   - MTL_DEPMEDS: 2 levels, namely No (n = 6332, 83.33%), Yes (n = 1166, 15.34%)</span></span>
+<span><span class="co">## and missing (n = 101, 1.33%)</span></span>
+<span><span class="co">##   - MTL_DEPLVL: 3 levels, namely A little (n = 2296, 30.21%), A lot (n = 869,</span></span>
+<span><span class="co">## 11.44%), Somewhere in between a little and a lot (n = 1205, 15.86%) and missing</span></span>
+<span><span class="co">## (n = 3229, 42.49%)</span></span>
+<span><span class="co">##   - CIG_SMKEV: 2 levels, namely No (n = 4666, 61.40%), Yes (n = 2898, 38.14%) and</span></span>
+<span><span class="co">## missing (n = 35, 0.46%)</span></span>
+<span><span class="co">##   - CIG_SMKNOW: 3 levels, namely Every day (n = 554, 7.29%), Some days (n = 218,</span></span>
+<span><span class="co">## 2.87%), Not at all (n = 2112, 27.79%) and missing (n = 4715, 62.05%)</span></span>
+<span><span class="co">##   - CAR_USE: 2 levels, namely No (n = 7050, 92.78%), Yes (n = 497, 6.54%) and</span></span>
+<span><span class="co">## missing (n = 52, 0.68%)</span></span>
+<span><span class="co">##   - CAR_FREQUSE: 5 levels, namely 1-2 times a year (n = 214, 2.82%), Every 3-4</span></span>
+<span><span class="co">## months (n = 120, 1.58%), Every 5-8 weeks (n = 62, 0.82%), Once a month (n = 45,</span></span>
+<span><span class="co">## 0.59%), More than once a month (n = 34, 0.45%) and missing (n = 7124, 93.75%)</span></span>
+<span><span class="co">##   - CAR_STOPUSE: 4 levels, namely Stopped use (n = 107, 1.41%), Used less (n =</span></span>
+<span><span class="co">## 156, 2.05%), My use of these products has not changed (n = 208, 2.74%), Used</span></span>
+<span><span class="co">## more (n = 13, 0.17%) and missing (n = 7115, 93.63%)</span></span>
+<span><span class="co">##   - VEN_USE: 4 levels, namely Never (n = 4726, 62.19%), Rarely (n = 761, 10.01%),</span></span>
+<span><span class="co">## Sometimes (n = 1047, 13.78%), Always (n = 1036, 13.63%) and missing (n = 29,</span></span>
+<span><span class="co">## 0.38%)</span></span>
+<span><span class="co">##   - VEN_ACDUST: 2 levels, namely No (n = 299, 3.93%), Yes (n = 2525, 33.23%) and</span></span>
+<span><span class="co">## missing (n = 4775, 62.84%)</span></span>
+<span><span class="co">##   - VEN_ACSMOKE: 2 levels, namely No (n = 1760, 23.16%), Yes (n = 1034, 13.61%)</span></span>
+<span><span class="co">## and missing (n = 4805, 63.23%)</span></span>
+<span><span class="co">##   - VEN_ACVIRUS: 2 levels, namely No (n = 1337, 17.59%), Yes (n = 1447, 19.04%)</span></span>
+<span><span class="co">## and missing (n = 4815, 63.36%)</span></span>
+<span><span class="co">##   - VEN_ACOTHER: 2 levels, namely No (n = 1721, 22.65%), Yes (n = 971, 12.78%)</span></span>
+<span><span class="co">## and missing (n = 4907, 64.57%)</span></span>
+<span><span class="co">##   - VEN_HEPAUSE: 2 levels, namely No (n = 558, 7.34%), Yes (n = 1493, 19.65%) and</span></span>
+<span><span class="co">## missing (n = 5548, 73.01%)</span></span>
+<span><span class="co">##   - VEN_HPNOHEAR: 2 levels, namely No (n = 387, 5.09%), Yes (n = 158, 2.08%) and</span></span>
+<span><span class="co">## missing (n = 7054, 92.83%)</span></span>
+<span><span class="co">##   - VEN_HPNONEED: 2 levels, namely No (n = 330, 4.34%), Yes (n = 209, 2.75%) and</span></span>
+<span><span class="co">## missing (n = 7060, 92.91%)</span></span>
+<span><span class="co">##   - VEN_HPNOCOST: 2 levels, namely No (n = 281, 3.70%), Yes (n = 261, 3.43%) and</span></span>
+<span><span class="co">## missing (n = 7057, 92.87%)</span></span>
+<span><span class="co">##   - VEN_HPNOLOUD: 2 levels, namely No (n = 451, 5.93%), Yes (n = 69, 0.91%) and</span></span>
+<span><span class="co">## missing (n = 7079, 93.16%)</span></span>
+<span><span class="co">##   - VEN_HPNOFIND: 2 levels, namely No (n = 450, 5.92%), Yes (n = 77, 1.01%) and</span></span>
+<span><span class="co">## missing (n = 7072, 93.06%)</span></span>
+<span><span class="co">##   - VEN_HPNOOTH: 2 levels, namely No (n = 368, 4.84%), Yes (n = 157, 2.07%) and</span></span>
+<span><span class="co">## missing (n = 7074, 93.09%)</span></span>
+<span><span class="co">##   - VEN_ACNONEED: 2 levels, namely No (n = 1492, 19.63%), Yes (n = 3137, 41.28%)</span></span>
+<span><span class="co">## and missing (n = 2970, 39.08%)</span></span>
+<span><span class="co">##   - VEN_ACNOCOST: 2 levels, namely No (n = 1931, 25.41%), Yes (n = 2635, 34.68%)</span></span>
+<span><span class="co">## and missing (n = 3033, 39.91%)</span></span>
+<span><span class="co">##   - VEN_ACNOLOUD: 2 levels, namely No (n = 3102, 40.82%), Yes (n = 1418, 18.66%)</span></span>
+<span><span class="co">## and missing (n = 3079, 40.52%)</span></span>
+<span><span class="co">##   - VEN_ACNOOTH: 2 levels, namely No (n = 3373, 44.39%), Yes (n = 1000, 13.16%)</span></span>
+<span><span class="co">## and missing (n = 3226, 42.45%)</span></span>
+<span><span class="co">##   - IPV_PUSH: 2 levels, namely No (n = 5688, 74.85%), Yes (n = 1827, 24.04%) and</span></span>
+<span><span class="co">## missing (n = 84, 1.11%)</span></span>
+<span><span class="co">##   - IPV_HIT: 2 levels, namely No (n = 6541, 86.08%), Yes (n = 962, 12.66%) and</span></span>
+<span><span class="co">## missing (n = 96, 1.26%)</span></span>
+<span><span class="co">##   - IPV_KICK: 2 levels, namely No (n = 7007, 92.21%), Yes (n = 489, 6.44%) and</span></span>
+<span><span class="co">## missing (n = 103, 1.36%)</span></span>
+<span><span class="co">##   - IPV_HAIR: 2 levels, namely No (n = 6838, 89.99%), Yes (n = 663, 8.72%) and</span></span>
+<span><span class="co">## missing (n = 98, 1.29%)</span></span>
+<span><span class="co">##   - IPV_SLAM: 2 levels, namely No (n = 6754, 88.88%), Yes (n = 748, 9.84%) and</span></span>
+<span><span class="co">## missing (n = 97, 1.28%)</span></span>
+<span><span class="co">##   - IPV_CHOKE: 2 levels, namely No (n = 6962, 91.62%), Yes (n = 533, 7.01%) and</span></span>
+<span><span class="co">## missing (n = 104, 1.37%)</span></span>
+<span><span class="co">##   - IPV_KNIFE: 2 levels, namely No (n = 7136, 93.91%), Yes (n = 348, 4.58%) and</span></span>
+<span><span class="co">## missing (n = 115, 1.51%)</span></span>
+<span><span class="co">##   - IPV_GUN: 2 levels, namely No (n = 7219, 95.00%), Yes (n = 286, 3.76%) and</span></span>
+<span><span class="co">## missing (n = 94, 1.24%)</span></span>
+<span><span class="co">##   - IPV_ANY: 2 levels, namely No (n = 5533, 72.81%) and Yes (n = 2066, 27.19%)</span></span>
+<span><span class="co">##   - IPV_SEV: 2 levels, namely No (n = 6132, 80.69%) and Yes (n = 1467, 19.31%)</span></span>
+<span><span class="co">##   - MAR_MARITAL: 3 levels, namely Married (n = 4337, 57.07%), Living with a</span></span>
+<span><span class="co">## partner together as an unmarried couple (n = 781, 10.28%), Neither (n = 2443,</span></span>
+<span><span class="co">## 32.15%) and missing (n = 38, 0.50%)</span></span>
+<span><span class="co">##   - MAR_EVMARRY: 2 levels, namely No (n = 1864, 24.53%), Yes (n = 1372, 18.06%)</span></span>
+<span><span class="co">## and missing (n = 4363, 57.42%)</span></span>
+<span><span class="co">##   - MAR_LEGAL: 4 levels, namely Married (n = 13, 0.17%), Widowed (n = 37, 0.49%),</span></span>
+<span><span class="co">## Divorced (n = 229, 3.01%), Separated (n = 18, 0.24%) and missing (n = 7302,</span></span>
+<span><span class="co">## 96.09%)</span></span>
+<span><span class="co">##   - MAR_WIDIVSEP: 3 levels, namely Widowed (n = 359, 4.72%), Divorced (n = 643,</span></span>
+<span><span class="co">## 8.46%), Separated (n = 62, 0.82%) and missing (n = 6535, 86.00%)</span></span>
+<span><span class="co">##   - MARITAL: 2 levels, namely Married (n = 4337, 57.07%), Not married (n = 3220,</span></span>
+<span><span class="co">## 42.37%) and missing (n = 42, 0.55%)</span></span>
+<span><span class="co">##   - MARSTAT: 6 levels, namely MARRIED (n = 4337, 57.07%), WIDOWED (n = 359,</span></span>
+<span><span class="co">## 4.72%), DIVORCED (n = 643, 8.46%), SEPARATED (n = 62, 0.82%), NEVER MARRIED (n</span></span>
+<span><span class="co">## = 1375, 18.09%), LIVING WITH PARTNER (n = 781, 10.28%) and missing (n = 42,</span></span>
+<span><span class="co">## 0.55%)</span></span>
+<span><span class="co">##   - LEGMSTAT: 5 levels, namely SEPARATED (n = 80, 1.05%), DIVORCED (n = 872,</span></span>
+<span><span class="co">## 11.48%), MARRIED (n = 4350, 57.24%), SINGLE/NEVER MARRIED (n = 1859, 24.46%),</span></span>
+<span><span class="co">## WIDOWED (n = 396, 5.21%) and missing (n = 42, 0.55%)</span></span>
+<span><span class="co">##   - EMP_EMPLOY: 2 levels, namely No (n = 3626, 47.72%), Yes (n = 3907, 51.41%)</span></span>
+<span><span class="co">## and missing (n = 66, 0.87%)</span></span>
+<span><span class="co">##   - EMP_ABSENTWK: 2 levels, namely No (n = 3446, 45.35%), Yes (n = 145, 1.91%)</span></span>
+<span><span class="co">## and missing (n = 4008, 52.74%)</span></span>
+<span><span class="co">##   - EMP_WHYNOWRK: 8 levels, namely Unemployed, laid off, looking for work (n =</span></span>
+<span><span class="co">## 265, 3.49%), Seasonal/contract work (n = 60, 0.79%), Retired (n = 1856,</span></span>
+<span><span class="co">## 24.42%), Unable to work for health reasons/disabled (n = 416, 5.47%), Taking</span></span>
+<span><span class="co">## care of house or family (n = 349, 4.59%), Going to school (n = 118, 1.55%),</span></span>
+<span><span class="co">## Working at a family-owned job or business, but not for pay (n = 19, 0.25%),</span></span>
+<span><span class="co">## Other (n = 311, 4.09%) and missing (n = 4205, 55.34%)</span></span>
+<span><span class="co">##   - EMPWRKLSWK: 2 levels, namely Did not work (n = 3367, 44.31%), Worked, Temp</span></span>
+<span><span class="co">## Absent, Seasonal, Family Job-no pay (n = 4131, 54.36%) and missing (n = 101,</span></span>
+<span><span class="co">## 1.33%)</span></span>
+<span><span class="co">##   - CIV_VOL12M: 2 levels, namely No (n = 5254, 69.14%), Yes (n = 2295, 30.20%)</span></span>
+<span><span class="co">## and missing (n = 50, 0.66%)</span></span>
+<span><span class="co">##   - CIV_VOLOTH: 2 levels, namely No (n = 4791, 63.05%), Yes (n = 419, 5.51%) and</span></span>
+<span><span class="co">## missing (n = 2389, 31.44%)</span></span>
+<span><span class="co">##   - CIV_MEET: 2 levels, namely No (n = 6563, 86.37%), Yes (n = 939, 12.36%) and</span></span>
+<span><span class="co">## missing (n = 97, 1.28%)</span></span>
+<span><span class="co">##   - CIV_VOTELOCL: 2 levels, namely No (n = 2802, 36.87%), Yes (n = 4706, 61.93%)</span></span>
+<span><span class="co">## and missing (n = 91, 1.20%)</span></span>
+<span><span class="co">##   - CIVIC_ENGAGE: 2 levels, namely Yes (n = 5361, 70.55%), No (n = 2123, 27.94%)</span></span>
+<span><span class="co">## and missing (n = 115, 1.51%)</span></span>
+<span><span class="co">##   - LAN_OTHERLAN: 2 levels, namely No (n = 6198, 81.56%), Yes (n = 1321, 17.38%)</span></span>
+<span><span class="co">## and missing (n = 80, 1.05%)</span></span>
+<span><span class="co">##   - LAN_MEDIA: 3 levels, namely English (n = 790, 10.40%), Spanish (n = 413,</span></span>
+<span><span class="co">## 5.43%), Another language (n = 113, 1.49%) and missing (n = 6283, 82.68%)</span></span>
+<span><span class="co">##   - LAN_DOCTOR: 3 levels, namely English (n = 1037, 13.65%), Spanish (n = 237,</span></span>
+<span><span class="co">## 3.12%), Another language (n = 25, 0.33%) and missing (n = 6300, 82.91%)</span></span>
+<span><span class="co">##   - LAN_SOCIAL: 3 levels, namely English (n = 932, 12.26%), Spanish (n = 337,</span></span>
+<span><span class="co">## 4.43%), Another language (n = 42, 0.55%) and missing (n = 6288, 82.75%)</span></span>
+<span><span class="co">##   - TEL_NONCELL: 2 levels, namely No (n = 5065, 66.65%), Yes (n = 2470, 32.50%)</span></span>
+<span><span class="co">## and missing (n = 64, 0.84%)</span></span>
+<span><span class="co">##   - TEL_CELL: 2 levels, namely No (n = 292, 3.84%), Yes (n = 7251, 95.42%) and</span></span>
+<span><span class="co">## missing (n = 56, 0.74%)</span></span>
+<span><span class="co">##   - TEL_HHCELL: 2 levels, namely No (n = 117, 1.54%), Yes (n = 105, 1.38%) and</span></span>
+<span><span class="co">## missing (n = 7377, 97.08%)</span></span>
+<span><span class="co">##   - P_OUTCOME: 1 level, namely Complete (reached last question) (n = 7599,</span></span>
+<span><span class="co">## 100.00%)</span></span>
+<span><span class="co">##   - SOURCE: 2 levels, namely Panel Provider 1 (n = 2898, 38.14%) and Panel</span></span>
+<span><span class="co">## Provider 2 (n = 4701, 61.86%)</span></span>
+<span><span class="co">##   - QUEX_LANG: 2 levels, namely ENGLISH (n = 7303, 96.10%) and SPANISH (n = 296,</span></span>
+<span><span class="co">## 3.90%)</span></span>
+<span><span class="co">##   - P_GENDER: 2 levels, namely Male (n = 3690, 48.56%) and Female (n = 3909,</span></span>
+<span><span class="co">## 51.44%)</span></span>
+<span><span class="co">##   - P_GENDERID: 4 levels, namely Cis-gender Male (n = 3466, 45.61%), Cis-gender</span></span>
+<span><span class="co">## Female (n = 3671, 48.31%), Transgender (n = 53, 0.70%), None of these (n = 63,</span></span>
+<span><span class="co">## 0.83%) and missing (n = 346, 4.55%)</span></span>
+<span><span class="co">##   - P_ORIENT: 4 levels, namely GAY OR LESBIAN (n = 212, 2.79%), STRAIGHT, THAT IS</span></span>
+<span><span class="co">## NOT LESBIAN/GAY (n = 6605, 86.92%), BISEXUAL (n = 295, 3.88%), SOMETHING ELSE</span></span>
+<span><span class="co">## (n = 127, 1.67%) and missing (n = 360, 4.74%)</span></span>
+<span><span class="co">##   - P_EDUC_R: 3 levels, namely High school graduate or less (n = 2211, 29.10%),</span></span>
+<span><span class="co">## Some college (n = 2459, 32.36%) and Bachelor's degree or above (n = 2929,</span></span>
+<span><span class="co">## 38.54%)</span></span>
+<span><span class="co">##   - P_EDUC_R_IFLG: 2 levels, namely No imputation (n = 4692, 61.74%), Statistical</span></span>
+<span><span class="co">## imputation (n = 9, 0.12%) and missing (n = 2898, 38.14%)</span></span>
+<span><span class="co">##   - P_RACE_R: 4 levels, namely White, non-Hispanic (n = 5042, 66.35%), Black,</span></span>
+<span><span class="co">## non-Hispanic (n = 802, 10.55%), Other, non-Hispanic (n = 561, 7.38%), Hispanic</span></span>
+<span><span class="co">## (n = 1117, 14.70%) and missing (n = 77, 1.01%)</span></span>
+<span><span class="co">##   - P_HHSIZE_R: 6 levels, namely 1 (n = 1482, 19.50%), 2 (n = 2839, 37.36%), 3 (n</span></span>
+<span><span class="co">## = 1266, 16.66%), 4 (n = 1027, 13.51%), 5 (n = 523, 6.88%) and 6+ (n = 462,</span></span>
+<span><span class="co">## 6.08%)</span></span>
+<span><span class="co">##   - P_AGEC_R: 1 levels, namely 70+ (n = 1320, 17.37%) and missing (n = 6279,</span></span>
+<span><span class="co">## 82.63%)</span></span>
+<span><span class="co">##   - P_INCOME_R: 16 levels, namely Less than $5,000 (n = 160, 2.11%), $5,000 to</span></span>
+<span><span class="co">## $9,999 (n = 122, 1.61%), $10,000 to $14,999 (n = 239, 3.15%), $15,000 to</span></span>
+<span><span class="co">## $19,999 (n = 204, 2.68%), $20,000 to $24,999 (n = 310, 4.08%), $25,000 to</span></span>
+<span><span class="co">## $29,999 (n = 279, 3.67%), $30,000 to $34,999 (n = 308, 4.05%), $35,000 to</span></span>
+<span><span class="co">## $39,999 (n = 282, 3.71%), $40,000 to $49,999 (n = 499, 6.57%), $50,000 to</span></span>
+<span><span class="co">## $59,999 (n = 598, 7.87%), $60,000 to $74,999 (n = 754, 9.92%), $75,000 to</span></span>
+<span><span class="co">## $84,999 (n = 441, 5.80%), $85,000 to $99,999 (n = 572, 7.53%), $100,000 to</span></span>
+<span><span class="co">## $124,999 (n = 838, 11.03%), $125,000 to $149,999 (n = 513, 6.75%) and $150,000</span></span>
+<span><span class="co">## or more (n = 1480, 19.48%)</span></span>
+<span><span class="co">##   - P_INCOME_R_IFLG: 2 levels, namely No imputation (n = 4584, 60.32%),</span></span>
+<span><span class="co">## Statistical imputation (n = 117, 1.54%) and missing (n = 2898, 38.14%)</span></span>
+<span><span class="co">##   - P_POVERTY: 9 levels, namely &lt; 0.50 (n = 340, 4.47%), 0.50 - &lt; 1.00 (n = 574,</span></span>
+<span><span class="co">## 7.55%), 1.00 - &lt; 1.50 (n = 593, 7.80%), 1.50 - &lt; 2.00 (n = 729, 9.59%), 2.00 -</span></span>
+<span><span class="co">## &lt; 2.50 (n = 537, 7.07%), 2.50 - &lt; 3.00 (n = 567, 7.46%), 3.00 - &lt; 3.50 (n =</span></span>
+<span><span class="co">## 667, 8.78%), 3.50 - &lt; 4.00 (n = 414, 5.45%) and 4.00 + (n = 3178, 41.82%)</span></span>
+<span><span class="co">##   - P_EMPLOY: 4 levels, namely Working (n = 4597, 60.49%), Not working--unable to</span></span>
+<span><span class="co">## work for health reasons/disabled (n = 540, 7.11%), Not working--retired (n =</span></span>
+<span><span class="co">## 1652, 21.74%) and Not working--other (n = 810, 10.66%)</span></span>
+<span><span class="co">##   - P_MARITAL: 4 levels, namely Married (n = 4334, 57.03%), Divorced/Separated (n</span></span>
+<span><span class="co">## = 973, 12.80%), Widowed (n = 382, 5.03%) and Never married (n = 1910, 25.13%)</span></span>
+<span><span class="co">##   - P_REGION: 4 levels, namely Northeast (n = 1271, 16.73%), Midwest (n = 1828,</span></span>
+<span><span class="co">## 24.06%), South (n = 2724, 35.85%) and West (n = 1776, 23.37%)</span></span>
+<span><span class="co">##   - P_HOMEOWN: 3 levels, namely Owned or being bought by someone in your</span></span>
+<span><span class="co">## household (n = 5467, 71.94%), Rented (n = 1982, 26.08%) and Occupied without</span></span>
+<span><span class="co">## payment of cash rent (n = 150, 1.97%)</span></span>
+<span><span class="co">##   - P_HOMEOWN_IFLG: 2 levels, namely No imputation (n = 4690, 61.72%),</span></span>
+<span><span class="co">## Statistical imputation (n = 11, 0.14%) and missing (n = 2898, 38.14%)</span></span>
+<span><span class="co">##   - P_METRO_R: 2 levels, namely Metropolitan (n = 6559, 86.31%) and</span></span>
+<span><span class="co">## Non-metropolitan (n = 1040, 13.69%)</span></span>
+<span><span class="co">##   - P_METRO_R_IFLG: 2 levels, namely No imputation (n = 7584, 99.80%) and</span></span>
+<span><span class="co">## Statistical imputation (n = 15, 0.20%)</span></span>
+<span><span class="co">##   - P_CITIZEN: 2 levels, namely Not a U.S. citizen (n = 207, 2.72%), U.S. citizen</span></span>
+<span><span class="co">## (n = 5918, 77.88%) and missing (n = 1474, 19.40%)</span></span>
+<span><span class="co">##   - P_VETERAN: 2 levels, namely Not a veteran (n = 6504, 85.59%), Veteran (n =</span></span>
+<span><span class="co">## 714, 9.40%) and missing (n = 381, 5.01%)</span></span>
+<span><span class="co">##   - P_INSUR: 2 levels, namely Does not have health insurance (n = 370, 4.87%),</span></span>
+<span><span class="co">## Has health insurance (n = 5621, 73.97%) and missing (n = 1608, 21.16%)</span></span>
+<span><span class="co">##   - P_USBORN: 2 levels, namely Yes (n = 5906, 77.72%), No (n = 531, 6.99%) and</span></span>
+<span><span class="co">## missing (n = 1162, 15.29%)</span></span>
+<span><span class="co">##   - P_ONEVISIT: 2 levels, namely Multiple sessions (n = 833, 10.96%) and</span></span>
+<span><span class="co">## Completed survey in single session (n = 6766, 89.04%)</span></span>
+<span><span class="co">##   - P_MODE: 2 levels, namely Web (n = 7462, 98.20%) and CATI (n = 137, 1.80%)</span></span>
+<span><span class="co">##   - P_DEVICE: 5 levels, namely Desktop/Laptop/netbook (n = 3205, 42.18%),</span></span>
+<span><span class="co">## Smartphone (n = 4016, 52.85%), Tablet (n = 238, 3.13%), Other device (book</span></span>
+<span><span class="co">## reader, game console, etc.) (n = 3, 0.04%) and Phone interview (not online) (n</span></span>
+<span><span class="co">## = 137, 1.80%)</span></span></code></pre>
+  </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 

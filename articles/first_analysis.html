@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">icorp26</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.7</span>
       </span>
     </div>
 
@@ -79,6 +79,9 @@
       <a href="../articles/rss7_codebook.html">rss7 Codebook</a>
     </li>
     <li>
+      <a href="../articles/two_variables.html">two_variables</a>
+    </li>
+    <li>
       <a href="../articles/your_project.html">Your project</a>
     </li>
   </ul>
@@ -108,7 +111,7 @@
                         <h4 data-toc-skip class="author">Elin
 Waring</h4>
             
-            <h4 data-toc-skip class="date">2026-05-28</h4>
+            <h4 data-toc-skip class="date">2026-06-01</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/elinw/icorp26/blob/main/vignettes/first_analysis.Rmd" class="external-link"><code>vignettes/first_analysis.Rmd</code></a></small>
       <div class="hidden name"><code>first_analysis.Rmd</code></div>
@@ -119,7 +122,8 @@ Waring</h4>
     
 <p>This vignette illustrates some common things you will want or need to
 do to get started.</p>
-<p>First we load the packages we need.</p>
+<p>First we load the packages we need. In R, packages are collections of
+useful data</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/elinw/icorp26" class="external-link">icorp26</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/easystats/" class="external-link">easystats</a></span><span class="op">)</span></span>
@@ -129,7 +133,8 @@ do to get started.</p>
 <span><span class="co">## ✔ insight     1.5.1    ✔ modelbased  0.15.0</span></span>
 <span><span class="co">## ✔ performance 0.17.0   ✔ parameters  0.29.1</span></span>
 <span><span class="co">## ✔ report      0.6.4    ✔ see         0.14.0</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/datawizard/" class="external-link">datawizard</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/" class="external-link">here</a></span><span class="op">)</span></span>
+<span><span class="co">## here() starts at /home/runner/work/icorp26/icorp26</span></span></code></pre></div>
 <p>Let’s say you want to use rss1.</p>
 <p><a href="https://www.cdc.gov/nchs/data/rss/codebook.pdf" class="external-link">We can look
 at the codebook here.</a></p>
@@ -142,7 +147,7 @@ the name of the dataset and the name of the variable with a
 will be able to pay yourmedical bills?<a class="anchor" aria-label="anchor" href="#if-you-get-sick-or-have-an-accident-how-worried-are-you-that-you-will-be-able-to-pay-yourmedical-bills"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/datawizard/reference/data_tabulate.html" class="external-link">data_tabulate</a></span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">PAY_PAYWORRY</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">PAY_PAYWORRY</span><span class="op">)</span></span>
 <span><span class="co">## Get sick or have accident, how worried about ability to pay bills (rss1$PAY_PAYWORRY) &lt;categorical&gt;</span></span>
 <span><span class="co">## # total N=7599 valid N=7570</span></span>
 <span><span class="co">## </span></span>
@@ -157,7 +162,7 @@ will be able to pay yourmedical bills?<a class="anchor" aria-label="anchor" href
 <h3 id="overall-health">Overall Health<a class="anchor" aria-label="anchor" href="#overall-health"></a>
 </h3>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/datawizard/reference/data_tabulate.html" class="external-link">data_tabulate</a></span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">HIS_GENERAL</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">HIS_GENERAL</span><span class="op">)</span></span>
 <span><span class="co">## Self-reported health status (rss1$HIS_GENERAL) &lt;categorical&gt;</span></span>
 <span><span class="co">## # total N=7599 valid N=7583</span></span>
 <span><span class="co">## </span></span>
@@ -174,7 +179,7 @@ will be able to pay yourmedical bills?<a class="anchor" aria-label="anchor" href
 <h3 id="marital-status">Marital Status<a class="anchor" aria-label="anchor" href="#marital-status"></a>
 </h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://easystats.github.io/datawizard/reference/data_tabulate.html" class="external-link">data_tabulate</a></span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">MARSTAT</span><span class="op">)</span> </span>
+<code class="sourceCode R"><span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">MARSTAT</span><span class="op">)</span> </span>
 <span><span class="co">## DERIVED: Current marital status (rss1$MARSTAT) &lt;categorical&gt;</span></span>
 <span><span class="co">## # total N=7599 valid N=7557</span></span>
 <span><span class="co">## </span></span>
@@ -195,9 +200,842 @@ into each category.</p></li>
 asked.</p></li>
 <li><p>The <code>Valid %</code> Column includes only the people who
 answered that specific question (not the <na>s).</na></p></li>
+<li><p>At the top you can see: total N=7599 valid N=7557. The difference
+of these two numbers (7599 - 7557) is 42 which is the same as the number
+of people have <na>.</na></p></li>
 <li><p>The <code>Cumulative %</code> adds each row to the total percent
-above it. See if you can follow the logic in the tables above.</p></li>
+above it. See if you can follow the logic in the tables above. This
+column is not relevant for variables that do not have some kind of
+ordering. Looking at our three tables, the first two (how worried they
+are about losing pay and overall self-reported health status <em>do</em>
+have order) while the third, maritial status, does not.</p></li>
 </ul>
+</div>
+<div class="section level2">
+<h2 id="a-little-bit-more">A little bit more<a class="anchor" aria-label="anchor" href="#a-little-bit-more"></a>
+</h2>
+<p>R is very powerful in giving us many options for making our data
+easier to understand and our results better looking. Let’s explore a
+bit.</p>
+<div class="section level3">
+<h3 id="marital-status-1">Marital Status<a class="anchor" aria-label="anchor" href="#marital-status-1"></a>
+</h3>
+<p>First, we can remove the missing data. In that case the valid and
+complete data are the same.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">MARSTAT</span>, remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
+<span><span class="co">## DERIVED: Current marital status (rss1$MARSTAT) &lt;categorical&gt;</span></span>
+<span><span class="co">## # total N=7557 valid N=7557</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Value               |    N | Raw % | Valid % | Cumulative %</span></span>
+<span><span class="co">## --------------------+------+-------+---------+-------------</span></span>
+<span><span class="co">## MARRIED             | 4337 | 57.39 |   57.39 |        57.39</span></span>
+<span><span class="co">## WIDOWED             |  359 |  4.75 |    4.75 |        62.14</span></span>
+<span><span class="co">## DIVORCED            |  643 |  8.51 |    8.51 |        70.65</span></span>
+<span><span class="co">## SEPARATED           |   62 |  0.82 |    0.82 |        71.47</span></span>
+<span><span class="co">## NEVER MARRIED       | 1375 | 18.20 |   18.20 |        89.67</span></span>
+<span><span class="co">## LIVING WITH PARTNER |  781 | 10.33 |   10.33 |       100.00</span></span></code></pre></div>
+<p>Then we can make our table look nicer by using a customized “print”
+function.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">MARSTAT</span>, remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>     <span class="fu"><a href="https://easystats.github.io/insight/reference/display.html" class="external-link">print_md</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<caption>DERIVED: Current marital status (rss1$MARSTAT)
+(categorical)</caption>
+<thead><tr class="header">
+<th align="left">Value</th>
+<th align="left">N</th>
+<th align="left">Raw %</th>
+<th align="right">Valid %</th>
+<th align="right">Cumulative %</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">MARRIED</td>
+<td align="left">4337</td>
+<td align="left">57.39</td>
+<td align="right">57.39</td>
+<td align="right">57.39</td>
+</tr>
+<tr class="even">
+<td align="left">WIDOWED</td>
+<td align="left">359</td>
+<td align="left">4.75</td>
+<td align="right">4.75</td>
+<td align="right">62.14</td>
+</tr>
+<tr class="odd">
+<td align="left">DIVORCED</td>
+<td align="left">643</td>
+<td align="left">8.51</td>
+<td align="right">8.51</td>
+<td align="right">70.65</td>
+</tr>
+<tr class="even">
+<td align="left">SEPARATED</td>
+<td align="left">62</td>
+<td align="left">0.82</td>
+<td align="right">0.82</td>
+<td align="right">71.47</td>
+</tr>
+<tr class="odd">
+<td align="left">NEVER MARRIED</td>
+<td align="left">1375</td>
+<td align="left">18.20</td>
+<td align="right">18.20</td>
+<td align="right">89.67</td>
+</tr>
+<tr class="even">
+<td align="left">LIVING WITH PARTNER</td>
+<td align="left">781</td>
+<td align="left">10.33</td>
+<td align="right">10.33</td>
+<td align="right">100.00</td>
+</tr>
+</tbody>
+</table>
+<p>total N=7557 valid N=7557</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">MARSTAT</span>, remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>     <span class="fu"><a href="https://easystats.github.io/insight/reference/display.html" class="external-link">print_html</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div id="mwlefoodfi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mwlefoodfi table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mwlefoodfi thead, #mwlefoodfi tbody, #mwlefoodfi tfoot, #mwlefoodfi tr, #mwlefoodfi td, #mwlefoodfi th {
+  border-style: none;
+}
+
+#mwlefoodfi p {
+  margin: 0;
+  padding: 0;
+}
+
+#mwlefoodfi .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mwlefoodfi .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mwlefoodfi .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mwlefoodfi .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mwlefoodfi .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mwlefoodfi .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mwlefoodfi .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mwlefoodfi .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mwlefoodfi .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mwlefoodfi .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mwlefoodfi .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mwlefoodfi .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mwlefoodfi .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mwlefoodfi .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mwlefoodfi .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwlefoodfi .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mwlefoodfi .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mwlefoodfi .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mwlefoodfi .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwlefoodfi .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mwlefoodfi .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwlefoodfi .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mwlefoodfi .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwlefoodfi .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mwlefoodfi .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwlefoodfi .gt_left {
+  text-align: left;
+}
+
+#mwlefoodfi .gt_center {
+  text-align: center;
+}
+
+#mwlefoodfi .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mwlefoodfi .gt_font_normal {
+  font-weight: normal;
+}
+
+#mwlefoodfi .gt_font_bold {
+  font-weight: bold;
+}
+
+#mwlefoodfi .gt_font_italic {
+  font-style: italic;
+}
+
+#mwlefoodfi .gt_super {
+  font-size: 65%;
+}
+
+#mwlefoodfi .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mwlefoodfi .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mwlefoodfi .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mwlefoodfi .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mwlefoodfi .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mwlefoodfi .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mwlefoodfi .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mwlefoodfi .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mwlefoodfi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="table gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading">
+<td colspan="5" class="gt_heading gt_title gt_font_normal gt_bottom_border" style>DERIVED: Current marital status (rss1$MARSTAT) (categorical)</td>
+    </tr>
+<tr class="gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Value">Value</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="N">N</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Raw-%">Raw %</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Valid-%">Valid %</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Cumulative-%">Cumulative %</th>
+    </tr>
+</thead>
+<tbody class="gt_table_body">
+<tr>
+<td headers="Value" class="gt_row gt_left">MARRIED</td>
+<td headers="N" class="gt_row gt_center">4337</td>
+<td headers="Raw %" class="gt_row gt_center">57.39</td>
+<td headers="Valid %" class="gt_row gt_center">57.39</td>
+<td headers="Cumulative %" class="gt_row gt_center">57.39</td>
+</tr>
+<tr>
+<td headers="Value" class="gt_row gt_left">WIDOWED</td>
+<td headers="N" class="gt_row gt_center">359</td>
+<td headers="Raw %" class="gt_row gt_center">4.75</td>
+<td headers="Valid %" class="gt_row gt_center">4.75</td>
+<td headers="Cumulative %" class="gt_row gt_center">62.14</td>
+</tr>
+<tr>
+<td headers="Value" class="gt_row gt_left">DIVORCED</td>
+<td headers="N" class="gt_row gt_center">643</td>
+<td headers="Raw %" class="gt_row gt_center">8.51</td>
+<td headers="Valid %" class="gt_row gt_center">8.51</td>
+<td headers="Cumulative %" class="gt_row gt_center">70.65</td>
+</tr>
+<tr>
+<td headers="Value" class="gt_row gt_left">SEPARATED</td>
+<td headers="N" class="gt_row gt_center">62</td>
+<td headers="Raw %" class="gt_row gt_center">0.82</td>
+<td headers="Valid %" class="gt_row gt_center">0.82</td>
+<td headers="Cumulative %" class="gt_row gt_center">71.47</td>
+</tr>
+<tr>
+<td headers="Value" class="gt_row gt_left">NEVER MARRIED</td>
+<td headers="N" class="gt_row gt_center">1375</td>
+<td headers="Raw %" class="gt_row gt_center">18.20</td>
+<td headers="Valid %" class="gt_row gt_center">18.20</td>
+<td headers="Cumulative %" class="gt_row gt_center">89.67</td>
+</tr>
+<tr>
+<td headers="Value" class="gt_row gt_left">LIVING WITH PARTNER</td>
+<td headers="N" class="gt_row gt_center">781</td>
+<td headers="Raw %" class="gt_row gt_center">10.33</td>
+<td headers="Valid %" class="gt_row gt_center">10.33</td>
+<td headers="Cumulative %" class="gt_row gt_center">100.00</td>
+</tr>
+</tbody>
+<tfoot><tr class="gt_sourcenotes">
+<td class="gt_sourcenote" colspan="5">total N=7557 valid N=7557</td>
+    </tr></tfoot>
+</table>
+</div>
+<p>There are always a lot of different ways to do things in R. The code
+chunk below is another way.</p>
+<p>When you search for help or try to use AI to help you do things you
+will see many different approaches. That’s fine; feel free to
+experiment. But always chek to make sure that the advice you get
+actually works.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">report_table</span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">MARSTAT</span>, remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://easystats.github.io/insight/reference/display.html" class="external-link">print_md</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Level</th>
+<th align="right">n_Obs</th>
+<th align="right">percentage_Obs</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">MARRIED</td>
+<td align="right">4337</td>
+<td align="right">57.07</td>
+</tr>
+<tr class="even">
+<td align="left">WIDOWED</td>
+<td align="right">359</td>
+<td align="right">4.72</td>
+</tr>
+<tr class="odd">
+<td align="left">DIVORCED</td>
+<td align="right">643</td>
+<td align="right">8.46</td>
+</tr>
+<tr class="even">
+<td align="left">SEPARATED</td>
+<td align="right">62</td>
+<td align="right">0.82</td>
+</tr>
+<tr class="odd">
+<td align="left">NEVER MARRIED</td>
+<td align="right">1375</td>
+<td align="right">18.09</td>
+</tr>
+<tr class="even">
+<td align="left">LIVING WITH PARTNER</td>
+<td align="right">781</td>
+<td align="right">10.28</td>
+</tr>
+<tr class="odd">
+<td align="left">missing</td>
+<td align="right">42</td>
+<td align="right">0.55</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">P_INCOME_R</span>, remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>     <span class="fu"><a href="https://easystats.github.io/insight/reference/display.html" class="external-link">print_md</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<caption>Household income - topcoded (rss1$P_INCOME_R)
+(categorical)</caption>
+<thead><tr class="header">
+<th align="left">Value</th>
+<th align="right">N</th>
+<th align="right">Raw %</th>
+<th align="right">Valid %</th>
+<th align="right">Cumulative %</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Less than $5,000</td>
+<td align="right">160</td>
+<td align="right">2.11</td>
+<td align="right">2.11</td>
+<td align="right">2.11</td>
+</tr>
+<tr class="even">
+<td align="left">$5,000 to $9,999</td>
+<td align="right">122</td>
+<td align="right">1.61</td>
+<td align="right">1.61</td>
+<td align="right">3.71</td>
+</tr>
+<tr class="odd">
+<td align="left">$10,000 to $14,999</td>
+<td align="right">239</td>
+<td align="right">3.15</td>
+<td align="right">3.15</td>
+<td align="right">6.86</td>
+</tr>
+<tr class="even">
+<td align="left">$15,000 to $19,999</td>
+<td align="right">204</td>
+<td align="right">2.68</td>
+<td align="right">2.68</td>
+<td align="right">9.54</td>
+</tr>
+<tr class="odd">
+<td align="left">$20,000 to $24,999</td>
+<td align="right">310</td>
+<td align="right">4.08</td>
+<td align="right">4.08</td>
+<td align="right">13.62</td>
+</tr>
+<tr class="even">
+<td align="left">$25,000 to $29,999</td>
+<td align="right">279</td>
+<td align="right">3.67</td>
+<td align="right">3.67</td>
+<td align="right">17.29</td>
+</tr>
+<tr class="odd">
+<td align="left">$30,000 to $34,999</td>
+<td align="right">308</td>
+<td align="right">4.05</td>
+<td align="right">4.05</td>
+<td align="right">21.34</td>
+</tr>
+<tr class="even">
+<td align="left">$35,000 to $39,999</td>
+<td align="right">282</td>
+<td align="right">3.71</td>
+<td align="right">3.71</td>
+<td align="right">25.06</td>
+</tr>
+<tr class="odd">
+<td align="left">$40,000 to $49,999</td>
+<td align="right">499</td>
+<td align="right">6.57</td>
+<td align="right">6.57</td>
+<td align="right">31.62</td>
+</tr>
+<tr class="even">
+<td align="left">$50,000 to $59,999</td>
+<td align="right">598</td>
+<td align="right">7.87</td>
+<td align="right">7.87</td>
+<td align="right">39.49</td>
+</tr>
+<tr class="odd">
+<td align="left">$60,000 to $74,999</td>
+<td align="right">754</td>
+<td align="right">9.92</td>
+<td align="right">9.92</td>
+<td align="right">49.41</td>
+</tr>
+<tr class="even">
+<td align="left">$75,000 to $84,999</td>
+<td align="right">441</td>
+<td align="right">5.80</td>
+<td align="right">5.80</td>
+<td align="right">55.22</td>
+</tr>
+<tr class="odd">
+<td align="left">$85,000 to $99,999</td>
+<td align="right">572</td>
+<td align="right">7.53</td>
+<td align="right">7.53</td>
+<td align="right">62.75</td>
+</tr>
+<tr class="even">
+<td align="left">$100,000 to $124,999</td>
+<td align="right">838</td>
+<td align="right">11.03</td>
+<td align="right">11.03</td>
+<td align="right">73.77</td>
+</tr>
+<tr class="odd">
+<td align="left">$125,000 to $149,999</td>
+<td align="right">513</td>
+<td align="right">6.75</td>
+<td align="right">6.75</td>
+<td align="right">80.52</td>
+</tr>
+<tr class="even">
+<td align="left">$150,000 or more</td>
+<td align="right">1480</td>
+<td align="right">19.48</td>
+<td align="right">19.48</td>
+<td align="right">100.00</td>
+</tr>
+</tbody>
+</table>
+<p>total N=7599 valid N=7599</p>
+<p>We can see that income is given in a lot of categories rather than
+exact number. But the categories are evenly spaced in $5000 steps until
+we get to the top value of $150,000 or more.</p>
+<p>Because of this we cam treat this variable as though it is a number
+and do things like calculate the mean and median.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">P_INCOME_R</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] 11.07685</span></span></code></pre></div>
+<p>The value that cuts the sample into lower and upper halves is called
+the median. The median here is 12. The 12th category is “$75,000 to
+$84,999”. Look at the cumulative distribution in the first table of
+income. There are 7599 valid values If we divide that by two we get
+3799.5. 3754 values are in the categories “$60,000 to $74,999” or lower.
+To get to 3799 or 3800 we need to look in the next highest category.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">P_INCOME_R</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">## [1] 12</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">P_INCOME_R</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span><span class="co">##    1.00    8.00   12.00   11.08   15.00   16.00</span></span></code></pre></div>
+<p>The summary shows the overall distribution of income, including the
+highest and lowest values (Max and Min) and the median and mean. The 1st
+Quartile is the point the cuts off the bottom 25% while the 3rd Quartile
+cuts off the bottom 75%. Look at the cumulative distribution and make
+sure you can see why.</p>
+<p>We can even do fancy things like combine results together and get an
+automated paragraph (although there are not that many options like this
+and you can look at its problems by seeing what happens if you use
+<code>P_GENDERID</code> instead of <code>P_GENDER</code>).</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">participants</span> <span class="op">&lt;-</span> </span>
+<span> <span class="fu">report_participants</span><span class="op">(</span></span>
+<span>       <span class="va">rss1</span>,</span>
+<span>       age <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>       sex <span class="op">=</span> <span class="st">"P_GENDER"</span>,</span>
+<span>       education <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>       race <span class="op">=</span> <span class="st">"P_RACE_R"</span>,</span>
+<span>  <span class="op">)</span> </span></code></pre></div>
+<p>7599 participants (Sex: 51.4% females, 48.6% males, 0.0% other; Race:
+66.35% White, non-Hispanic, 14.70% Hispanic, 10.55% Black, non-Hispanic,
+8.40% other)</p>
+<p>There are many more things that you can do</p>
+</div>
 </div>
   </div>
 
