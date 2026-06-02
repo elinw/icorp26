@@ -1,8 +1,8 @@
-url: ~
+url: https://elinw.github.io/icorp26/
 template:
   bootstrap: 5
 articles:
-- title: Doxs
+- title: Docs
   contents:
   - introduction
   - your_project
