@@ -5,8 +5,10 @@ articles:
 - title: Doxs
   contents:
   - introduction
+  - your_project
   - first_analysis
   - basic_plots
+  - two_variables
   - Poster
 
 - title: Codebooks
