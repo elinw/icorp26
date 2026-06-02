@@ -1,0 +1,22 @@
+url: ~
+template:
+  bootstrap: 5
+articles:
+- title: Doxs
+  contents:
+  - introduction
+  - first_analysis
+  - basic_plots
+  - Poster
+
+- title: Codebooks
+  desc: RSS Codebooks
+  navbar: ~
+  contents:
+  - rss1
+  - rss2
+  - rss3
+  - rss4
+  - rss5
+  - rss6
+  - rss7
