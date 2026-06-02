@@ -20,7 +20,7 @@ sectitle_bgcol: "#00365B"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 ```
 
 # Introduction
