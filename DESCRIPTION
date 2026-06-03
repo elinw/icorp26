@@ -28,6 +28,7 @@ Suggests:
   ggplot2,
   easystats,
   tidyr,
+  likert,
   gt,
   pkgdown
 VignetteBuilder: 

@@ -1,7 +1,8 @@
+url: "https://github.com/elinw/icorp26"
 template:
   bootstrap: 5
 articles:
-- title: Docs
+- title: Documents
   contents:
   - introduction
   - your_project
@@ -9,9 +10,7 @@ articles:
   - basic_plots
   - two_variables
   - Poster
-
 - title: Codebooks
-  desc: RSS Codebooks
   navbar: ~
   contents:
   - rss1
