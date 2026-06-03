@@ -2,6 +2,7 @@ url: "https://github.com/elinw/icorp26"
 template:
   bootstrap: 5
 articles:
+  navbar: ~
 - title: Documents
   contents:
   - introduction
