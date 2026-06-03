@@ -1,0 +1,103 @@
+# icorp26
+
+The goal of icorp26 is to support Lehman students and others in using
+the CDC RSS data this summer.
+
+## Installation
+
+You can install the development version of icorp26 from
+[GitHub](https://github.com/) with:
+
+``` r
+
+# install.packages("remotes")
+remotes::install_github("elinw/icorp26")
+```
+
+## Data sets
+
+For students, right now the package contains the data sets rss1 through
+rss7. You should be able to access any of this simply by loading the
+library
+
+``` r
+
+library(icorp26)
+```
+
+[Learn more about rounds 1 to
+5](https://www.cdc.gov/nchs/rss/rss-topics.html)
+
+[You can learn about Round
+6](https://www.cdc.gov/nchs/rapid-surveys/documentation/round-6.html)
+
+[You can learn about Round
+7](https://www.cdc.gov/nchs/rapid-surveys/documentation/round-7.html)
+
+For your project you should pick one of the rounds, unless you have a
+specific reason. Look at the topics and find the ones that most interest
+you.
+
+You should also read about the purpose of the RSS system (who decides
+what the topics are) and about the methodology of the survey.
+
+# Package index
+
+## All functions
+
+- [`create_starter()`](https://github.com/elinw/icorp26/reference/create_starter.md)
+  : create_starter
+- [`getstarted()`](https://github.com/elinw/icorp26/reference/getstarted.md)
+  : getstarted
+- [`rss1`](https://github.com/elinw/icorp26/reference/rss1.md) : rss1
+- [`rss1_raw`](https://github.com/elinw/icorp26/reference/rss1_raw.md) :
+  rss1_raw
+- [`rss2`](https://github.com/elinw/icorp26/reference/rss2.md) : rss2
+- [`rss2_raw`](https://github.com/elinw/icorp26/reference/rss2_raw.md) :
+  rss2_raw
+- [`rss3`](https://github.com/elinw/icorp26/reference/rss3.md) : rss3
+- [`rss3_raw`](https://github.com/elinw/icorp26/reference/rss3_raw.md) :
+  rss3_raw
+- [`rss4`](https://github.com/elinw/icorp26/reference/rss4.md) : rss4
+- [`rss4_raw`](https://github.com/elinw/icorp26/reference/rss4_raw.md) :
+  rss4_raw
+- [`rss5`](https://github.com/elinw/icorp26/reference/rss5.md) : rss5
+- [`rss5_raw`](https://github.com/elinw/icorp26/reference/rss5_raw.md) :
+  rss5_raw
+- [`rss6`](https://github.com/elinw/icorp26/reference/rss6.md) : rss6
+- [`rss6_raw`](https://github.com/elinw/icorp26/reference/rss6_raw.md) :
+  rss6_raw
+- [`rss7`](https://github.com/elinw/icorp26/reference/rss7.md) : rss7
+- [`rss7_raw`](https://github.com/elinw/icorp26/reference/rss7_raw.md) :
+  rss7_raw
+
+# Articles
+
+### Documents
+
+- [Introduction](https://github.com/elinw/icorp26/articles/introduction.md):
+- [Your
+  project](https://github.com/elinw/icorp26/articles/your_project.md):
+- [First
+  analysis](https://github.com/elinw/icorp26/articles/first_analysis.md):
+- [Basic
+  plots](https://github.com/elinw/icorp26/articles/basic_plots.md):
+- [two_variables](https://github.com/elinw/icorp26/articles/two_variables.md):
+- [Poster](https://github.com/elinw/icorp26/articles/Poster.md):
+
+### Codebooks
+
+- [rss1
+  Codebook](https://github.com/elinw/icorp26/articles/rss1_codebook.md):
+- [rss2
+  Codebook](https://github.com/elinw/icorp26/articles/rss2_codebook.md):
+- [rss3
+  Codebook](https://github.com/elinw/icorp26/articles/rss3_codebook.md):
+- [rss4
+  Codebook](https://github.com/elinw/icorp26/articles/rss4_codebook.md):
+- [rss5
+  Codebook](https://github.com/elinw/icorp26/articles/rss5_codebook.md):
+- [rss6
+  Codebook](https://github.com/elinw/icorp26/articles/rss6_codebook.md):
+- [rss7
+  Codebook](https://github.com/elinw/icorp26/articles/rss7_codebook.md):

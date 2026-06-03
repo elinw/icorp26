@@ -1,0 +1,94 @@
+# Introduction
+
+This summer we are using data from the Rapid Surveys System that is part
+of the National Center for Health Statistics. The NCHS is part of the
+Centers for Disease Control and Prevention.
+
+[The RSS system](https://www.cdc.gov/nchs/rss/about.html) is designed to
+allow organizations within CDC to quickly do topical surveys on emerging
+issues.
+
+> Rapid Surveys can be used to:
+
+> - Collect data on niche, emerging, or priority health topics
+> - Close health information gaps
+> - Learn how values and beliefs can affect access, care, and wellness
+> - Assess questionnaire design to ensure data collection is meaningful
+>   - Rapid Surveys are fielded several times each year using
+>     probability-based commercial online panels. Each survey includes a
+>     broad range of questions based on CDC’s needs at that time, so no
+>     two Rapid Surveys are alike.
+
+The whole system is well documented, with detailed codebooks and
+methodological information.
+
+*Because of rapid change in government websites, make sure that you
+download codebooks and other important documentation.*
+
+The data are currently (May, 2026) provided as SAS data sets with input
+code. To create the data sets in this package the data sets were
+converted using the *haven* package. The simple converted data sets are
+included as `rss1_raw` through `rss7_raw`.
+
+For the data sets `rss1` through `rss7` more complex data preparation
+steps were taken.
+
+- Missing data (all values with negative numbers) were converted to `NA`
+  in R
+
+- SAS format information was extracted from the input files. Variables
+  with formats were converted to factors.
+
+- As of now, the ordered attribute for the factors is not included.
+  However labels should be in the correct order.
+
+## Technical caution
+
+As explained in the documentation, correct estimates of standard errors
+requires that sample weights be used. However, the weights are not part
+of the public data sets. As a result, estimates of standard errors are
+smaller than what they should be, leading to increased risk of incorrect
+results of traditional hypothesis tests. That is, results will appear to
+be statistically significant when there is no difference in the
+population. The null hypothesis will be rejected incorrectly.
+
+For the SROP we will mainly deal with this by using a more stringent
+criteria to decide whether the results are “statistically significant.”
+If you have taken statistics before, you can think of this as saying we
+change the p value for determining if we can reject a null hypothesis
+from .05 to .025. If you don’t know what this means, don’t worry about
+it. We will discuss this more later in the summer.
+
+Another thing we will do is pay more attention to effect size than to
+the p values.
+
+If you have taken statistics before you may want to try some more
+complex or sophisticated approaches that are not covered in the workshop
+that is great! Feel free to experiment.
+
+If you really want to go deep, it may be that Multilevel Regression Post
+Stratification (Mr P) could be used to address this issue. See:
+
+- [Mr. P Case
+  Studies](https://bookdown.org/jl5522/MRP-case-studies/introduction-to-mrp.html)
+
+- [Multilevel Regression with Post
+  Stratifcation](https://en.wikipedia.org/wiki/Multilevel_regression_with_poststratification)
+
+However, for the summer program we are mainly going to ignore this issue
+and focus on other methods,
+
+## References
+
+CDC. 2026. “NCHS Rapid Surveys System.”
+<https://www.cdc.gov/nchs/rapid-surveys/about/index.html>.
+
+Wickham H, Miller E, Smith D (2025). *haven: Import and Export ‘SPSS’,
+‘Stata’ and ‘SAS’ Files*. <doi:10.32614/CRAN.package.haven>
+<https://doi.org/10.32614/CRAN.package.haven>, R package version 2.5.5,
+<https://CRAN.R-project.org/package=haven>.
+
+``` r
+
+citation("haven")
+```

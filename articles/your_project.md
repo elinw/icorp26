@@ -1,0 +1,56 @@
+# Your project
+
+Questions you need to answer in order to make a good poster.
+
+Make a copy of this file and fill it out as you are working.
+
+*What overall topic are you studying?*
+
+*What round of the RSS data deals with that topic?*
+
+*What are the specific variable names for that topic?*
+
+*What are the actual survey questions for those variables?*
+
+*What independent variables do you think will be related to someone’s
+answer to those questions?*
+
+*What are the names of the variables in the data set that measure you
+independent variables?*
+
+*Are there specific groups of the popularion you are focusing on?*
+
+*What have researchers said about this topic?*
+
+## As you continue working you will want to answer
+
+these questions.
+
+What is your overall research question?
+
+What is your specific hypothesis?
+
+What is the data source and how was it collected?
+
+What analyses did you do?
+
+What are your results?
+
+What are you conclusions?
+
+What possible future research
+
+## How to make your own copy of this file.
+
+Click on:
+
+File \> New \> Rmarkdown
+
+On the popup select “From Template.”
+
+Look on the list of templates for the icorp26 template called “Your
+Project.”
+
+Save the file. To be organized, save it in a folder called rmarkown.
+
+OR
