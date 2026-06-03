@@ -41,3 +41,10 @@ the ones that most interest you.
 You should also read about the purpose of the RSS
 system (who decides what the topics are) and about 
 the methodology of the survey.
+
+Once you have installed the package you can get some 
+markdown files to get you started.
+
+```
+getstarted()
+```
