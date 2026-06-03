@@ -13,10 +13,10 @@ articles:
 - title: Codebooks
   navbar: ~
   contents:
-  - rss1
-  - rss2
-  - rss3
-  - rss4
-  - rss5
-  - rss6
-  - rss7
+  - rss1_codebook
+  - rss2_codebook
+  - rss3_codebook
+  - rss4_codebook
+  - rss5_codebook
+  - rss6_codebook
+  - rss7_codebook
