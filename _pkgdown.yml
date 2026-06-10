@@ -13,11 +13,17 @@ navbar:
        text: "Documents"
        menu:
         - text: "Introduction"
+          href: documents/introduction.html
         - text: "Your project"
+          href: documents/your_project.html
         - text: "First analysis"
+          href: documents/introduction.html
         - text: "Basic plots"
+          href: documents/basic_plots.html
         - text: "Two variables"
+          href: documents/two_variable.html
         - text: "Your Poster"
+          href: documents/your_poster.html
        codebooks:
        text: "Codebooks"
        menu:
@@ -26,8 +32,8 @@ navbar:
         - text: "rss3_codebook"
         - text: "rss4_codebook"
         - text: "rss5_codebook"
-        - text: rss6_codebook
-        - text: rss7_codebook
+        - text: "rss6_codebook"
+        - text: "rss7_codebook"
       references:
       href: reference/index.html
       - title: "Functions"
@@ -43,13 +49,13 @@ navbar:
         - rss5
         - rss6
         - rss7
-      -title: "Original Datasets"
-       desc: "Datasets read in from SAS using haven"
-       contents:
-      - rss1_raw
-      - rss2_raw
-      - rss3_raw
-      - rss4_raw
-      - rss5_raw
-      - rss6_raw
-      - rss7_raw
+      - title: "Original Datasets"
+        desc: "Datasets read in from SAS using haven"
+        contents:
+        - rss1_raw
+        - rss2_raw
+        - rss3_raw
+        - rss4_raw
+        - rss5_raw
+        - rss6_raw
+      -   rss7_raw
