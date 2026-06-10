@@ -1,23 +1,51 @@
 url: https://github.com/elinw/icorp26
 template:
   bootstrap: 5
-articles:
-  navbar: ~
-   - text: Documents
-     menu:
+navbar:
+  structure:
+    left: [home, reference, documents, codebooks]
+    right: [github]
+   components:
+       home:
+        text: "Home"
+        href: index.html
+   - documents:
      - introduction
      - your_project
      - first_analysis
      - basic_plots
      - two_variables
      - Poster
-  navbar: ~
-  - text: Codebooks
-  contents:
-  - rss1_codebook
-  - rss2_codebook
-  - rss3_codebook
-  - rss4_codebook
-  - rss5_codebook
-  - rss6_codebook
-  - rss7_codebook
+   codebooks:
+    contents:
+    - rss1_codebook
+    - rss2_codebook
+    - rss3_codebook
+    - rss4_codebook
+    - rss5_codebook
+    - rss6_codebook
+    - rss7_codebook
+  reference:
+  - title: Functions
+    contents:
+    - getstarted
+  - title: "Datasets"
+    desc: "Datasets with factors converted and missings set"
+    contents
+    - rss1
+    - rss2
+    - rss3
+    - rss4
+    - rss5
+    - rss6
+    - rss7
+  -title: "Original Datasets"
+   desc: "Datasets read in from SAS using haven"
+   contents:
+    - rss1_raw
+    - rss2_raw
+    - rss3_raw
+    - rss4_raw
+    - rss5_raw
+    - rss6_raw
+    - rss7_raw
