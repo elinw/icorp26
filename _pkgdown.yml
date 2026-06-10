@@ -1,18 +1,18 @@
-url: "https://github.com/elinw/icorp26"
+url: https://github.com/elinw/icorp26
 template:
   bootstrap: 5
 articles:
   navbar: ~
-  title: Documents
-  contents:
-  - introduction
-  - your_project
-  - first_analysis
-  - basic_plots
-  - two_variables
-  - Poster
-- title: Codebooks
+   - text: Documents
+     menu:
+     - introduction
+     - your_project
+     - first_analysis
+     - basic_plots
+     - two_variables
+     - Poster
   navbar: ~
+  - text: Codebooks
   contents:
   - rss1_codebook
   - rss2_codebook
