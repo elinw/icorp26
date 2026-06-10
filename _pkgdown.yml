@@ -3,7 +3,7 @@ template:
   bootstrap: 5
 navbar:
   structure:
-    left: [home, reference, documents, codebooks]
+    left: [home, references, documents, codebooks]
     right: [search, github]
   components:
        home:
