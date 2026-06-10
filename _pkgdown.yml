@@ -4,14 +4,14 @@ template:
 navbar:
   structure:
     left: [home, reference, documents, codebooks]
-    right: [github]
+    right: [search, github]
   components:
        home:
         text: "Home"
         href: index.html
        documents:
-       text: "Documents"
-       menu:
+        text: "Documents"
+        menu:
         - text: "Introduction"
           href: documents/introduction.html
         - text: "Your project"
@@ -28,12 +28,19 @@ navbar:
        text: "Codebooks"
        menu:
         - text: "rss1_codebook"
+          url: codebooks/rss1_codebook
         - text: "rss2_codebook"
+          url: codebooks/rss2_codebook
         - text: "rss3_codebook"
+          url: codebooks/rss3_codebook
         - text: "rss4_codebook"
+          url: codebooks/rss4_codebook
         - text: "rss5_codebook"
+          url: codebooks/rss5_codebook
         - text: "rss6_codebook"
+          url: codebooks/rss6_codebook
         - text: "rss7_codebook"
+          url: codebooks/rss7_codebook
       references:
       href: reference/index.html
       - title: "Functions"
