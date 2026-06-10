@@ -10,24 +10,27 @@ navbar:
         text: "Home"
         href: index.html
        documents:
-        text: "Introduction"
-        text: "Your project"
-        text: "First analysis"
-        text: "Basic plots"
-        text: "Two variables"
-        text: "Your Poster"
-       codebooks:
-        text: rss1_codebook
-        text: rss2_codebook
-        text: rss3_codebook
-        text: rss4_codebook
-        text: rss5_codebook
-        text: rss6_codebook
-        text: rss7_codebook
-      reference:
+       text: "Documents"
+       menu:
+        - text: "Introduction"
+        - text: "Your project"
+        - text: "First analysis"
+        - text: "Basic plots"
+        - text: "Two variables"
+        - text: "Your Poster"
+       codebooks: "Codebooks"
+        menu:
+        - text: "rss1_codebook"
+        - text: "rss2_codebook"
+        - text: "rss3_codebook"
+        - text: "rss4_codebook"
+        - text: "rss5_codebook"
+        - text: rss6_codebook
+        - text: rss7_codebook
+      references:
       href: reference/index.html
-      - title: Functions
-        contents:
+      - title: "Functions"
+        menu:
         - getstarted
       - title: "Datasets"
         desc: "Datasets with factors converted and missings set"
