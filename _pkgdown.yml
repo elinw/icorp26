@@ -9,43 +9,43 @@ navbar:
        home:
         text: "Home"
         href: index.html
-   - documents:
-     - introduction
-     - your_project
-     - first_analysis
-     - basic_plots
-     - two_variables
-     - Poster
-   codebooks:
-    contents:
-    - rss1_codebook
-    - rss2_codebook
-    - rss3_codebook
-    - rss4_codebook
-    - rss5_codebook
-    - rss6_codebook
-    - rss7_codebook
-  reference:
-  - title: Functions
-    contents:
-    - getstarted
-  - title: "Datasets"
-    desc: "Datasets with factors converted and missings set"
-    contents
-    - rss1
-    - rss2
-    - rss3
-    - rss4
-    - rss5
-    - rss6
-    - rss7
-  -title: "Original Datasets"
-   desc: "Datasets read in from SAS using haven"
-   contents:
-    - rss1_raw
-    - rss2_raw
-    - rss3_raw
-    - rss4_raw
-    - rss5_raw
-    - rss6_raw
-    - rss7_raw
+       documents:
+        text: "Introduction"
+        text: "Your project"
+        text: "First analysis"
+        text: "Basic plots"
+        text: "Two variables"
+        text: "Your Poster"
+       codebooks:
+        text: rss1_codebook
+        text: rss2_codebook
+        text: rss3_codebook
+        text: rss4_codebook
+        text: rss5_codebook
+        text: rss6_codebook
+        text: rss7_codebook
+      reference:
+      href: reference/index.html
+      - title: Functions
+        contents:
+        - getstarted
+      - title: "Datasets"
+        desc: "Datasets with factors converted and missings set"
+        contents:
+        - rss1
+        - rss2
+        - rss3
+        - rss4
+        - rss5
+        - rss6
+        - rss7
+      -title: "Original Datasets"
+       desc: "Datasets read in from SAS using haven"
+       contents:
+      - rss1_raw
+      - rss2_raw
+      - rss3_raw
+      - rss4_raw
+      - rss5_raw
+      - rss6_raw
+      - rss7_raw
