@@ -18,8 +18,9 @@ navbar:
         - text: "Basic plots"
         - text: "Two variables"
         - text: "Your Poster"
-       codebooks: "Codebooks"
-        menu:
+       codebooks:
+       text: "Codebooks"
+       menu:
         - text: "rss1_codebook"
         - text: "rss2_codebook"
         - text: "rss3_codebook"
