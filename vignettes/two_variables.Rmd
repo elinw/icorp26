@@ -86,7 +86,7 @@ data_tabulate(rss1$PAY_PAYWORRY,
 ```{r}
 data_tabulate(rss1$PAY_PAYWORRY, 
               by = rss1$HIS_GENERAL,
-              remove_na = TRUE)  |> 
-     as_table() |>
-     chisq.test()
+              remove_na = TRUE) # |> 
+   #  as_table() |>
+    # chisq.test()
 ```
