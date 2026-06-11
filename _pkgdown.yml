@@ -8,8 +8,8 @@ navbar:
         href: index.html
        articles:
         - title: "Documents"
-         navbar:
-         contents:
+        - navbar:
+        - contents:
         - text: "Introduction"
           href: articles/introduction.html
         - text: "Your project"
@@ -22,9 +22,9 @@ navbar:
           href: articles/two_variable.html
         - text: "Your Poster"
           href: articles/your_poster.html
-       - title: Codebooks"
-         navbar:
-         contents:
+        - title: Codebooks
+        - navbar:
+        - contents:
         - text: "rss1_codebook"
           url: codebooks/rss1_codebook
         - text: "rss2_codebook"
