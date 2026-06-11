@@ -8,19 +8,20 @@ navbar:
         href: index.html
        articles:
         text: "Documents"
-        menu:
+        navbar:
+        contents:
         - text: "Introduction"
-          href: documents/introduction.html
+          href: articles/introduction.html
         - text: "Your project"
-          href: documents/your_project.html
+          href: articles/your_project.html
         - text: "First analysis"
-          href: documents/introduction.html
+          href: articles/introduction.html
         - text: "Basic plots"
-          href: documents/basic_plots.html
+          href: articles/basic_plots.html
         - text: "Two variables"
-          href: documents/two_variable.html
+          href: articles/two_variable.html
         - text: "Your Poster"
-          href: documents/your_poster.html
+          href: articles/your_poster.html
        codebooks:
        text: "Codebooks"
        menu:
