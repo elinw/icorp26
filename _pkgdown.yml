@@ -22,7 +22,7 @@ navbar:
           href: articles/two_variable.html
         - text: "Your Poster"
           href: articles/your_poster.html
-       codebooks:
+       articles:
        text: "Codebooks"
        menu:
         - text: "rss1_codebook"

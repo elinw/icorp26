@@ -26,18 +26,67 @@ That is, we want to know whether differences in one
 variable are associated with differences in another
 variable.
 
+Let's look at whether there is a relationship between
+self-reported health and how worried respondents are
+about losing pay if they become sick.
+
+We can see that both variables are ordinal, meaning 
+that there are distinct categories that have a logical
+ordering.
+
+We can also think of the health status as the independent
+variable and worry as the dependent variable. 
+For example, we might think that those with worse 
+health would be more worried
+
+
 ```{r}
 data_tabulate(rss1$PAY_PAYWORRY, by = rss1$HIS_GENERAL)
 ```
 
-
+We can make this more readable by dropping the 
+missing cases and using a nice print function.
 
 ```{r}
-data_tabulate(rss1$CVL_DEPRESS,
-              by = rss1$LONGCOVID,
+data_tabulate(rss1$PAY_PAYWORRY, 
+              by = rss1$HIS_GENERAL,
+              remove_na = TRUE,
+              name = "Worry by health status") |> 
+     print_html()
+```
+
+To make it easier to interpret we can add the 
+column percentages to the table. We always 
+calculate the percents within categories of 
+the independent variable.
+
+```{r}
+data_tabulate(rss1$PAY_PAYWORRY, 
+              by = rss1$HIS_GENERAL,
               remove_na = TRUE,
               proportions = "column",
               name = "LC is Depression") |> 
      print_html()
 ```
 
+Looking at the percents, we can see that those who 
+are in excellent health are generally less worried than
+those in poor health.  This doesn't apply to everyone--
+there are people in poor health who are not worried and 
+people in good health who are worried--but it is 
+an overall pattern.
+
+```{r}
+data_tabulate(rss1$PAY_PAYWORRY, 
+              by = rss1$HIS_GENERAL,
+              remove_na = TRUE)  |> 
+     effectsize()
+```
+
+```{r}
+data_tabulate(rss1$PAY_PAYWORRY, 
+              by = rss1$HIS_GENERAL,
+              remove_na = TRUE)  |> 
+     as_table() |>
+     chisq.test()
+```

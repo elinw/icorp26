@@ -53,3 +53,4 @@ Collate:
      "rss7.R"
      "rss7_raw.R"
 Config/roxygen2/version: 8.0.0
+Config/Needs/website: rmarkdown

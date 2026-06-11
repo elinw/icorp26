@@ -1,0 +1,19 @@
+---
+title: "rss1_codebook"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(icorp26)
+library(easystats)
+```
+```{r}
+data_codebook(rss1) |> display()
+```
+

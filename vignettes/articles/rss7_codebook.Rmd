@@ -1,0 +1,18 @@
+---
+title: "rss7 Codebook"
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = FALSE
+)
+```
+```{r}
+library(icorp26)
+library(easystats)
+
+```
+
+```{r}
+data_codebook(rss7) 
+```
