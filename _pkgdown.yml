@@ -49,14 +49,14 @@ navbar:
          desc: Datasets with factors converted and missings set
          contents:
             - rss1
-          - rss2
-          - rss3
-          - rss4
-          - rss5
-          - rss6
-          - rss7
-       - title: "Original Datasets"
-         desc: "Datasets read in from SAS using haven"
+            - rss2
+            - rss3
+            - rss4
+            - rss5
+            - rss6
+            - rss7
+       - title: Original Datasets
+         desc: Datasets read in from SAS using haven
          contents:
           - rss1_raw
           - rss2_raw
