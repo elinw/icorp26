@@ -2,9 +2,6 @@ url: https://github.com/elinw/icorp26
 template:
   bootstrap: 5
 navbar:
-  structure:
-    left: [home, reference, articles, codebooks]
-    right: [search, github]
   components:
        home:
         text: "Home"
