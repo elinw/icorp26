@@ -44,13 +44,13 @@ navbar:
        reference:
        text: "References"
        href: reference/index.html
-       - title: "Functions"
-         contents:
+         - title: Functions
+           contents:
            - getstarted
-       - title: "Datasets"
-         desc: "Datasets with factors converted and missings set"
-         contents:
-          - rss1
+          - title: Datasets
+            desc: Datasets with factors converted and missings set
+           contents:
+            - rss1
           - rss2
           - rss3
           - rss4
