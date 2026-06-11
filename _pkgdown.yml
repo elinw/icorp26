@@ -45,9 +45,9 @@ navbar:
        - title: Functions
          contents:
            - getstarted
-        - title: Datasets
-            desc: Datasets with factors converted and missings set
-           contents:
+       - title: Datasets
+         desc: Datasets with factors converted and missings set
+         contents:
             - rss1
           - rss2
           - rss3
