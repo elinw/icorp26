@@ -3,13 +3,13 @@ template:
   bootstrap: 5
 navbar:
   structure:
-    left: [home, reference, documents, codebooks]
+    left: [home, reference, articles, codebooks]
     right: [search, github]
   components:
        home:
         text: "Home"
         href: index.html
-       documents:
+       articles:
         text: "Documents"
         menu:
         - text: "Introduction"
@@ -42,12 +42,10 @@ navbar:
         - text: "rss7_codebook"
           url: codebooks/rss7_codebook
        reference:
-       text: "References"
-       href: reference/index.html
        - title: Functions
          contents:
            - getstarted
-          - title: Datasets
+        - title: Datasets
             desc: Datasets with factors converted and missings set
            contents:
             - rss1
