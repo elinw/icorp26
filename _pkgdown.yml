@@ -7,9 +7,9 @@ navbar:
         text: "Home"
         href: index.html
        articles:
-        text: "Documents"
-        navbar:
-        contents:
+        - title: "Documents"
+         navbar:
+         contents:
         - text: "Introduction"
           href: articles/introduction.html
         - text: "Your project"
@@ -22,9 +22,9 @@ navbar:
           href: articles/two_variable.html
         - text: "Your Poster"
           href: articles/your_poster.html
-       articles:
-       text: "Codebooks"
-       menu:
+       - title: Codebooks"
+         navbar:
+         contents:
         - text: "rss1_codebook"
           url: codebooks/rss1_codebook
         - text: "rss2_codebook"
