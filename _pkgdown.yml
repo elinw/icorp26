@@ -42,9 +42,10 @@ navbar:
         - text: "rss7_codebook"
           url: codebooks/rss7_codebook
       references:
-      href: reference/index.html
-      - title: "Functions"
-        menu:
+       text: "References"
+       menu:
+       - title: "Functions"
+         menu:
         - getstarted
       - title: "Datasets"
         desc: "Datasets with factors converted and missings set"
