@@ -41,15 +41,14 @@ navbar:
           url: codebooks/rss6_codebook
         - text: "rss7_codebook"
           url: codebooks/rss7_codebook
-      references:
+       references:
        text: "References"
-       menu:
        - title: "Functions"
-         menu:
-        - getstarted
-      - title: "Datasets"
-        desc: "Datasets with factors converted and missings set"
-        contents:
+         contents:
+         - getstarted
+       - title: "Datasets"
+         desc: "Datasets with factors converted and missings set"
+         contents:
         - rss1
         - rss2
         - rss3
@@ -57,9 +56,9 @@ navbar:
         - rss5
         - rss6
         - rss7
-      - title: "Original Datasets"
-        desc: "Datasets read in from SAS using haven"
-        contents:
+       - title: "Original Datasets"
+         desc: "Datasets read in from SAS using haven"
+         contents:
         - rss1_raw
         - rss2_raw
         - rss3_raw
