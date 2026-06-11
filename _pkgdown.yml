@@ -56,10 +56,10 @@ navbar:
        - title: Original Datasets
          desc: Datasets read in from SAS using haven
          contents:
-            -  text:rss1_raw
-            -  text:rss2_raw
-            -  text:rss3_raw
-            -  text:rss4_raw
-            -  text:rss5_raw
-            -  text:rss6_raw
-            -  text:rss7_raw
+            -  text: rss1_raw
+            -  text: rss2_raw
+            -  text: rss3_raw
+            -  text: rss4_raw
+            -  text: rss5_raw
+            -  text: rss6_raw
+            -  text: rss7_raw
