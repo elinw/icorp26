@@ -3,7 +3,7 @@ template:
   bootstrap: 5
 navbar:
   structure:
-    left: [home, references, documents, codebooks]
+    left: [home, reference, documents, codebooks]
     right: [search, github]
   components:
        home:
@@ -41,28 +41,29 @@ navbar:
           url: codebooks/rss6_codebook
         - text: "rss7_codebook"
           url: codebooks/rss7_codebook
-       references:
+       reference:
        text: "References"
+       href: reference/index.html
        - title: "Functions"
          contents:
-         - getstarted
+           - getstarted
        - title: "Datasets"
          desc: "Datasets with factors converted and missings set"
          contents:
-        - rss1
-        - rss2
-        - rss3
-        - rss4
-        - rss5
-        - rss6
-        - rss7
+          - rss1
+          - rss2
+          - rss3
+          - rss4
+          - rss5
+          - rss6
+          - rss7
        - title: "Original Datasets"
          desc: "Datasets read in from SAS using haven"
          contents:
-        - rss1_raw
-        - rss2_raw
-        - rss3_raw
-        - rss4_raw
-        - rss5_raw
-        - rss6_raw
-      -   rss7_raw
+          - rss1_raw
+          - rss2_raw
+          - rss3_raw
+          - rss4_raw
+          - rss5_raw
+          - rss6_raw
+          - rss7_raw
