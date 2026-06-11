@@ -12,7 +12,7 @@ template:
           href: articles/introduction.html
         - text: "Your project"
           href: articles/your_project.html
-        - text: "First analysis"
+        - text: "First Analysis"
           href: articles/introduction.html
         - text: "Basic plots"
           href: articles/basic_plots.html
