@@ -84,9 +84,23 @@ data_tabulate(rss1$PAY_PAYWORRY,
 ```
 
 ```{r}
-data_tabulate(rss1$PAY_PAYWORRY, 
-              by = rss1$HIS_GENERAL,
-              remove_na = TRUE) # |> 
-   #  as_table() |>
-    # chisq.test()
+# group the data by your control variable
+rss1 |> data_group(c("P_GENDER", "HIS_GENERAL")) -> pg
+data_tabulate(pg, "PAY_PAYWORRY", 
+              
+              remove_na = TRUE) -> tableobject
+tableobject |>
+     print_html()
+tableobject |>
+     data_chisq() 
+     
+ 
 ```
+
+```{r}
+rss1 |> 
+     data_tabulate(x = rss1$PAY_PAYWORRY, 
+              by = rss1$HIS_GENERAL,
+              remove_na = TRUE)
+```
+

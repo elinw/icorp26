@@ -39,6 +39,8 @@ template:
        reference:
        - title: Functions
          contents:
+           - data_chisq
+           - basic_plots
            - getstarted
        - title: Datasets
          desc: Datasets with factors converted and missings set
