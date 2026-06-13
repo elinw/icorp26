@@ -16,12 +16,20 @@
 Datasets with factors converted and missing values set
 
 - [`rss1`](https://github.com/elinw/icorp26/reference/rss1.md) : rss1
-- [`rss2`](https://github.com/elinw/icorp26/reference/rss2.md) : rss2
+  data set
+- [`rss2`](https://github.com/elinw/icorp26/reference/rss2.md) : RSS2
+  data set
 - [`rss3`](https://github.com/elinw/icorp26/reference/rss3.md) : rss3
+  data set
 - [`rss4`](https://github.com/elinw/icorp26/reference/rss4.md) : rss4
+  data set Please review the information on the source website and the
+  rss4_codebook article.
 - [`rss5`](https://github.com/elinw/icorp26/reference/rss5.md) : rss5
+  data set
 - [`rss6`](https://github.com/elinw/icorp26/reference/rss6.md) : rss6
+  data set
 - [`rss7`](https://github.com/elinw/icorp26/reference/rss7.md) : rss7
+  data set
 
 ## Haven Datasets
 

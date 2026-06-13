@@ -1,6 +1,7 @@
-# rss6
+# rss6 data set
 
-rss6
+Please review the information on the source website and the
+rss6_codebook article.
 
 ## Usage
 

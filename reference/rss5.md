@@ -1,6 +1,7 @@
-# rss5
+# rss5 data set
 
-rss5
+Please review the information on the source website and the
+rss5_codebook article.
 
 ## Usage
 

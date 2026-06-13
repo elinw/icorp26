@@ -1,6 +1,7 @@
-# rss7
+# rss7 data set
 
-rss7
+Please review the information on the source website and the
+rss7_codebook article.
 
 ## Usage
 

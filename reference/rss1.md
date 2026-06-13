@@ -1,6 +1,7 @@
-# rss1
+# rss1 data set
 
-rss1
+Please review the information on the source website and the
+rss1_codebook article.
 
 ## Usage
 

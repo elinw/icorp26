@@ -1,6 +1,7 @@
-# rss2
+# RSS2 data set
 
-rss2
+Please review the information on the source website and the
+rss2_codebook article.
 
 ## Usage
 
