@@ -10,5 +10,5 @@ data_chisq(dwtable, ...)
 \item{dwtable}{A dwtable object.}
 }
 \description{
-Creates a file that matches the basic plots vignette
+Calculate chi square test for tabulate
 }

@@ -13,5 +13,5 @@ By default, srop2026. You should only
 run this once for a project.}
 }
 \description{
-Creates a project with a few files to get started
+Create a project and some starting files
 }
