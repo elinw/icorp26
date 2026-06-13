@@ -48,8 +48,6 @@ template:
         - text: "Two variables"
           href: articles/two_variable.html
         - text: "Your Poster"
-          text: "__________________"
-          href: articles/your_poster.html
         - title: Codebooks
         - contents:
         - text: "rss1_codebook"
