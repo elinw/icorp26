@@ -2,7 +2,7 @@
 % Please edit documentation in R/getstarted.R
 \name{create_starter}
 \alias{create_starter}
-\title{create_starter}
+\title{Creates a starter rmarkdown file}
 \usage{
 create_starter(filename)
 }

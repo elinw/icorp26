@@ -42,8 +42,6 @@ getstarted <-function(project = "srop2026" ) {
      }
 }
 
-#' create_starter
-#'
 #' Creates a starter rmarkdown file
 #'
 #' @param filename Name of the file to create
