@@ -6,8 +6,8 @@ template:
         text: "Home"
         href: index.html
        reference:
-         - title: Functions
-         contents:
+        - title: Functions
+        - contents:
            - data_chisq
            - basic_plots
            - getstarted
@@ -23,21 +23,16 @@ template:
           contents:
            - ends_with("_raw")
        articles:
+          title: Articles
           navbar: ~
-        - contents:
+          contents:
           - introduction
           - your_project
           - first_analysis
           - basic_plots
           - two_variables
           - Poster
-        - title: Codebooks
-          navbar: ~
-          contents:
-        - rss1_codebook
-        - rss2_codebook
-        - rss3_codebook
-        - rss4_codebook
-        - rss5_codebook
-        - rss6_codebook
-        - rss7_codebook
+          - title: Codebooks
+            navbar: ~
+            contents:
+            - ends_with("codebook")
