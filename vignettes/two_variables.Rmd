@@ -65,7 +65,7 @@ data_tabulate(rss1$PAY_PAYWORRY,
               by = rss1$HIS_GENERAL,
               remove_na = TRUE,
               proportions = "column",
-              name = "LC is Depression") |> 
+              name = "Worry aboout pay") |> 
      print_html()
 ```
 
@@ -85,12 +85,11 @@ data_tabulate(rss1$PAY_PAYWORRY,
 
 ```{r}
 # group the data by your control variable
-rss1 |> data_group(c("P_GENDER", "HIS_GENERAL")) -> pg
+rss1 |> data_group("P_GENDER") -> pg
 data_tabulate(pg, "PAY_PAYWORRY", 
-              
+              by = "HIS_GENERAL",
               remove_na = TRUE) -> tableobject
-tableobject |>
-     print_html()
+tableobject 
 tableobject |>
      data_chisq() 
      
