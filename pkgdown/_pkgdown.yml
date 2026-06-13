@@ -6,35 +6,23 @@ template:
         text: "Home"
         href: index.html
        reference:
-       - title: Functions
+         - title: Functions
          contents:
            - data_chisq
            - basic_plots
            - getstarted
-       - title: Datasets
-         desc: |
-           Datasets with factors converted and missing values set
-         contents:
-            - rss1
-            - rss2
-            - rss3
-            - rss4
-            - rss5
-            - rss6
-            - rss7
-       - title: Original Datasets
-         desc: |
+        - title: "Datasets"
+          desc: >
+           "Datasets with factors converted and missing values set"
+          contents:
+          - starts_with("rss")
+          - -ends_with("_raw")
+        - title: Original Datasets
+          desc: >
            Datasets read in from SAS using haven
-         contents:
-            -  rss1_raw
-            -  rss2_raw
-            -  rss3_raw
-            -  rss4_raw
-            -  rss5_raw
-            -  rss6_raw
-            -  rss7_raw
+          contents:
+           - ends_with("_raw")
        articles:
-        - title: "Documents"
           navbar: ~
         - contents:
           - introduction
