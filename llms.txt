@@ -53,11 +53,11 @@ get you started.
 - [`create_starter()`](https://github.com/elinw/icorp26/reference/create_starter.md)
   : create_starter
 - [`data_chisq()`](https://github.com/elinw/icorp26/reference/data_chisq.md)
-  : data_chisq
+  : Calculate chi square test for tabulate
 - [`basicplots()`](https://github.com/elinw/icorp26/reference/basicplots.md)
-  : basic plots
+  : Create basic one variable plots
 - [`getstarted()`](https://github.com/elinw/icorp26/reference/getstarted.md)
-  : getstarted
+  : Create a project and some starting files
 
 ## Datasets
 
