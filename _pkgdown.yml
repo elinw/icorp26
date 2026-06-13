@@ -13,7 +13,7 @@ template:
            - getstarted
        - title: Datasets
          desc: |
-           Datasets with factors converted and missings set
+           Datasets with factors converted and missing values set
          contents:
             - rss1
             - rss2
@@ -37,12 +37,12 @@ template:
         - title: "Documents"
           navbar: ~
         - contents:
-          -  "Introduction"
-          - "Your project"
-          - "First Analysis"
-          - "Basic plots"
-          - "Two variables"
-          - "Your Poster"
+          - introduction
+          - your_project
+          - first_analysis
+          - basic_plots
+          - two_variables"
+          - Poster
         - title: Codebooks
           navbar: ~
           contents:
