@@ -3,7 +3,7 @@
 \docType{data}
 \name{rss3}
 \alias{rss3}
-\title{rss3}
+\title{rss3 data set}
 \format{
 The RSS3 Data
 }
@@ -14,6 +14,8 @@ The RSS3 Data
 rss3
 }
 \description{
-rss3
+Please review the information on the
+source website and the rss3_codebook
+article.
 }
 \keyword{datasets}

@@ -3,7 +3,7 @@
 \docType{data}
 \name{rss2}
 \alias{rss2}
-\title{rss2}
+\title{RSS2 data set}
 \format{
 The RSS2 Data
 }
@@ -14,6 +14,8 @@ The RSS2 Data
 rss2
 }
 \description{
-rss2
+Please review the information on the
+source website and the rss2_codebook
+article.
 }
 \keyword{datasets}

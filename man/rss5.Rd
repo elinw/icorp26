@@ -3,7 +3,7 @@
 \docType{data}
 \name{rss5}
 \alias{rss5}
-\title{rss5}
+\title{rss5 data set}
 \format{
 The RSS5 Data
 }
@@ -14,6 +14,8 @@ The RSS5 Data
 rss5
 }
 \description{
-rss5
+Please review the information on the
+source website and the rss5_codebook
+article.
 }
 \keyword{datasets}

@@ -3,7 +3,10 @@
 \docType{data}
 \name{rss4}
 \alias{rss4}
-\title{rss4}
+\title{rss4 data set
+Please review the information on the
+source website and the rss4_codebook
+article.}
 \format{
 The RSS4 Data
 }
@@ -14,6 +17,9 @@ The RSS4 Data
 rss4
 }
 \description{
-rss4
+rss4 data set
+Please review the information on the
+source website and the rss4_codebook
+article.
 }
 \keyword{datasets}
