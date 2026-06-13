@@ -14,13 +14,13 @@ reference:
            - getstarted
         - title: Datasets
           desc: >
-           "Datasets with factors converted and missing values set"
+           Datasets with factors converted and missing values set
           contents:
           - starts_with("rss")
           - -ends_with("_raw")
-        - title: Original Datasets
+        - title: Haven Datasets
           desc: >
-           Datasets read in from SAS using haven
+           Datasets read in from SAS using haven, unchanged
           contents:
            - ends_with("_raw")
 articles:

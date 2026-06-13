@@ -1,5 +1,5 @@
 
-#' data_chisq
+#' Calculate chi square test for tabulate
 #'
 #' Creates a file that matches the basic plots vignette
 #' @param dwtable    A dwtable object.

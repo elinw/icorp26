@@ -1,4 +1,4 @@
-#' basic plots
+#' Create basic one variable plots
 #'
 #' Creates a file that matches the basic plots vignette
 #' @param project    The name of the folder to be used which

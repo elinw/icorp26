@@ -2,7 +2,7 @@
 
 library(usethis)
 library(here)
-#' getstarted
+#' Create a project and some starting files
 #'
 #' Creates a project with a few files to get started
 #' @param project    The name of the folder to be used which
