@@ -41,7 +41,7 @@ template:
           - your_project
           - first_analysis
           - basic_plots
-          - two_variables"
+          - two_variables
           - Poster
         - title: Codebooks
           navbar: ~

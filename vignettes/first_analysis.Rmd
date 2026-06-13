@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 First we load the packages we need.
 In R, packages are collections of useful data
 
-```{r}
+```{r message=FALSE}
 library(icorp26)
 library(easystats)
 library(here)
