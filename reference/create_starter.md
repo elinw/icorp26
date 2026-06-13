@@ -1,4 +1,4 @@
-# create_starter
+# Creates a starter rmarkdown file
 
 Creates a starter rmarkdown file
 

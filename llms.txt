@@ -51,7 +51,7 @@ get you started.
 ## Functions
 
 - [`create_starter()`](https://github.com/elinw/icorp26/reference/create_starter.md)
-  : create_starter
+  : Creates a starter rmarkdown file
 - [`data_chisq()`](https://github.com/elinw/icorp26/reference/data_chisq.md)
   : Calculate chi square test for tabulate
 - [`basicplots()`](https://github.com/elinw/icorp26/reference/basicplots.md)
