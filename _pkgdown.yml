@@ -37,30 +37,19 @@ template:
         - title: "Documents"
           navbar: ~
         - contents:
-        - text: "Introduction"
-          href: articles/introduction.html
-        - text: "Your project"
-          href: articles/your_project.html
-        - text: "First Analysis"
-          href: articles/introduction.html
-        - text: "Basic plots"
-          href: articles/basic_plots.html
-        - text: "Two variables"
-          href: articles/two_variable.html
-        - text: "Your Poster"
+          -  "Introduction"
+          - "Your project"
+          - "First Analysis"
+          - "Basic plots"
+          - "Two variables"
+          - "Your Poster"
         - title: Codebooks
-        - contents:
-        - text: "rss1_codebook"
-          url: codebooks/rss1_codebook
-        - text: "rss2_codebook"
-          url: codebooks/rss2_codebook
-        - text: "rss3_codebook"
-          url: codebooks/rss3_codebook
-        - text: "rss4_codebook"
-          url: codebooks/rss4_codebook
-        - text: "rss5_codebook"
-          url: codebooks/rss5_codebook
-        - text: "rss6_codebook"
-          url: codebooks/rss6_codebook
-        - text: "rss7_codebook"
-          url: codebooks/rss7_codebook
+          navbar: ~
+          contents:
+        - rss1_codebook
+        - rss2_codebook
+        - rss3_codebook
+        - rss4_codebook
+        - rss5_codebook
+        - rss6_codebook
+        - rss7_codebook
