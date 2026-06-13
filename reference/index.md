@@ -13,7 +13,7 @@
 
 ## Datasets
 
-“Datasets with factors converted and missing values set”
+Datasets with factors converted and missing values set
 
 - [`rss1`](https://github.com/elinw/icorp26/reference/rss1.md) : rss1
 - [`rss2`](https://github.com/elinw/icorp26/reference/rss2.md) : rss2
@@ -23,9 +23,9 @@
 - [`rss6`](https://github.com/elinw/icorp26/reference/rss6.md) : rss6
 - [`rss7`](https://github.com/elinw/icorp26/reference/rss7.md) : rss7
 
-## Original Datasets
+## Haven Datasets
 
-Datasets read in from SAS using haven
+Datasets read in from SAS using haven, unchanged
 
 - [`rss1_raw`](https://github.com/elinw/icorp26/reference/rss1_raw.md) :
   rss1_raw
