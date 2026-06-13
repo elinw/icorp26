@@ -1,6 +1,6 @@
 # Create a project and some starting files
 
-Creates a project with a few files to get started
+Create a project and some starting files
 
 ## Usage
 

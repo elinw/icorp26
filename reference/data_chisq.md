@@ -1,6 +1,6 @@
 # Calculate chi square test for tabulate
 
-Creates a file that matches the basic plots vignette
+Calculate chi square test for tabulate
 
 ## Usage
 
