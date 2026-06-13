@@ -2,7 +2,7 @@
 % Please edit documentation in R/getstarted.R
 \name{getstarted}
 \alias{getstarted}
-\title{getstarted}
+\title{Create a project and some starting files}
 \usage{
 getstarted(project = "srop2026")
 }

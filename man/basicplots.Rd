@@ -2,7 +2,7 @@
 % Please edit documentation in R/accesstemplates.R
 \name{basicplots}
 \alias{basicplots}
-\title{basic plots}
+\title{Create basic one variable plots}
 \usage{
 basicplots(project = "icorp26")
 }

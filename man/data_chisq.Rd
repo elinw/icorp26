@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_chisq.R
 \name{data_chisq}
 \alias{data_chisq}
-\title{data_chisq}
+\title{Calculate chi square test for tabulate}
 \usage{
 data_chisq(dwtable, ...)
 }
