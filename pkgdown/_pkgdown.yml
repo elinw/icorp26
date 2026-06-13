@@ -1,17 +1,18 @@
 url: https://github.com/elinw/icorp26
 template:
   bootstrap: 5
-  components:
-       home:
+
+home:
         text: "Home"
         href: index.html
-       reference:
+reference:
         - title: Functions
         - contents:
+           - create_starter
            - data_chisq
-           - basic_plots
+           - basicplots
            - getstarted
-        - title: "Datasets"
+        - title: Datasets
           desc: >
            "Datasets with factors converted and missing values set"
           contents:
@@ -22,17 +23,17 @@ template:
            Datasets read in from SAS using haven
           contents:
            - ends_with("_raw")
-       articles:
-          title: Articles
-          navbar: ~
-          contents:
+articles:
+       - title: Articles
+         navbar: ~
+         contents:
           - introduction
           - your_project
           - first_analysis
           - basic_plots
           - two_variables
           - Poster
-          - title: Codebooks
-            navbar: ~
-            contents:
+       - title: Codebooks
+         navbar: ~
+         contents:
             - ends_with("codebook")
