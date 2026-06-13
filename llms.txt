@@ -50,8 +50,12 @@ get you started.
 
 ## All functions
 
+- [`basicplots()`](https://github.com/elinw/icorp26/reference/basicplots.md)
+  : basic plots
 - [`create_starter()`](https://github.com/elinw/icorp26/reference/create_starter.md)
   : create_starter
+- [`data_chisq()`](https://github.com/elinw/icorp26/reference/data_chisq.md)
+  : data_chisq
 - [`getstarted()`](https://github.com/elinw/icorp26/reference/getstarted.md)
   : getstarted
 - [`rss1`](https://github.com/elinw/icorp26/reference/rss1.md) : rss1

@@ -624,7 +624,7 @@ independent variable.</p>
 <span>              by <span class="op">=</span> <span class="va">rss1</span><span class="op">$</span><span class="va">HIS_GENERAL</span>,</span>
 <span>              remove_na <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>              proportions <span class="op">=</span> <span class="st">"column"</span>,</span>
-<span>              name <span class="op">=</span> <span class="st">"LC is Depression"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>              name <span class="op">=</span> <span class="st">"Worry aboout pay"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>     <span class="fu"><a href="https://easystats.github.io/insight/reference/display.html" class="external-link">print_html</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div id="eexombwkke" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#eexombwkke table {
@@ -1141,18 +1141,79 @@ pattern.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; - One-sided CIs: upper bound fixed at [1.00].</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">PAY_PAYWORRY</span>, </span>
+<code class="sourceCode R"><span><span class="co"># group the data by your control variable</span></span>
+<span><span class="va">rss1</span> <span class="op">|&gt;</span> <span class="fu">data_group</span><span class="op">(</span><span class="st">"P_GENDER"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">pg</span></span>
+<span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">pg</span>, <span class="st">"PAY_PAYWORRY"</span>, </span>
+<span>              by <span class="op">=</span> <span class="st">"HIS_GENERAL"</span>,</span>
+<span>              remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">tableobject</span></span>
+<span><span class="va">tableobject</span> </span>
+<span><span class="co">#&gt; Grouped by P_GENDER (Female)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variable     |                        Value |                    Excellent</span></span>
+<span><span class="co">#&gt; -------------+------------------------------+-----------------------------</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |                 Very worried |                           24</span></span>
+<span><span class="co">#&gt;              |             Somewhat worried |                           94</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |           Not at all worried |                          177</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variable     |                    Very good |                         Good</span></span>
+<span><span class="co">#&gt; -------------+------------------------------+-----------------------------</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |                          123 |                          289</span></span>
+<span><span class="co">#&gt;              |                          499 |                          647</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |                          786 |                          621</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variable     |                         Fair |                         Poor |                        Total</span></span>
+<span><span class="co">#&gt; -------------+------------------------------+------------------------------+-----------------------------</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |                          181 |                           28 |                          645</span></span>
+<span><span class="co">#&gt;              |                          209 |                           27 |                         1476</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |                          146 |                           29 |                        1,759</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Grouped by P_GENDER (Male)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variable     |                      Value |                  Excellent</span></span>
+<span><span class="co">#&gt; -------------+----------------------------+---------------------------</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |               Very worried |                         23</span></span>
+<span><span class="co">#&gt;              |           Somewhat worried |                         69</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |         Not at all worried |                        240</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variable     |                  Very good |                       Good</span></span>
+<span><span class="co">#&gt; -------------+----------------------------+---------------------------</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |                         90 |                        183</span></span>
+<span><span class="co">#&gt;              |                        441 |                        558</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |                        840 |                        667</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Variable     |                       Fair |                       Poor |                      Total</span></span>
+<span><span class="co">#&gt; -------------+----------------------------+----------------------------+---------------------------</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |                        118 |                         41 |                        455</span></span>
+<span><span class="co">#&gt;              |                        173 |                         19 |                       1260</span></span>
+<span><span class="co">#&gt; PAY_PAYWORRY |                        186 |                         26 |                      1,959</span></span>
+<span><span class="va">tableobject</span> <span class="op">|&gt;</span></span>
+<span>     <span class="fu"><a href="../reference/data_chisq.html">data_chisq</a></span><span class="op">(</span><span class="op">)</span> </span>
+<span><span class="co">#&gt; $`P_GENDER (Male)`</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Pearson's Chi-squared test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  X[[i]]</span></span>
+<span><span class="co">#&gt; X-squared = 301.57, df = 8, p-value &lt; 2.2e-16</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $`P_GENDER (Female)`</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Pearson's Chi-squared test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  X[[i]]</span></span>
+<span><span class="co">#&gt; X-squared = 288.55, df = 8, p-value &lt; 2.2e-16</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">rss1</span> <span class="op">|&gt;</span> </span>
+<span>     <span class="fu">data_tabulate</span><span class="op">(</span>x <span class="op">=</span> <span class="va">rss1</span><span class="op">$</span><span class="va">PAY_PAYWORRY</span>, </span>
 <span>              by <span class="op">=</span> <span class="va">rss1</span><span class="op">$</span><span class="va">HIS_GENERAL</span>,</span>
-<span>              remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># |&gt; </span></span>
+<span>              remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; rss1$PAY_PAYWORRY  | Excellent | Very good | Good | Fair | Poor | Total</span></span>
 <span><span class="co">#&gt; -------------------+-----------+-----------+------+------+------+------</span></span>
 <span><span class="co">#&gt; Very worried       |        47 |       213 |  472 |  299 |   69 |  1100</span></span>
 <span><span class="co">#&gt; Somewhat worried   |       163 |       940 | 1205 |  382 |   46 |  2736</span></span>
 <span><span class="co">#&gt; Not at all worried |       417 |      1626 | 1288 |  332 |   55 |  3718</span></span>
 <span><span class="co">#&gt; -------------------+-----------+-----------+------+------+------+------</span></span>
-<span><span class="co">#&gt; Total              |       627 |      2779 | 2965 | 1013 |  170 |  7554</span></span>
-<span>   <span class="co">#  as_table() |&gt;</span></span>
-<span>    <span class="co"># chisq.test()</span></span></code></pre></div>
+<span><span class="co">#&gt; Total              |       627 |      2779 | 2965 | 1013 |  170 |  7554</span></span></code></pre></div>
   </main>
 </div>
 

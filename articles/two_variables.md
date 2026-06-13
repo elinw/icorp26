@@ -72,7 +72,7 @@ data_tabulate(rss1$PAY_PAYWORRY,
               by = rss1$HIS_GENERAL,
               remove_na = TRUE,
               proportions = "column",
-              name = "LC is Depression") |> 
+              name = "Worry aboout pay") |> 
      print_html()
 ```
 
@@ -104,9 +104,75 @@ data_tabulate(rss1$PAY_PAYWORRY,
 
 ``` r
 
-data_tabulate(rss1$PAY_PAYWORRY, 
+# group the data by your control variable
+rss1 |> data_group("P_GENDER") -> pg
+data_tabulate(pg, "PAY_PAYWORRY", 
+              by = "HIS_GENERAL",
+              remove_na = TRUE) -> tableobject
+tableobject 
+#> Grouped by P_GENDER (Female)
+#> 
+#> Variable     |                        Value |                    Excellent
+#> -------------+------------------------------+-----------------------------
+#> PAY_PAYWORRY |                 Very worried |                           24
+#>              |             Somewhat worried |                           94
+#> PAY_PAYWORRY |           Not at all worried |                          177
+#> 
+#> Variable     |                    Very good |                         Good
+#> -------------+------------------------------+-----------------------------
+#> PAY_PAYWORRY |                          123 |                          289
+#>              |                          499 |                          647
+#> PAY_PAYWORRY |                          786 |                          621
+#> 
+#> Variable     |                         Fair |                         Poor |                        Total
+#> -------------+------------------------------+------------------------------+-----------------------------
+#> PAY_PAYWORRY |                          181 |                           28 |                          645
+#>              |                          209 |                           27 |                         1476
+#> PAY_PAYWORRY |                          146 |                           29 |                        1,759
+#> 
+#> Grouped by P_GENDER (Male)
+#> 
+#> Variable     |                      Value |                  Excellent
+#> -------------+----------------------------+---------------------------
+#> PAY_PAYWORRY |               Very worried |                         23
+#>              |           Somewhat worried |                         69
+#> PAY_PAYWORRY |         Not at all worried |                        240
+#> 
+#> Variable     |                  Very good |                       Good
+#> -------------+----------------------------+---------------------------
+#> PAY_PAYWORRY |                         90 |                        183
+#>              |                        441 |                        558
+#> PAY_PAYWORRY |                        840 |                        667
+#> 
+#> Variable     |                       Fair |                       Poor |                      Total
+#> -------------+----------------------------+----------------------------+---------------------------
+#> PAY_PAYWORRY |                        118 |                         41 |                        455
+#>              |                        173 |                         19 |                       1260
+#> PAY_PAYWORRY |                        186 |                         26 |                      1,959
+tableobject |>
+     data_chisq() 
+#> $`P_GENDER (Male)`
+#> 
+#>  Pearson's Chi-squared test
+#> 
+#> data:  X[[i]]
+#> X-squared = 301.57, df = 8, p-value < 2.2e-16
+#> 
+#> 
+#> $`P_GENDER (Female)`
+#> 
+#>  Pearson's Chi-squared test
+#> 
+#> data:  X[[i]]
+#> X-squared = 288.55, df = 8, p-value < 2.2e-16
+```
+
+``` r
+
+rss1 |> 
+     data_tabulate(x = rss1$PAY_PAYWORRY, 
               by = rss1$HIS_GENERAL,
-              remove_na = TRUE) # |> 
+              remove_na = TRUE)
 #> rss1$PAY_PAYWORRY  | Excellent | Very good | Good | Fair | Poor | Total
 #> -------------------+-----------+-----------+------+------+------+------
 #> Very worried       |        47 |       213 |  472 |  299 |   69 |  1100
@@ -114,6 +180,4 @@ data_tabulate(rss1$PAY_PAYWORRY,
 #> Not at all worried |       417 |      1626 | 1288 |  332 |   55 |  3718
 #> -------------------+-----------+-----------+------+------+------+------
 #> Total              |       627 |      2779 | 2965 | 1013 |  170 |  7554
-   #  as_table() |>
-    # chisq.test()
 ```
