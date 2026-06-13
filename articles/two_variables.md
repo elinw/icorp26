@@ -1,4 +1,4 @@
-# two_variables
+# Analysis of two_variables
 
 ``` r
 
@@ -77,10 +77,24 @@ data_tabulate(rss1$PAY_PAYWORRY,
 | Total | 627 | 2779 | 2965 | 1013 | 170 | 7554 |
 
 Looking at the percents, we can see that those who are in excellent
-health are generally less worried than those in poor health. This
+health are generally less worried than those in poor health (7.5%
+compared to 40.6%). And the middle income groups are between these This
 doesn’t apply to everyone– there are people in poor health who are not
-worried and people in good health who are worried–but it is an overall
-pattern.
+worried and people in good health who are worried–but it is an *overall
+pattern*.
+
+One way that researchers use to talk about how strong the relationship
+is uses the concept of “effect size.” An effect size of 0 would mean
+that the two varables are totally unrelated (the column percents would
+be the same for all of the columns in our table). An effect size of 1
+would mean that we know 100% of the time what value the people in a
+column have, because they all have the same value.
+
+Cramer’s V is one way to measure effect size. For our table, the effect
+size is .19. This is only based on our sample, so the confidence
+interval gives us a general idea of what we could say about the
+population the sample is drawn from. In this case the potential values
+are pretty broad, somewhere between .18 and 1.0.
 
 ``` r
 
@@ -95,82 +109,91 @@ data_tabulate(rss1$PAY_PAYWORRY,
 #> - One-sided CIs: upper bound fixed at [1.00].
 ```
 
+Another thing that researchers usually do is to test for “statistical
+significance.”
+
+Statistical significance asks “if the true effect size *in the
+population* is 0, how likely is it that a random sample of the
+population would have a relationship the size of the relationship in our
+sample or even stronger.
+
+That is a lot! And the concept is complicated. Still, as a rule of
+thumb, many analysts say that if the probability is less than 5% (or p
+\< .05) that they are comfortable saying they “reject the null
+hypothesis” that there is no relationship between the variables.
+
+A common way of doing this for two categorical (nominal) variables is
+with the chi square test.
+
 ``` r
 
 # group the data by your control variable
-rss1 |> data_group("P_GENDER") -> pg
-data_tabulate(pg, "PAY_PAYWORRY", 
+
+data_tabulate(rss1, "PAY_PAYWORRY", 
               by = "HIS_GENERAL",
-              remove_na = TRUE) -> tableobject
-tableobject 
-#> Grouped by P_GENDER (Female)
-#> 
-#> Variable     |                        Value |                    Excellent
-#> -------------+------------------------------+-----------------------------
-#> PAY_PAYWORRY |                 Very worried |                           24
-#>              |             Somewhat worried |                           94
-#> PAY_PAYWORRY |           Not at all worried |                          177
-#> 
-#> Variable     |                    Very good |                         Good
-#> -------------+------------------------------+-----------------------------
-#> PAY_PAYWORRY |                          123 |                          289
-#>              |                          499 |                          647
-#> PAY_PAYWORRY |                          786 |                          621
-#> 
-#> Variable     |                         Fair |                         Poor |                        Total
-#> -------------+------------------------------+------------------------------+-----------------------------
-#> PAY_PAYWORRY |                          181 |                           28 |                          645
-#>              |                          209 |                           27 |                         1476
-#> PAY_PAYWORRY |                          146 |                           29 |                        1,759
-#> 
-#> Grouped by P_GENDER (Male)
-#> 
-#> Variable     |                      Value |                  Excellent
-#> -------------+----------------------------+---------------------------
-#> PAY_PAYWORRY |               Very worried |                         23
-#>              |           Somewhat worried |                         69
-#> PAY_PAYWORRY |         Not at all worried |                        240
-#> 
-#> Variable     |                  Very good |                       Good
-#> -------------+----------------------------+---------------------------
-#> PAY_PAYWORRY |                         90 |                        183
-#>              |                        441 |                        558
-#> PAY_PAYWORRY |                        840 |                        667
-#> 
-#> Variable     |                       Fair |                       Poor |                      Total
-#> -------------+----------------------------+----------------------------+---------------------------
-#> PAY_PAYWORRY |                        118 |                         41 |                        455
-#>              |                        173 |                         19 |                       1260
-#> PAY_PAYWORRY |                        186 |                         26 |                      1,959
-tableobject |>
+              remove_na = TRUE) |> 
      data_chisq() 
-#> $`P_GENDER (Male)`
 #> 
 #>  Pearson's Chi-squared test
 #> 
 #> data:  X[[i]]
-#> X-squared = 301.57, df = 8, p-value < 2.2e-16
-#> 
-#> 
-#> $`P_GENDER (Female)`
-#> 
-#>  Pearson's Chi-squared test
-#> 
-#> data:  X[[i]]
-#> X-squared = 288.55, df = 8, p-value < 2.2e-16
+#> X-squared = 566.16, df = 8, p-value < 2.2e-16
 ```
+
+Because the p-value is less than .05 (\< 2.2e-16) convention says we can
+reject the null hypothesis.
+
+In case it has been a while since you used scientific notation the
+`e-16` means we could translate that number to:
+
+.000000000000000022
+
+which is definitely less that .05!
+
+In this case because the variables are both ordered we could also use a
+test (and effect size measure) such as Kendall’s tau if we convert them
+to numbers. This requires some assumptions, but we can see
 
 ``` r
 
-rss1 |> 
-     data_tabulate(x = rss1$PAY_PAYWORRY, 
-              by = rss1$HIS_GENERAL,
-              remove_na = TRUE)
-#> rss1$PAY_PAYWORRY  | Excellent | Very good | Good | Fair | Poor | Total
-#> -------------------+-----------+-----------+------+------+------+------
-#> Very worried       |        47 |       213 |  472 |  299 |   69 |  1100
-#> Somewhat worried   |       163 |       940 | 1205 |  382 |   46 |  2736
-#> Not at all worried |       417 |      1626 | 1288 |  332 |   55 |  3718
-#> -------------------+-----------+-----------+------+------+------+------
-#> Total              |       627 |      2779 | 2965 | 1013 |  170 |  7554
+cor.test(as.numeric(rss1$PAY_PAYWORRY),  as.numeric(rss1$HIS_GENERAL),
+                            method = "kendall", 
+                            alternative = "two.sided")
+#> 
+#>  Kendall's rank correlation tau
+#> 
+#> data:  as.numeric(rss1$PAY_PAYWORRY) and as.numeric(rss1$HIS_GENERAL)
+#> z = -21.472, p-value < 2.2e-16
+#> alternative hypothesis: true tau is not equal to 0
+#> sample estimates:
+#>        tau 
+#> -0.2194263
 ```
+
+In this analysis the value of tau is -0.219. How can it be negative?
+Weren’t they supposed to be between 0 and 1? The answer is that the
+absolute size is between 0 and 1 if you take the absolute value, which
+means turning a negative number into a positive number.  
+So the effect size using tau is slightly larger than that using Cramer’s
+V.
+
+The negative sign gives us some additional information about the
+*direction* of the relationship. In this case, as the value of one
+variable goes up, the value of the other variable goes down. So the
+higher the score on health status, the lower the score on worry. What is
+going on?
+
+If we look at a table of how the numeric and non numeric varsions of
+GENERAL_HIS related to each other, we see that people in *poor* health
+were scored with a 5, while people in *excellent* health were scored
+with a 1. So the higher someone’s score, the worse their health.
+
+When we do the same for PAY_PAYWORRY, the people who were very worried
+got a 1 and the not at all worried got a 3. So the higher the scor, the
+less the worry.
+
+So, as we would expect, the negative sign indicates that as
+self-reported health gets worse, worry about pay gets worse.
+
+This is why it is very important to always make sure you understand your
+variables before working with them or interpreting the results.

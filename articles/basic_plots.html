@@ -37,7 +37,7 @@
     <li><a class="dropdown-item" href="../articles/your_project.html">Your project</a></li>
     <li><a class="dropdown-item" href="../articles/first_analysis.html">First analysis</a></li>
     <li><a class="dropdown-item" href="../articles/basic_plots.html">Basic plots</a></li>
-    <li><a class="dropdown-item" href="../articles/two_variables.html">two_variables</a></li>
+    <li><a class="dropdown-item" href="../articles/two_variables.html">Analysis of two_variables</a></li>
     <li><a class="dropdown-item" href="../articles/Poster.html">Poster</a></li>
     <li><a class="dropdown-item" href="../articles/rss1_codebook.html">rss1_codebook</a></li>
     <li><a class="dropdown-item" href="../articles/rss2_codebook.html">rss2 Codebook</a></li>
@@ -112,6 +112,21 @@ package and some extra options.</p>
 <span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html" class="external-link">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Marital Status"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="basic_plots_files/figure-html/unnamed-chunk-4-3.png" class="r-plt" alt="" width="700"></p>
+<p>A histogram is one way to present a distribution of a numeric
+variable is using a histogram. For this example I will use full ggplot
+code.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">rss1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">P_INCOME_R</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html" class="external-link">geom_histogram</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value `binwidth`.</span></span></code></pre></div>
+<p><img src="basic_plots_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" alt="" width="700"></p>
+<p>Here is an example of the bar plot using ggplot.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">rss1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">MARSTAT</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html" class="external-link">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html" class="external-link">coord_flip</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Marital Status"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="basic_plots_files/figure-html/unnamed-chunk-6-1.png" class="r-plt" alt="" width="700"></p>
 <p>They definitely are more complex, but you also have a huge amount of
 flexibility. You can change colors,shapes, sizes and more.</p>
   </main>

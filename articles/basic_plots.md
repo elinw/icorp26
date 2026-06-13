@@ -61,5 +61,29 @@ data_tabulate(rss1$MARSTAT) |>
 
 ![](basic_plots_files/figure-html/unnamed-chunk-4-3.png)
 
+A histogram is one way to present a distribution of a numeric variable
+is using a histogram. For this example I will use full ggplot code.
+
+``` r
+
+ggplot(rss1, aes(as.numeric(P_INCOME_R))) +
+     geom_histogram()
+#> `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
+```
+
+![](basic_plots_files/figure-html/unnamed-chunk-5-1.png)
+
+Here is an example of the bar plot using ggplot.
+
+``` r
+
+ggplot(rss1, aes(MARSTAT)) +
+     geom_bar() +
+     coord_flip() +
+     labs(title = "Marital Status")
+```
+
+![](basic_plots_files/figure-html/unnamed-chunk-6-1.png)
+
 They definitely are more complex, but you also have a huge amount of
 flexibility. You can change colors,shapes, sizes and more.

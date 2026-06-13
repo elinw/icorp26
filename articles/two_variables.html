@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>two_variables • icorp26</title>
+<title>Analysis of two_variables • icorp26</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="two_variables">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Analysis of two_variables">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -37,7 +37,7 @@
     <li><a class="dropdown-item" href="../articles/your_project.html">Your project</a></li>
     <li><a class="dropdown-item" href="../articles/first_analysis.html">First analysis</a></li>
     <li><a class="dropdown-item" href="../articles/basic_plots.html">Basic plots</a></li>
-    <li><a class="dropdown-item" href="../articles/two_variables.html">two_variables</a></li>
+    <li><a class="dropdown-item" href="../articles/two_variables.html">Analysis of two_variables</a></li>
     <li><a class="dropdown-item" href="../articles/Poster.html">Poster</a></li>
     <li><a class="dropdown-item" href="../articles/rss1_codebook.html">rss1_codebook</a></li>
     <li><a class="dropdown-item" href="../articles/rss2_codebook.html">rss2 Codebook</a></li>
@@ -67,7 +67,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>two_variables</h1>
+      <h1>Analysis of two_variables</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/elinw/icorp26/blob/main/vignettes/two_variables.Rmd"><code>vignettes/two_variables.Rmd</code></a></small>
@@ -1119,10 +1119,22 @@ independent variable.</p>
 </table>
 </div>
 <p>Looking at the percents, we can see that those who are in excellent
-health are generally less worried than those in poor health. This
+health are generally less worried than those in poor health (7.5%
+compared to 40.6%). And the middle income groups are between these This
 doesn’t apply to everyone– there are people in poor health who are not
-worried and people in good health who are worried–but it is an overall
-pattern.</p>
+worried and people in good health who are worried–but it is an
+<em>overall pattern</em>.</p>
+<p>One way that researchers use to talk about how strong the
+relationship is uses the concept of “effect size.” An effect size of 0
+would mean that the two varables are totally unrelated (the column
+percents would be the same for all of the columns in our table). An
+effect size of 1 would mean that we know 100% of the time what value the
+people in a column have, because they all have the same value.</p>
+<p>Cramer’s V is one way to measure effect size. For our table, the
+effect size is .19. This is only based on our sample, so the confidence
+interval gives us a general idea of what we could say about the
+population the sample is drawn from. In this case the potential values
+are pretty broad, somewhere between .18 and 1.0.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">PAY_PAYWORRY</span>, </span>
 <span>              by <span class="op">=</span> <span class="va">rss1</span><span class="op">$</span><span class="va">HIS_GENERAL</span>,</span>
@@ -1133,80 +1145,75 @@ pattern.</p>
 <span><span class="co">#&gt; 0.19              | [0.18, 1.00]</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; - One-sided CIs: upper bound fixed at [1.00].</span></span></code></pre></div>
+<p>Another thing that researchers usually do is to test for “statistical
+significance.”</p>
+<p>Statistical significance asks “if the true effect size <em>in the
+population</em> is 0, how likely is it that a random sample of the
+population would have a relationship the size of the relationship in our
+sample or even stronger.</p>
+<p>That is a lot! And the concept is complicated. Still, as a rule of
+thumb, many analysts say that if the probability is less than 5% (or p
+&lt; .05) that they are comfortable saying they “reject the null
+hypothesis” that there is no relationship between the variables.</p>
+<p>A common way of doing this for two categorical (nominal) variables is
+with the chi square test.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># group the data by your control variable</span></span>
-<span><span class="va">rss1</span> <span class="op">|&gt;</span> <span class="fu">data_group</span><span class="op">(</span><span class="st">"P_GENDER"</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">pg</span></span>
-<span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">pg</span>, <span class="st">"PAY_PAYWORRY"</span>, </span>
+<span></span>
+<span><span class="fu">data_tabulate</span><span class="op">(</span><span class="va">rss1</span>, <span class="st">"PAY_PAYWORRY"</span>, </span>
 <span>              by <span class="op">=</span> <span class="st">"HIS_GENERAL"</span>,</span>
-<span>              remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">tableobject</span></span>
-<span><span class="va">tableobject</span> </span>
-<span><span class="co">#&gt; Grouped by P_GENDER (Female)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Variable     |                        Value |                    Excellent</span></span>
-<span><span class="co">#&gt; -------------+------------------------------+-----------------------------</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |                 Very worried |                           24</span></span>
-<span><span class="co">#&gt;              |             Somewhat worried |                           94</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |           Not at all worried |                          177</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Variable     |                    Very good |                         Good</span></span>
-<span><span class="co">#&gt; -------------+------------------------------+-----------------------------</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |                          123 |                          289</span></span>
-<span><span class="co">#&gt;              |                          499 |                          647</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |                          786 |                          621</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Variable     |                         Fair |                         Poor |                        Total</span></span>
-<span><span class="co">#&gt; -------------+------------------------------+------------------------------+-----------------------------</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |                          181 |                           28 |                          645</span></span>
-<span><span class="co">#&gt;              |                          209 |                           27 |                         1476</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |                          146 |                           29 |                        1,759</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Grouped by P_GENDER (Male)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Variable     |                      Value |                  Excellent</span></span>
-<span><span class="co">#&gt; -------------+----------------------------+---------------------------</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |               Very worried |                         23</span></span>
-<span><span class="co">#&gt;              |           Somewhat worried |                         69</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |         Not at all worried |                        240</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Variable     |                  Very good |                       Good</span></span>
-<span><span class="co">#&gt; -------------+----------------------------+---------------------------</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |                         90 |                        183</span></span>
-<span><span class="co">#&gt;              |                        441 |                        558</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |                        840 |                        667</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Variable     |                       Fair |                       Poor |                      Total</span></span>
-<span><span class="co">#&gt; -------------+----------------------------+----------------------------+---------------------------</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |                        118 |                         41 |                        455</span></span>
-<span><span class="co">#&gt;              |                        173 |                         19 |                       1260</span></span>
-<span><span class="co">#&gt; PAY_PAYWORRY |                        186 |                         26 |                      1,959</span></span>
-<span><span class="va">tableobject</span> <span class="op">|&gt;</span></span>
+<span>              remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>     <span class="fu"><a href="../reference/data_chisq.html">data_chisq</a></span><span class="op">(</span><span class="op">)</span> </span>
-<span><span class="co">#&gt; $`P_GENDER (Male)`</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  Pearson's Chi-squared test</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; data:  X[[i]]</span></span>
-<span><span class="co">#&gt; X-squared = 301.57, df = 8, p-value &lt; 2.2e-16</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $`P_GENDER (Female)`</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;  Pearson's Chi-squared test</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; data:  X[[i]]</span></span>
-<span><span class="co">#&gt; X-squared = 288.55, df = 8, p-value &lt; 2.2e-16</span></span></code></pre></div>
+<span><span class="co">#&gt; X-squared = 566.16, df = 8, p-value &lt; 2.2e-16</span></span></code></pre></div>
+<p>Because the p-value is less than .05 (&lt; 2.2e-16) convention says
+we can reject the null hypothesis.</p>
+<p>In case it has been a while since you used scientific notation the
+<code>e-16</code> means we could translate that number to:</p>
+<p>.000000000000000022</p>
+<p>which is definitely less that .05!</p>
+<p>In this case because the variables are both ordered we could also use
+a test (and effect size measure) such as Kendall’s tau if we convert
+them to numbers. This requires some assumptions, but we can see</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">rss1</span> <span class="op">|&gt;</span> </span>
-<span>     <span class="fu">data_tabulate</span><span class="op">(</span>x <span class="op">=</span> <span class="va">rss1</span><span class="op">$</span><span class="va">PAY_PAYWORRY</span>, </span>
-<span>              by <span class="op">=</span> <span class="va">rss1</span><span class="op">$</span><span class="va">HIS_GENERAL</span>,</span>
-<span>              remove_na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; rss1$PAY_PAYWORRY  | Excellent | Very good | Good | Fair | Poor | Total</span></span>
-<span><span class="co">#&gt; -------------------+-----------+-----------+------+------+------+------</span></span>
-<span><span class="co">#&gt; Very worried       |        47 |       213 |  472 |  299 |   69 |  1100</span></span>
-<span><span class="co">#&gt; Somewhat worried   |       163 |       940 | 1205 |  382 |   46 |  2736</span></span>
-<span><span class="co">#&gt; Not at all worried |       417 |      1626 | 1288 |  332 |   55 |  3718</span></span>
-<span><span class="co">#&gt; -------------------+-----------+-----------+------+------+------+------</span></span>
-<span><span class="co">#&gt; Total              |       627 |      2779 | 2965 | 1013 |  170 |  7554</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html" class="external-link">cor.test</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">PAY_PAYWORRY</span><span class="op">)</span>,  <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">rss1</span><span class="op">$</span><span class="va">HIS_GENERAL</span><span class="op">)</span>,</span>
+<span>                            method <span class="op">=</span> <span class="st">"kendall"</span>, </span>
+<span>                            alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Kendall's rank correlation tau</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  as.numeric(rss1$PAY_PAYWORRY) and as.numeric(rss1$HIS_GENERAL)</span></span>
+<span><span class="co">#&gt; z = -21.472, p-value &lt; 2.2e-16</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true tau is not equal to 0</span></span>
+<span><span class="co">#&gt; sample estimates:</span></span>
+<span><span class="co">#&gt;        tau </span></span>
+<span><span class="co">#&gt; -0.2194263</span></span></code></pre></div>
+<p>In this analysis the value of tau is -0.219. How can it be negative?
+Weren’t they supposed to be between 0 and 1? The answer is that the
+absolute size is between 0 and 1 if you take the absolute value, which
+means turning a negative number into a positive number.<br>
+So the effect size using tau is slightly larger than that using Cramer’s
+V.</p>
+<p>The negative sign gives us some additional information about the
+<em>direction</em> of the relationship. In this case, as the value of
+one variable goes up, the value of the other variable goes down. So the
+higher the score on health status, the lower the score on worry. What is
+going on?</p>
+<p>If we look at a table of how the numeric and non numeric varsions of
+GENERAL_HIS related to each other, we see that people in <em>poor</em>
+health were scored with a 5, while people in <em>excellent</em> health
+were scored with a 1. So the higher someone’s score, the worse their
+health.</p>
+<p>When we do the same for PAY_PAYWORRY, the people who were very
+worried got a 1 and the not at all worried got a 3. So the higher the
+scor, the less the worry.</p>
+<p>So, as we would expect, the negative sign indicates that as
+self-reported health gets worse, worry about pay gets worse.</p>
+<p>This is why it is very important to always make sure you understand
+your variables before working with them or interpreting the results.</p>
   </main>
 </div>
 
