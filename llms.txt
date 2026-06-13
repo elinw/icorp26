@@ -48,48 +48,64 @@ get you started.
 
 # Package index
 
-## All functions
+## Functions
 
-- [`basicplots()`](https://github.com/elinw/icorp26/reference/basicplots.md)
-  : basic plots
 - [`create_starter()`](https://github.com/elinw/icorp26/reference/create_starter.md)
   : create_starter
 - [`data_chisq()`](https://github.com/elinw/icorp26/reference/data_chisq.md)
   : data_chisq
+- [`basicplots()`](https://github.com/elinw/icorp26/reference/basicplots.md)
+  : basic plots
 - [`getstarted()`](https://github.com/elinw/icorp26/reference/getstarted.md)
   : getstarted
+
+## Datasets
+
+“Datasets with factors converted and missing values set”
+
 - [`rss1`](https://github.com/elinw/icorp26/reference/rss1.md) : rss1
+- [`rss2`](https://github.com/elinw/icorp26/reference/rss2.md) : rss2
+- [`rss3`](https://github.com/elinw/icorp26/reference/rss3.md) : rss3
+- [`rss4`](https://github.com/elinw/icorp26/reference/rss4.md) : rss4
+- [`rss5`](https://github.com/elinw/icorp26/reference/rss5.md) : rss5
+- [`rss6`](https://github.com/elinw/icorp26/reference/rss6.md) : rss6
+- [`rss7`](https://github.com/elinw/icorp26/reference/rss7.md) : rss7
+
+## Original Datasets
+
+Datasets read in from SAS using haven
+
 - [`rss1_raw`](https://github.com/elinw/icorp26/reference/rss1_raw.md) :
   rss1_raw
-- [`rss2`](https://github.com/elinw/icorp26/reference/rss2.md) : rss2
 - [`rss2_raw`](https://github.com/elinw/icorp26/reference/rss2_raw.md) :
   rss2_raw
-- [`rss3`](https://github.com/elinw/icorp26/reference/rss3.md) : rss3
 - [`rss3_raw`](https://github.com/elinw/icorp26/reference/rss3_raw.md) :
   rss3_raw
-- [`rss4`](https://github.com/elinw/icorp26/reference/rss4.md) : rss4
 - [`rss4_raw`](https://github.com/elinw/icorp26/reference/rss4_raw.md) :
   rss4_raw
-- [`rss5`](https://github.com/elinw/icorp26/reference/rss5.md) : rss5
 - [`rss5_raw`](https://github.com/elinw/icorp26/reference/rss5_raw.md) :
   rss5_raw
-- [`rss6`](https://github.com/elinw/icorp26/reference/rss6.md) : rss6
 - [`rss6_raw`](https://github.com/elinw/icorp26/reference/rss6_raw.md) :
   rss6_raw
-- [`rss7`](https://github.com/elinw/icorp26/reference/rss7.md) : rss7
 - [`rss7_raw`](https://github.com/elinw/icorp26/reference/rss7_raw.md) :
   rss7_raw
 
 # Articles
 
-### All vignettes
+### Articles
 
-- [Basic
-  plots](https://github.com/elinw/icorp26/articles/basic_plots.md):
+- [Introduction](https://github.com/elinw/icorp26/articles/introduction.md):
+- [Your
+  project](https://github.com/elinw/icorp26/articles/your_project.md):
 - [First
   analysis](https://github.com/elinw/icorp26/articles/first_analysis.md):
-- [Introduction](https://github.com/elinw/icorp26/articles/introduction.md):
+- [Basic
+  plots](https://github.com/elinw/icorp26/articles/basic_plots.md):
+- [two_variables](https://github.com/elinw/icorp26/articles/two_variables.md):
 - [Poster](https://github.com/elinw/icorp26/articles/Poster.md):
+
+### Codebooks
+
 - [rss1_codebook](https://github.com/elinw/icorp26/articles/rss1_codebook.md):
 - [rss2
   Codebook](https://github.com/elinw/icorp26/articles/rss2_codebook.md):
@@ -103,6 +119,3 @@ get you started.
   Codebook](https://github.com/elinw/icorp26/articles/rss6_codebook.md):
 - [rss7
   Codebook](https://github.com/elinw/icorp26/articles/rss7_codebook.md):
-- [two_variables](https://github.com/elinw/icorp26/articles/two_variables.md):
-- [Your
-  project](https://github.com/elinw/icorp26/articles/your_project.md):
