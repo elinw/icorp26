@@ -1,5 +1,5 @@
 ---
-title: "Analysis of two_variables"
+title: "Analysis of two variables"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Analysis of two_variables}
@@ -10,7 +10,7 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = ""
 )
 ```
 
@@ -41,7 +41,8 @@ health would be more worried
 
 
 ```{r}
-data_tabulate(rss1$PAY_PAYWORRY, by = rss1$HIS_GENERAL)
+data_tabulate(rss1$PAY_PAYWORRY, 
+              by = rss1$HIS_GENERAL)
 ```
 
 We can make this more readable by dropping the 
@@ -154,33 +155,58 @@ which is definitely less that .05!
 
 In this case because the variables 
 are both ordered we could also use a test
-(and effect size measure) such as Kendall's tau
-if we convert them to numbers.  This requires
-some assumptions, but we can see 
+(and effect size measure) such as polychoric
+correlation that produces a statistic 
+called _rho_. 
+
 
 ```{r}
-cor.test(as.numeric(rss1$PAY_PAYWORRY),  as.numeric(rss1$HIS_GENERAL),
-                            method = "kendall", 
-                            alternative = "two.sided")
+correlation(rss1,
+            select =
+              c("PAY_PAYWORRY",
+             "HIS_GENERAL"),
+           method = "polychoric", 
+           include_factors = TRUE
+            ) |>
+     print_html()
 ```
 
 
-In this analysis the value of tau is -0.219.
+In this analysis the value of rho is -0.30.
 How can it be negative? Weren't they supposed
 to be between 0 and 1?  The answer is
-that the absolute size is between 0 and 1
-if you take the absolute value, which means
+that the size is between 0 and 1
+if you take the _absolute value_, which means
 turning a negative number into a positive number.  
 So the effect size using tau is slightly 
-larger than that using Cramer's V.
+larger than that using Cramer's V, although
+they are not perfectly comparable.
 
 The negative sign gives us some additional
 information about the _direction_ of the
 relationship.  In this case, as the value
 of one variable goes up, the value of the 
 other variable goes down. So the 
-higher the score on health status, the lower
-the score on worry. What is going on? 
+higher the score on health status, the lowerthe score on worry. What is going on? 
+
+```{r}
+rss1 |> 
+  data_tabulate(x = rss1$HIS_GENERAL, 
+                by =
+                 as.numeric(rss1$HIS_GENERAL), 
+                remove_na = TRUE) |>
+  print_html()
+
+
+
+rss1 |> 
+  data_tabulate(x = rss1$PAY_PAYWORRY, 
+                by =  
+                 as.numeric(rss1$PAY_PAYWORRY),
+                remove_na = TRUE) |>
+   print_html()
+```
+
 
 If we look at a table of how the numeric 
 and non numeric varsions of GENERAL_HIS
@@ -189,6 +215,8 @@ in *poor* health were scored with a 5,
 while people in *excellent* health 
 were scored with a 1.  So the higher
 someone's score, the worse their health.
+
+
 
 When we do the same for PAY_PAYWORRY, 
 the people who were very worried got 
