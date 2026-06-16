@@ -1,0 +1,37 @@
+---
+title: "More graphs"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{More graphs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = ""
+)
+```
+
+```{r setup}
+library(icorp26)
+library(easystats)
+library(ggplot2)
+```
+
+```{r}
+
+correlation(rss1,
+            select =
+              c("PAY_PAYWORRY",
+             "HIS_GENERAL"),
+           method = "polychoric", 
+           include_factors = TRUE
+            ) ->
+     results
+     plot(summary(results), 
+          show_data = "points")
+```
+
+

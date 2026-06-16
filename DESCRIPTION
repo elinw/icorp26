@@ -54,5 +54,8 @@ Collate:
      "rss7_raw.R"
      "accesstemplates.R"
      "data_chisq.R"
+     "data_bar.R"
+     "data_histogram.R"
+     "data_pie.R"
 Config/roxygen2/version: 8.0.0
 Config/Needs/website: rmarkdown
