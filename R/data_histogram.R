@@ -7,9 +7,12 @@ data_histogram <- function(x, i = 1, xlab = NULL, title = NULL,
 
                      values = NULL, ...){
 
+     if (!is.null(values)) {
+       br <-length(values)
+     } else {
+       br <- n_unique(x)
+      }
 
-     br <-length(x)
-     names(table1) <-values
-     hist (table1, freq = TRUE,
-           labels = values, main = title)
+     hist (x,labels = values,
+           breaks = br, main = title)
 }
