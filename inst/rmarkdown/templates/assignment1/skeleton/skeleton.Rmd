@@ -1,0 +1,178 @@
+---
+title: "Assignment 1"
+author: "Your Name"
+date: sys.date()
+output: 
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+```{r}
+library(icorp26)
+library(easystats)
+library(ggplot2)
+```
+
+
+The raw data is located here:
+
+https://raw.githubusercontent.com/elinw/icorp26/refs/heads/main/data-raw/juan/battle-assignment1-data.csv
+
+You can read the data from the URL directly into
+an R dataset.
+
+```{r}
+mydata <- read.csv(
+     "https://raw.githubusercontent.com/elinw/icorp26/refs/heads/main/data-raw/juan/battle-assignment1-data.csv"
+)
+```
+Let's see what the data look like.
+
+```{r}
+mydata
+```
+*Question: How are the variable names different 
+from what you see on the url?*
+
+
+Notice that each row represents 1 person and 
+each column represents one variable.
+
+You can also type
+
+View(mydata) to see the data on a tab.
+
+If you look in the "Environment" tab on the 
+top right window you should see mydata listed.
+
+You can get a quick summary of the dataset.
+
+```{r}
+report(mydata)
+```
+
+```{r}
+
+```
+
+
+Let's make frequency tables.
+
+Here's an example for gender.
+```{r}
+data_tabulate(mydata$Gender)
+```
+
+
+```{r}
+data_tabulate(mydata$Support.for.Gun.Control)
+```
+You do the same thing for Level.of.Education and Age 
+in the code chunks below.
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+Try a frequency table for `ID`.  
+```{r}
+
+```
+
+
+*Question: Why did Prof. Battle say not to a frequency
+table of `ID`?*
+
+
+Let's get modes.
+
+```{r}
+distribution_mode(mydata$Gender)
+```
+
+Now try doing the same thing for `Support.for.Gun.Control`
+
+```{r}
+
+```
+
+
+
+Let's use the same logic to get get the mean of
+`Level.of.Education`. You need to fill
+in what is needed inside the `()`.
+
+```{r}
+mean()
+```
+
+Now follow the same pattern for `Age`.
+
+```{r}
+
+```
+
+
+## Graphs
+
+Let's start with a pie chart for `Gender`.
+
+```{r}
+
+data_pie(mydata$Gender, 
+         labels = c("Male", "Female"),
+         title = "Gender")
+```
+
+Now you do the same for `Support.for.Gun.Control`.
+
+```{r}
+
+```
+
+Now use the same logic but this time with 
+`data_bar()`  to make barplots for `Gender` and 
+`Support.for.Gun.Control`. 
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+Now make a pie chart for education.
+This is more work because there are more labels.
+
+```{r}
+
+```
+
+For histograms use the same pattern, but using values
+option 
+
+```{r}
+data_histogram(mydata$Level.of.Education,
+                          
+               title = "Level of Education"
+               )
+```
+
+
+
+Just for fun try it as a bar chart using `data_bar()`.
+
+
+```{r}
+
+```
+
