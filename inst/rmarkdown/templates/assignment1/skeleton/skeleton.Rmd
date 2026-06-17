@@ -5,7 +5,8 @@ date: sys.date()
 output: 
   word_document: default
   html_document: default
-  pdf_document: default
+  pdf_document:
+    latex_engine: xelatex
 ---
 
 ```{r setup, include=FALSE}
