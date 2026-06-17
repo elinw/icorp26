@@ -10,9 +10,9 @@ data_histogram <- function(x, i = 1, xlab = NULL, title = NULL,
      if (!is.null(values)) {
        br <-length(values)
      } else {
-       br <- n_unique(x)
+       br <- n_unique(x) + 1
       }
 
-     hist (x,labels = values,
+     hist (x, labels = values,
            breaks = br, main = title)
 }
