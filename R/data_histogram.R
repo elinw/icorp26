@@ -13,6 +13,8 @@ data_histogram <- function(x, i = 1, xlab = NULL, title = NULL,
        br <- n_unique(x) + 1
       }
 
-     hist (x, labels = values,
-           breaks = br, main = title)
+     hist (x,
+           breaks = c(0:br), main = title, xlab= "")
+     axis(1, 1:(br), labels  = values, las =2,
+          tick = FALSE, padj= -1.5, cex.axis = .5)
 }

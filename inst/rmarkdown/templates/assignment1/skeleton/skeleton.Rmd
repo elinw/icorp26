@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, comment = "")
 ```
 ```{r}
 library(icorp26)
@@ -54,11 +54,6 @@ You can get a quick summary of the dataset.
 ```{r}
 report(mydata)
 ```
-
-```{r}
-
-```
-
 
 Let's make frequency tables.
 
@@ -111,7 +106,7 @@ Let's use the same logic to get get the mean of
 in what is needed inside the `()`.
 
 ```{r}
-mean()
+#mean()
 ```
 
 Now follow the same pattern for `Age`.
@@ -157,14 +152,12 @@ This is more work because there are more labels.
 
 ```
 
-For histograms use the same pattern, but using values
-option 
+For histograms use the same pattern, but with
+`data_histogram()`.  
+
 
 ```{r}
-data_histogram(mydata$Level.of.Education,
-                          
-               title = "Level of Education"
-               )
+
 ```
 
 
