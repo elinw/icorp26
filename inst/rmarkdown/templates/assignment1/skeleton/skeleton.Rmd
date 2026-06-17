@@ -107,7 +107,7 @@ Let's use the same logic to get get the mean of
 in what is needed inside the `()`.
 
 ```{r}
-#mean()
+mean()
 ```
 
 Now follow the same pattern for `Age`.

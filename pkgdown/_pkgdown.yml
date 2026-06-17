@@ -9,9 +9,13 @@ reference:
         - title: Functions
         - contents:
            - create_starter
+           - data_bar
+           - data_histogram
+           - data_pie
            - data_chisq
            - basicplots
            - getstarted
+           - assignment1
         - title: Datasets
           desc: >
            Datasets with factors converted and missing values set
