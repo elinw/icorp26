@@ -5,7 +5,7 @@
 #'                   should be coerced to numeric.
 #'
 #' @export
-data_mean <- function(x, remove_na = TRUE, to_numeric = FALSE) {
+distribution_mean <- function(x, remove_na = TRUE, to_numeric = FALSE) {
   if (is.factor(x)) {
     x <- datawizard::to_numeric(x)
   }
@@ -19,7 +19,7 @@ data_mean <- function(x, remove_na = TRUE, to_numeric = FALSE) {
 #'                   should be coerced to numeric.
 #'
 #' @export
-data_median <- function(x, remove_na = TRUE, to_numeric = FALSE) {
+distribution_median <- function(x, remove_na = TRUE, to_numeric = FALSE) {
   if (is.factor(x)) {
     x <- datawizard::to_numeric(x)
   }
@@ -33,7 +33,7 @@ data_median <- function(x, remove_na = TRUE, to_numeric = FALSE) {
 #'                   should be coerced to numeric.
 #'
 #' @export
-data_variance <- function(x, remove_na = TRUE, to_numeric = FALSE) {
+distribution_variance <- function(x, remove_na = TRUE, to_numeric = FALSE) {
   if (is.factor(x)) {
     x <- datawizard::to_numeric(x)
   }
@@ -47,7 +47,7 @@ data_variance <- function(x, remove_na = TRUE, to_numeric = FALSE) {
 #' should be coerced to numeric.
 #'
 #' @export
-data_sd <- function(x, remove_na = TRUE, to_numeric = FALSE) {
+distribution_sd <- function(x, remove_na = TRUE, to_numeric = FALSE) {
   if (is.factor(x)) {
     x <- datawizard::to_numeric(x)
   }

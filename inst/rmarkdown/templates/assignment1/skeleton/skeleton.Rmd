@@ -1,7 +1,7 @@
 ---
 title: "Assignment 1"
 author: "Your Name"
-date: sys.date()
+date: Sys.Date()
 output: 
   word_document: default
   html_document: default
@@ -107,7 +107,7 @@ Let's use the same logic to get get the mean of
 in what is needed inside the `()`.
 
 ```{r}
-mean()
+distribution_mean()
 ```
 
 Now follow the same pattern for `Age`.
