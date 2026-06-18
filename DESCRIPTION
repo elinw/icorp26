@@ -1,7 +1,7 @@
 Package: icorp26
 Type: Package
 Title: Supports summer 2026 ICORP SROP
-Version: 0.1.10
+Version: 0.1.11
 Authors@R: c(
     person(
       "Elin", "Waring",
@@ -57,5 +57,6 @@ Collate:
      "data_bar.R"
      "data_histogram.R"
      "data_pie.R"
+     "basicstatistics.R"
 Config/roxygen2/version: 8.0.0
 Config/Needs/website: rmarkdown
