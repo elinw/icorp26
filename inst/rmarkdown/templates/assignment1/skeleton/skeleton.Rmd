@@ -126,7 +126,7 @@ Let's start with a pie chart for `Gender`.
 
 ```{r}
 
-data_pie(mydata$Gender, 
+distribution_bar(mydata$Gender, 
          labels = c("Male", "Female"),
          title = "Gender")
 ```
@@ -157,7 +157,7 @@ This is more work because there are more labels.
 ```
 
 For histograms use the same pattern, but with
-`data_histogram()`.  
+`distribution_histogram()`.  
 
 
 ```{r}
