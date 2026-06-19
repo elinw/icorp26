@@ -5,17 +5,18 @@ articles:
   basic_plots: basic_plots.html
   first_analysis: first_analysis.html
   introduction: introduction.html
+  More_graphs: More_graphs.html
   Poster: Poster.html
   articles/rss1_codebook: rss1_codebook.html
   articles/rss2_codebook: rss2_codebook.html
   articles/rss3_codebook: rss3_codebook.html
   articles/rss4_codebook: rss4_codebook.html
   articles/rss5_codebook: rss5_codebook.html
-  articles/rss6_codebook: rss6_codebook.html
-  articles/rss7_codebook: rss7_codebook.html
+  rss6_codebook: rss6_codebook.html
+  rss7_codebook: rss7_codebook.html
   two_variables: two_variables.html
   your_project: your_project.html
-last_built: 2026-06-16T18:24Z
+last_built: 2026-06-19T02:59Z
 urls:
   reference: https://github.com/elinw/icorp26/reference
   article: https://github.com/elinw/icorp26/articles

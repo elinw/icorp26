@@ -1,4 +1,4 @@
-# Analysis of two_variables
+# Analysis of two variables
 
 ``` r
 
@@ -24,16 +24,16 @@ worry as the dependent variable. For example, we might think that those
 with worse health would be more worried
 
 ``` r
-
-data_tabulate(rss1$PAY_PAYWORRY, by = rss1$HIS_GENERAL)
-#> rss1$PAY_PAYWORRY  | Excellent | Very good | Good | Fair | Poor | <NA> | Total
-#> -------------------+-----------+-----------+------+------+------+------+------
-#> Very worried       |        47 |       213 |  472 |  299 |   69 |    4 |  1104
-#> Somewhat worried   |       163 |       940 | 1205 |  382 |   46 |    4 |  2740
-#> Not at all worried |       417 |      1626 | 1288 |  332 |   55 |    8 |  3726
-#> <NA>               |         5 |         9 |   11 |    2 |    2 |    0 |    29
-#> -------------------+-----------+-----------+------+------+------+------+------
-#> Total              |       632 |      2788 | 2976 | 1015 |  172 |   16 |  7599
+data_tabulate(rss1$PAY_PAYWORRY, 
+              by = rss1$HIS_GENERAL)
+rss1$PAY_PAYWORRY  | Excellent | Very good | Good | Fair | Poor | <NA> | Total
+-------------------+-----------+-----------+------+------+------+------+------
+Very worried       |        47 |       213 |  472 |  299 |   69 |    4 |  1104
+Somewhat worried   |       163 |       940 | 1205 |  382 |   46 |    4 |  2740
+Not at all worried |       417 |      1626 | 1288 |  332 |   55 |    8 |  3726
+<NA>               |         5 |         9 |   11 |    2 |    2 |    0 |    29
+-------------------+-----------+-----------+------+------+------+------+------
+Total              |       632 |      2788 | 2976 | 1015 |  172 |   16 |  7599
 ```
 
 We can make this more readable by dropping the missing cases and using a
@@ -97,16 +97,15 @@ population the sample is drawn from. In this case the potential values
 are pretty broad, somewhere between .18 and 1.0.
 
 ``` r
-
 data_tabulate(rss1$PAY_PAYWORRY, 
               by = rss1$HIS_GENERAL,
               remove_na = TRUE)  |> 
      effectsize()
-#> Cramer's V (adj.) |       95% CI
-#> --------------------------------
-#> 0.19              | [0.18, 1.00]
-#> 
-#> - One-sided CIs: upper bound fixed at [1.00].
+Cramer's V (adj.) |       95% CI
+--------------------------------
+0.19              | [0.18, 1.00]
+
+- One-sided CIs: upper bound fixed at [1.00].
 ```
 
 Another thing that researchers usually do is to test for “statistical
@@ -126,18 +125,17 @@ A common way of doing this for two categorical (nominal) variables is
 with the chi square test.
 
 ``` r
-
 # group the data by your control variable
 
 data_tabulate(rss1, "PAY_PAYWORRY", 
               by = "HIS_GENERAL",
               remove_na = TRUE) |> 
      data_chisq() 
-#> 
-#>  Pearson's Chi-squared test
-#> 
-#> data:  X[[i]]
-#> X-squared = 566.16, df = 8, p-value < 2.2e-16
+
+    Pearson's Chi-squared test
+
+data:  X[[i]]
+X-squared = 566.16, df = 8, p-value < 2.2e-16
 ```
 
 Because the p-value is less than .05 (\< 2.2e-16) convention says we can
@@ -151,37 +149,78 @@ In case it has been a while since you used scientific notation the
 which is definitely less that .05!
 
 In this case because the variables are both ordered we could also use a
-test (and effect size measure) such as Kendall’s tau if we convert them
-to numbers. This requires some assumptions, but we can see
+test (and effect size measure) such as polychoric correlation that
+produces a statistic called *rho*.
 
 ``` r
 
-cor.test(as.numeric(rss1$PAY_PAYWORRY),  as.numeric(rss1$HIS_GENERAL),
-                            method = "kendall", 
-                            alternative = "two.sided")
-#> 
-#>  Kendall's rank correlation tau
-#> 
-#> data:  as.numeric(rss1$PAY_PAYWORRY) and as.numeric(rss1$HIS_GENERAL)
-#> z = -21.472, p-value < 2.2e-16
-#> alternative hypothesis: true tau is not equal to 0
-#> sample estimates:
-#>        tau 
-#> -0.2194263
+correlation(rss1,
+            select =
+              c("PAY_PAYWORRY",
+             "HIS_GENERAL"),
+           method = "polychoric", 
+           include_factors = TRUE
+            ) |>
+     print_html()
 ```
 
-In this analysis the value of tau is -0.219. How can it be negative?
-Weren’t they supposed to be between 0 and 1? The answer is that the
-absolute size is between 0 and 1 if you take the absolute value, which
-means turning a negative number into a positive number.  
+| Correlation Matrix (polychoric-method) |  |  |  |  |  |
+|----|----|----|----|----|----|
+| Parameter1 | Parameter2 | rho | 95% CI | t(7552) | p |
+| PAY_PAYWORRY | HIS_GENERAL | -0.30 | (-0.32, -0.28) | -27.31 | \< .001\*\*\* |
+| p-value adjustment method: Holm (1979); Observations: 7554 |  |  |  |  |  |
+
+In this analysis the value of rho is -0.30. How can it be negative?
+Weren’t they supposed to be between 0 and 1? The answer is that the size
+is between 0 and 1 if you take the *absolute value*, which means turning
+a negative number into a positive number.  
 So the effect size using tau is slightly larger than that using Cramer’s
-V.
+V, although they are not perfectly comparable.
 
 The negative sign gives us some additional information about the
 *direction* of the relationship. In this case, as the value of one
 variable goes up, the value of the other variable goes down. So the
-higher the score on health status, the lower the score on worry. What is
+higher the score on health status, the lowerthe score on worry. What is
 going on?
+
+``` r
+
+rss1 |> 
+  data_tabulate(x = rss1$HIS_GENERAL, 
+                by =
+                 as.numeric(rss1$HIS_GENERAL), 
+                remove_na = TRUE) |>
+  print_html()
+```
+
+| rss1\$HIS_GENERAL | 1   | 2    | 3    | 4    | 5   | Total |
+|-------------------|-----|------|------|------|-----|-------|
+| Excellent         | 632 | 0    | 0    | 0    | 0   | 632   |
+| Very good         | 0   | 2788 | 0    | 0    | 0   | 2788  |
+| Good              | 0   | 0    | 2976 | 0    | 0   | 2976  |
+| Fair              | 0   | 0    | 0    | 1015 | 0   | 1015  |
+| Poor              | 0   | 0    | 0    | 0    | 172 | 172   |
+| Total             | 632 | 2788 | 2976 | 1015 | 172 | 7583  |
+
+``` r
+
+
+
+
+rss1 |> 
+  data_tabulate(x = rss1$PAY_PAYWORRY, 
+                by =  
+                 as.numeric(rss1$PAY_PAYWORRY),
+                remove_na = TRUE) |>
+   print_html()
+```
+
+| rss1\$PAY_PAYWORRY | 1    | 2    | 3    | Total |
+|--------------------|------|------|------|-------|
+| Very worried       | 1104 | 0    | 0    | 1104  |
+| Somewhat worried   | 0    | 2740 | 0    | 2740  |
+| Not at all worried | 0    | 0    | 3726 | 3726  |
+| Total              | 1104 | 2740 | 3726 | 7570  |
 
 If we look at a table of how the numeric and non numeric varsions of
 GENERAL_HIS related to each other, we see that people in *poor* health

@@ -9,8 +9,10 @@
   analysis](https://github.com/elinw/icorp26/articles/first_analysis.md):
 - [Basic
   plots](https://github.com/elinw/icorp26/articles/basic_plots.md):
-- [Analysis of
-  two_variables](https://github.com/elinw/icorp26/articles/two_variables.md):
+- [Analysis of two
+  variables](https://github.com/elinw/icorp26/articles/two_variables.md):
+- [More
+  graphs](https://github.com/elinw/icorp26/articles/More_graphs.md):
 - [Poster](https://github.com/elinw/icorp26/articles/Poster.md):
 
 ### Codebooks

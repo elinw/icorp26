@@ -4,12 +4,28 @@
 
 - [`create_starter()`](https://github.com/elinw/icorp26/reference/create_starter.md)
   : Creates a starter rmarkdown file
+- [`distribution_bar()`](https://github.com/elinw/icorp26/reference/distribution_bar.md)
+  : Make a barplot
+- [`distribution_histogram()`](https://github.com/elinw/icorp26/reference/distribution_histogram.md)
+  : Make a histogram for untablulated data
+- [`distribution_pie()`](https://github.com/elinw/icorp26/reference/distribution_pie.md)
+  : Make a pie chart for tabulated data
+- [`distribution_mean()`](https://github.com/elinw/icorp26/reference/distribution_mean.md)
+  : calculate a mean
+- [`distribution_median()`](https://github.com/elinw/icorp26/reference/distribution_median.md)
+  : Calculate a median
+- [`distribution_sd()`](https://github.com/elinw/icorp26/reference/distribution_sd.md)
+  : Calculate standard deviation
+- [`distribution_variance()`](https://github.com/elinw/icorp26/reference/distribution_variance.md)
+  : Calculate variance
 - [`data_chisq()`](https://github.com/elinw/icorp26/reference/data_chisq.md)
   : Calculate chi square test for tabulate
 - [`basicplots()`](https://github.com/elinw/icorp26/reference/basicplots.md)
   : Create basic one variable plots
 - [`getstarted()`](https://github.com/elinw/icorp26/reference/getstarted.md)
   : Create a project and some starting files
+- [`assignment1()`](https://github.com/elinw/icorp26/reference/assignment1.md)
+  : Create basic one variable plots
 
 ## Datasets
 

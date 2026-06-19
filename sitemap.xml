@@ -1,6 +1,7 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://github.com/elinw/icorp26/404.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/LICENSE.html</loc></url>
+<url><loc>https://github.com/elinw/icorp26/articles/More_graphs.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/articles/Poster.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/articles/basic_plots.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/articles/first_analysis.html</loc></url>
@@ -17,9 +18,17 @@
 <url><loc>https://github.com/elinw/icorp26/articles/your_project.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/authors.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/index.html</loc></url>
+<url><loc>https://github.com/elinw/icorp26/reference/assignment1.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/reference/basicplots.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/reference/create_starter.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/reference/data_chisq.html</loc></url>
+<url><loc>https://github.com/elinw/icorp26/reference/distribution_bar.html</loc></url>
+<url><loc>https://github.com/elinw/icorp26/reference/distribution_histogram.html</loc></url>
+<url><loc>https://github.com/elinw/icorp26/reference/distribution_mean.html</loc></url>
+<url><loc>https://github.com/elinw/icorp26/reference/distribution_median.html</loc></url>
+<url><loc>https://github.com/elinw/icorp26/reference/distribution_pie.html</loc></url>
+<url><loc>https://github.com/elinw/icorp26/reference/distribution_sd.html</loc></url>
+<url><loc>https://github.com/elinw/icorp26/reference/distribution_variance.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/reference/getstarted.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/reference/index.html</loc></url>
 <url><loc>https://github.com/elinw/icorp26/reference/rss1.html</loc></url>

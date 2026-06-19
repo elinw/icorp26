@@ -13,3 +13,7 @@ data_chisq(dwtable, ...)
 - dwtable:
 
   A dwtable object.
+
+- ...:
+
+  Other options
