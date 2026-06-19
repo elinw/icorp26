@@ -15,5 +15,5 @@ library(easystats)
 
 
 ```{r}
-data_codebook(rss6) 
+data_codebook(rss6) |> display(font_size = "50%")
 ```
