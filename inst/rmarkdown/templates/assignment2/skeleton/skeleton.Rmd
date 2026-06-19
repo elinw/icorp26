@@ -100,7 +100,7 @@ Let's try something more interesting.
 Are home owners more satisfied with life than renters?
 
 ```{r}
-datawizard::means_by_group( to_numeric(rss7$LIF_GENERAL), 
+datawizard::means_by_group(to_numeric(rss7$LIF_GENERAL), 
                            by = rss7$P_HOMEOWN_R ) -> summary_by_homeownership
 
 summary_by_homeownership |> display()
@@ -109,14 +109,23 @@ data_groupmeans_bar(summary_by_homeownership)
 ```
 
 
+In this case, we can see that there is a difference
+2.07  - 1.82 =  0.25.  So on average, renters
+are higher on life satisfaction by about .25. 
+Wait, does that make sense? If we look at the rss7
+codebook we can see that Very Satisfied is given 
+a 1 and very dissatisfied is given a 4. So 
+a higher score means that someone is more dissatisfied.
+We can think of it as a life _dissatisfaction_ measure.
 
-Interestingly, there do not seem to be a lot of differences
-between on this variable! 
+So overall renters are more _dissatisfied with life_.
+Still both groups are largely satisied. 
 
-We can make a plot that illustrates this.
+Make sure you look at the variable definitions before you 
+make interpretations that could be backwards!
 
-```{r}
-ggplot(temp, aes(x = Category, y = Mean)) +
-     geom_col() 
-```
+
+Now you repeat the same kind of analyses but with 
+your chosen variables from your chosen data sets.
+
 
