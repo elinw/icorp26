@@ -82,7 +82,7 @@ is an ordinals scale that goes from "Very satisfied" to
 datawizard::means_by_group( to_numeric(rss7$LIF_GENERAL), 
                            by = rss7$DEM_REGION) -> summary_by_region
 
-summary_by_region |> display()
+summary_by_region
 ```
 
 When we make our plot we will also see this clearly.
@@ -93,29 +93,30 @@ and hit enter.  You will see how to avoid typing
 all of the labels!!
 
 ```{r}
-summary_by_region |> data_filter(Category != "Total") -> temp
-distribution_bar(temp$Mean, 
-                 title = "Life statisfaction by region",
-                 values = temp$Category
-                 )
-```
-
-
-```{r}
+data_groupmeans_bar(summary_by_region)
 
 ```
-
-
+Let's try something more interesting. 
+Are home owners more satisfied with life than renters?
 
 ```{r}
-
- 
 datawizard::means_by_group( to_numeric(rss7$LIF_GENERAL), 
-                           by = rss7$DEM_REGION) 
+                           by = rss7$P_HOMEOWN_R ) -> summary_by_homeownership
+
+summary_by_homeownership |> display()
+
+data_groupmeans_bar(summary_by_homeownership) 
 ```
+
+
+
 Interestingly, there do not seem to be a lot of differences
-between the regions on this variable! 
+between on this variable! 
 
 We can make a plot that illustrates this.
 
+```{r}
+ggplot(temp, aes(x = Category, y = Mean)) +
+     geom_col() 
+```
 

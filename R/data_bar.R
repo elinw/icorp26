@@ -34,3 +34,29 @@ distribution_bar <- function(
     names.arg = values
   )
 }
+
+#' Make a barplot for group means
+#'
+#' @param x  A dw_groupmeans data frame.
+#' @param xlab A string to use for labelling the x axis
+#' @param ylab A string to use for labelling the y axis
+#' @param title A string to be used as the graph title
+#'
+#' @export
+data_groupmeans_bar <- function(
+  x,
+  xlab = NULL,
+  ylab = NULL,
+  title = NULL
+) {
+  means <- x$Mean
+  names(means) <- x$Category
+  means <- means[1:(length(means) - 1)]
+
+  graphics::barplot(
+    height = means,
+    xlab = xlab,
+    ylab = ylab,
+    main = title
+  )
+}
