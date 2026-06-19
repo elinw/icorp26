@@ -40,7 +40,7 @@ articles:
           - first_analysis
           - basic_plots
           - two_variables
-          - more_graphs
+          - More_graphs
           - Poster
        - title: Codebooks
          navbar: ~
