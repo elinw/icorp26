@@ -1,0 +1,121 @@
+---
+title: "Assignment 2"
+author: "Your Name"
+date: Sys.Date()
+output: 
+output: 
+  word_document: default
+  html_document: default
+  pdf_document:
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = "")
+```
+As usual, load the packages
+```{r}
+library(icorp26)
+library(easystats)
+library(ggplot2)
+```
+
+
+
+Assignment 2 asks you to do the following things:
+
+1. get means on outcome variables for *8* groups  
+2. Using SPSS or Excel _or R_, graphically display them on 
+a well-labeled barchart  
+
+
+The first thing that you need to do is to decide on your
+variables and these fall into two groups:
+
+1. Outcome variables
+2. Variables defining groups.
+
+
+Because Prof. Battle asked you to get the means, the outcome
+variables must be appropriate for calculating a mean.
+That means that they should be _numeric_ also known as _interval_.
+However, it is sometimes okay to treat _ordinal_ variables
+as though they are numbers.  This is probably what you will
+need to do.
+
+As an example let's use variables from rss7. You need to pick different
+variables.
+
+
+*Make a list of your outcome variables here*
+
+
+*Make a list of your group variables here*
+Note that grouping variables have different numbers of
+categories. To get 8 groups you might need between 2 and 
+8 variables.
+
+
+
+Also note that we have access to _all_ of the RSS data sets.
+Use the one that has the variables you are interested in.
+
+```{r}
+library(icorp26)
+library(easystats)
+```
+
+There are many ways to approach this. You can choose one.
+
+One way would be to get the means for all of the 
+categories of a variable. 
+
+In rss7 let's say I choose to compare people 
+who live in different regions of the country in terms
+of the outcome variable `LIF_GENERAL`  which
+is an ordinals scale that goes from "Very satisfied" to
+"Very dissatisfied".
+
+```{r}
+
+ 
+datawizard::means_by_group( to_numeric(rss7$LIF_GENERAL), 
+                           by = rss7$DEM_REGION) -> summary_by_region
+
+summary_by_region |> display()
+```
+
+When we make our plot we will also see this clearly.
+I suggest filtering out the row for Total.
+
+Also in the console try typing `summary_by_region$Category` 
+and hit enter.  You will see how to avoid typing 
+all of the labels!!
+
+```{r}
+summary_by_region |> data_filter(Category != "Total") -> temp
+distribution_bar(temp$Mean, 
+                 title = "Life statisfaction by region",
+                 values = temp$Category
+                 )
+```
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+ 
+datawizard::means_by_group( to_numeric(rss7$LIF_GENERAL), 
+                           by = rss7$DEM_REGION) 
+```
+Interestingly, there do not seem to be a lot of differences
+between the regions on this variable! 
+
+We can make a plot that illustrates this.
+
+

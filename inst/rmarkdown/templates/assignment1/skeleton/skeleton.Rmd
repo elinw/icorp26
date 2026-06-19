@@ -110,7 +110,7 @@ Let's use the same logic to get get the mean of
 in what is needed inside the `()`.
 
 ```{r}
-distribution_mean()
+#distribution_mean()
 ```
 
 Now follow the same pattern for `Age`.
@@ -127,7 +127,7 @@ Let's start with a pie chart for `Gender`.
 ```{r}
 
 distribution_bar(mydata$Gender, 
-         labels = c("Male", "Female"),
+         values = c("Male", "Female"),
          title = "Gender")
 ```
 

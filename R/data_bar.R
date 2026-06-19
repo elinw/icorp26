@@ -24,9 +24,8 @@ distribution_bar <- function(
   dwtable <- datawizard::data_tabulate(x)
   tablelist <- as.table(dwtable)
   table1 <- tablelist[[i]]
-  print(table1)
   table1 <- as.vector(table1)
-  print(table1)
+
   graphics::barplot(
     height = table1,
     xlab = xlab,
