@@ -9,9 +9,13 @@ reference:
         - title: Functions
         - contents:
            - create_starter
-           - data_bar
-           - data_histogram
-           - data_pie
+           - distribution_bar
+           - distribution_histogram
+           - distribution_pie
+           - distribution_mean
+           - distribution_median
+           - distribution_sd
+           - distribution_variance
            - data_chisq
            - basicplots
            - getstarted
