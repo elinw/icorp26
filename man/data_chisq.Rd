@@ -8,6 +8,8 @@ data_chisq(dwtable, ...)
 }
 \arguments{
 \item{dwtable}{A dwtable object.}
+
+\item{...}{Other options}
 }
 \description{
 Calculate chi square test for tabulate

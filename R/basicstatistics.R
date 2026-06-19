@@ -1,6 +1,8 @@
 #' calculate a mean
 #'
 #' @param x   A vector
+#' @param remove_na Logical indicating if NAs should be removed.
+#' Defaults to TRUE
 #' @param to_numeric Logical indicating if non numeric vectors
 #'                   should be coerced to numeric.
 #'
@@ -15,6 +17,8 @@ distribution_mean <- function(x, remove_na = TRUE, to_numeric = FALSE) {
 #' Calculate a median
 #'
 #' @param x   A vector
+#' @param remove_na Logical indicating if NAs should be removed.
+#' Defaults to TRUE
 #' @param to_numeric Logical indicating if non numeric vectors
 #'                   should be coerced to numeric.
 #'
@@ -29,6 +33,8 @@ distribution_median <- function(x, remove_na = TRUE, to_numeric = FALSE) {
 #' Calculate variance
 #'
 #' @param x   A vector
+#' @param remove_na Logical indicating if NAs should be removed.
+#' Defaults to TRUE
 #' @param to_numeric Logical indicating if non numeric vectors
 #'                   should be coerced to numeric.
 #'
@@ -43,6 +49,8 @@ distribution_variance <- function(x, remove_na = TRUE, to_numeric = FALSE) {
 #' Calculate standard deviation
 #'
 #' @param x A vector
+#' @param remove_na Logical indicating if NAs should be removed.
+#' Defaults to TRUE
 #' @param to_numeric Logical indicating if non numeric vectors
 #' should be coerced to numeric.
 #'

@@ -9,6 +9,9 @@ distribution_median(x, remove_na = TRUE, to_numeric = FALSE)
 \arguments{
 \item{x}{A vector}
 
+\item{remove_na}{Logical indicating if NAs should be removed.
+Defaults to TRUE}
+
 \item{to_numeric}{Logical indicating if non numeric vectors
 should be coerced to numeric.}
 }

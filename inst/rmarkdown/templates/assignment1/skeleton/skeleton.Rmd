@@ -101,6 +101,7 @@ Now try doing the same thing for `Support.for.Gun.Control`
 ```
 
 
+For numeric variables you can calculate other statistics
 
 Let's use the same logic to get get the mean of
 `Level.of.Education`. You need to fill

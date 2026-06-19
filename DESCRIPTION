@@ -19,8 +19,10 @@ Depends:
     R (>= 4.1.0)
 Imports:
   rmarkdown,
-  usethis,
-  here
+  here,
+  datawizard,
+  insight,
+  usethis
 Suggests:
   knitr,
   utils,
@@ -58,5 +60,6 @@ Collate:
      "data_histogram.R"
      "data_pie.R"
      "basicstatistics.R"
+     "icorp26-package.R"
 Config/roxygen2/version: 8.0.0
 Config/Needs/website: rmarkdown
