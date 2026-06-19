@@ -23,6 +23,8 @@ The raw data is located here:
 
 https://raw.githubusercontent.com/elinw/icorp26/refs/heads/main/data-raw/juan/battle-assignment1-data.csv
 
+Copy that url and go look at the data.
+
 You can read the data from the URL directly into
 an R dataset.
 
