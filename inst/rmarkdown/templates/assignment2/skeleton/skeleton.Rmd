@@ -86,24 +86,26 @@ summary_by_region
 ```
 
 When we make our plot we will also see this clearly.
-I suggest filtering out the row for Total.
+
+If you round you can see that the means are all 1.9!
 
 Also in the console try typing `summary_by_region$Category` 
-and hit enter.  You will see how to avoid typing 
-all of the labels!!
+and hit enter.  You will see how this function lets 
+you avoid typing all of the labels!!
 
 ```{r}
 data_groupmeans_bar(summary_by_region)
 
 ```
 Let's try something more interesting. 
+
 Are home owners more satisfied with life than renters?
 
 ```{r}
 datawizard::means_by_group(to_numeric(rss7$LIF_GENERAL), 
                            by = rss7$P_HOMEOWN_R ) -> summary_by_homeownership
 
-summary_by_homeownership |> display()
+summary_by_homeownership 
 
 data_groupmeans_bar(summary_by_homeownership) 
 ```
@@ -113,19 +115,33 @@ In this case, we can see that there is a difference
 2.07  - 1.82 =  0.25.  So on average, renters
 are higher on life satisfaction by about .25. 
 Wait, does that make sense? If we look at the rss7
-codebook we can see that Very Satisfied is given 
+codebook, we can see that Very Satisfied is given 
 a 1 and very dissatisfied is given a 4. So 
 a higher score means that someone is more dissatisfied.
 We can think of it as a life _dissatisfaction_ measure.
 
 So overall renters are more _dissatisfied with life_.
-Still both groups are largely satisied. 
+Still, both groups are largely satisied. 
 
 Make sure you look at the variable definitions before you 
 make interpretations that could be backwards!
 
 
+```{r}
+data_groupmeans_ci(summary_by_homeownership, 
+                   title = "Confidence intervals for life dissatisfaction")
+
+```
+```{r}
+plot.dw_group_means(summary_by_homeownership)
+```
+
+```{r}
+plot.dw_group_means(summary_by_homeownership, title = "Life dissatisfaction by owning or renting") +
+     ylim(c(1,4))
+```
+
+
 Now you repeat the same kind of analyses but with 
 your chosen variables from your chosen data sets.
-
 

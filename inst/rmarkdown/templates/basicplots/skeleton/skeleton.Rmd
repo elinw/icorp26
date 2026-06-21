@@ -1,0 +1,41 @@
+---
+title: "Simple Plots"
+author: "Your Name"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r packages}
+library(icorp26)
+library(easystats)
+library(ggplot2)
+```
+
+These are example variables, you should identify your
+own variables. 
+
+Look at the ggplot websites to learn how to change the 
+colors, fonts and other details.
+
+```{r}
+data_tabulate(rss1$HIS_GENERAL) |> 
+     plot(label_values = FALSE, error_bar = FALSE,
+          show_na = "never") + 
+     coord_flip() +
+     labs(title = "Overall health")
+
+data_tabulate(rss1$PAY_PAYWORRY) |>
+     plot(label_values = FALSE, error_bar = FALSE,
+          show_na = "never") + 
+     coord_flip() +
+     labs(title = "Worried about pay if sick/injured") 
+
+data_tabulate(rss1$MARSTAT) |> 
+     plot(label_values = FALSE, error_bar = FALSE,
+          show_na = "never") + 
+     coord_flip() +
+     labs(title = "Marital Status")
+```
