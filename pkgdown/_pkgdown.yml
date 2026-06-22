@@ -17,7 +17,10 @@ reference:
            - distribution_sd
            - distribution_variance
            - data_chisq
+           - data_groupmeans_bar
+           - data_groupmeans_ci
            - basicplots
+           - plot.dw_group_means
            - getstarted
            - assignment1
         - title: Datasets
