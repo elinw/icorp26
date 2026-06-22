@@ -63,7 +63,5 @@ Collate:
      "icorp26-package.R"
      "data_ci.R"
      "plot.dw_groupmeans.R"
-     "data_groupmeans_bar.R" 
-     "data_groupmeans_ci.R"
 Config/roxygen2/version: 8.0.0
 Config/Needs/website: rmarkdown
