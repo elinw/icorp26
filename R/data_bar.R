@@ -21,7 +21,7 @@ distribution_bar <- function(
   ...
 ) {
   dwtable <- datawizard::data_tabulate(x, verbose = FALSE)
-  tablelist <- as.table(dwtable)
+  tablelist <- as.table(dwtable, verbose = FALSE)
   table1 <- tablelist[[i]]
   table1 <- as.data.frame(table1)
   labels <- table1$category

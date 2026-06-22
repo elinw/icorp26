@@ -1,8 +1,10 @@
 ---
 title: "Assignment 2"
-author: "Your Name"
-date: "The Date"
-output: output_format
+output: 
+  word_document: default
+  html_document: default
+  pdf_document:
+    latex_engine: xelatex
 ---
 
 ```{r setup, include=FALSE}
@@ -15,6 +17,9 @@ library(easystats)
 library(icorp26)
 library(ggplot2)
 ```
+
+Make sure to read the Assignment 2 Example Document.  
+
 Assignment 2 asks you to do the following things:
 
 1. get means on outcome variables for *8* groups  
@@ -59,30 +64,9 @@ and `rss1$SUN_NOHARM`
 In creating grouping, you can decide to pair up some
 combinations so that they differ in just one way.
 
-For the groups we'll use: 
-Males over 70  (P_GENDER, P_AGEC_R)
-Females over 70 (P_GENDER, P_AGEC_R)
-
-Language used with doctor is Spanish and Hispanic (P_RACE_R, LAN_DOCTOR) 
-Language used with doctor is English and Hispanic
-(P_RACE_R, LAN_DOCTOR)
-Language used with doctor is Spanish and Male (P_GENDER, )
-Language used with doctor is Spanish and Female (P_GENDER, )
-
-People who live in the South who live in metropolitan areas (P_REGION & PMETRO_R).  
-People who live in the Northeast who live in metropolitan areas (P_REGION & PMETRO_R).  
-People who live in the Northeast who live in metropolitan
-areas.  
-
-Notice that this means that we are _excluding_ certain
-groups. For example:
-* people who are under 70  
-* people who are not Hispanic  
-* people who don't use Spanish with their doctors 
-* people who live in the Midwest and West and who no not
-live in metropolitan areas (cities).
-
-First let's look at the dependent variables.
+For the groups in the example  we'll use: 
+1. Males over 70  (P_GENDER, P_AGEC_R)
+2. Females over 70 (P_GENDER, P_AGEC_R)
 
 ```{r}
 data_tabulate(c(rss1$SUN_NOHARM))
@@ -105,7 +89,7 @@ distribution_mean(rss1$SUN_NOHARM, convert_to_numeric = TRUE)
 distribution_mean(rss1$SUN_CLOUDY, convert_to_numeric = TRUE)
 ```
 
-Since we are going to calculate a lot of mean, it 
+Since we are going to calculate a lot of means, it 
 makes sense to make a change by creating 
 temporary numeric versions of the variables.
 
@@ -114,38 +98,96 @@ rss1$SUN_CLOUDY_N <- to_numeric(rss1$SUN_CLOUDY)
 rss1$SUN_NOHARM_N <- to_numeric(rss1$SUN_NOHARM)
 ```
 
+## Overall means
+
 ```{r}
 distribution_mean(rss1$SUN_NOHARM_N)
 distribution_mean(rss1$SUN_CLOUDY_N)
 ```
 
-Now we need to subset the data to get our groups.
+## Groups 1 and 2 
+
+Males over 70 and Females over 70  
+
+Idea: Older women will be more aware of the 
+health issues of sunburn than older men.
+
+Reason: Women are generally healthier than men.
+
+### Step 1
+
+Subset the data to get our groups in two separate
+data sets.
 
 ```{r}
 data_filter(rss1, P_GENDER == "Male" & 
                  P_AGEC_R == "70+") -> temp1m 
 data_filter(rss1, P_GENDER == "Female" & 
                  P_AGEC_R == "70+") -> temp1f 
+```
+### Step 2: Get the Means
+```{r}
 distribution_mean(temp1m$SUN_CLOUDY_N)
 distribution_mean(temp1f$SUN_CLOUDY_N)
-distribution_bar(temp1f$SUN_CLOUDY_N,
-                 title = "Sun's danger ")
-distribution_bar(temp1f$SUN_CLOUDY_N,
-                 title = "Sun's danger ")
-
-                 
-                 
-
 ```
+
+Males over 70 have a higher score in terms of ageeing 
+with the statement that "On cloudy days you don’t need to worry about sun" than women over 70.
+
+### Step 3 make the charts
 
 ```{r}
-data_filter(rss1, P_GENDER == "Female" & 
-                 P_AGEC_R == "70+") -> temp 
-distribution_mean(temp$SUN_NOHARM_N)
-distribution_mean(temp$SUN_CLOUDY_N)
+distribution_bar(temp1f$SUN_CLOUDY,
+                 title = 
+                 "Cloudy days don’t need to worry about sun (females)")
+distribution_bar(temp1m$SUN_CLOUDY,
+                 title = 
+                 "Cloudy days don’t need to worry about sun (males)")
 
 ```
+
+The bar charts show that few people over 70 of either 
+gender strongly or somewhat agree with the 
+statement. Women were more likely to 
+strongly disagree than to somewhat disagree.
+However, men were more evenly divided, with
+slightly more saying they "somewhat agree" than
+saying they "strongly agree."
+
+### Repeat for SUN_NOHARM
+
+We are using the same subsamples so we don't
+need to subset again.
+
+We can put all of the code in one code chunk.
+
 ```{r}
-distribution_mean(temp$SUN_NOHARM_N)
+distribution_mean(temp1m$SUN_NOHARM_N)
+distribution_mean(temp1f$SUN_NOHARM_N)
+distribution_bar(temp1f$SUN_NOHARM,
+                 title = 
+                 "Sunburn is not harmful in long run (females)")
+distribution_bar(temp1m$SUN_NOHARM,
+                 title = 
+                 "Sunburn is not harmful in long run (males)")
+
 ```
 
+Males over 70 have higher mean disagreement with 
+the statement that "sunburn is not harmful in long run"
+than females over 70. Overall, women over 70 are 
+more likely to Strongly disagree with the statement
+than men over 70. 
+
+### Overall conclusion
+
+Overall, based on their responses about the harm
+of sunburn and the risks of sunburnon cloudy days, 
+most people over 70 agree that 
+sunburn is harmful. However, women have much 
+stronger beliefs about these dangers.
+
+---
+
+Now follow the same pattern for your 
+groups.
