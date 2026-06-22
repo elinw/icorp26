@@ -20,6 +20,7 @@ reference:
            - basicplots
            - getstarted
            - assignment1
+           - assignment2example
         - title: Datasets
           desc: >
            Datasets with factors converted and missing values set
