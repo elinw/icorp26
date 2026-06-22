@@ -20,8 +20,14 @@
   : Calculate variance
 - [`data_chisq()`](https://github.com/elinw/icorp26/reference/data_chisq.md)
   : Calculate chi square test for tabulate
+- [`data_groupmeans_bar()`](https://github.com/elinw/icorp26/reference/data_groupmeans_bar.md)
+  : Make a barplot for group means
+- [`data_groupmeans_ci()`](https://github.com/elinw/icorp26/reference/data_groupmeans_ci.md)
+  : Plot confidence intervals for group means
 - [`basicplots()`](https://github.com/elinw/icorp26/reference/basicplots.md)
   : Create basic one variable plots
+- [`plot(`*`<dw_group_means>`*`)`](https://github.com/elinw/icorp26/reference/plot.dw_group_means.md)
+  : Plot confidence intervals for group means
 - [`getstarted()`](https://github.com/elinw/icorp26/reference/getstarted.md)
   : Create a project and some starting files
 - [`assignment1()`](https://github.com/elinw/icorp26/reference/assignment1.md)

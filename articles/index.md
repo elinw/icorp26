@@ -14,6 +14,8 @@
 - [More
   graphs](https://github.com/elinw/icorp26/articles/More_graphs.md):
 - [Poster](https://github.com/elinw/icorp26/articles/Poster.md):
+- [Assignment2
+  example](https://github.com/elinw/icorp26/articles/Assignment2example.md):
 
 ### Codebooks
 

@@ -5,7 +5,7 @@ calculate a mean
 ## Usage
 
 ``` r
-distribution_mean(x, remove_na = TRUE, to_numeric = FALSE)
+distribution_mean(x, remove_na = TRUE, convert_to_numeric = FALSE)
 ```
 
 ## Arguments
