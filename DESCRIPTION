@@ -20,7 +20,7 @@ Depends:
 Imports:
   rmarkdown,
   here,
-  datawizard,
+  easystats,
   insight,
   usethis
 Suggests:

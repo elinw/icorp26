@@ -20,7 +20,6 @@ reference:
            - basicplots
            - getstarted
            - assignment1
-           - Assignment2example
         - title: Datasets
           desc: >
            Datasets with factors converted and missing values set
@@ -43,6 +42,7 @@ articles:
           - two_variables
           - More_graphs
           - Poster
+          - Assignment2example
        - title: Codebooks
          navbar: ~
          contents:

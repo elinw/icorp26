@@ -11,6 +11,7 @@
 #'
 #' @aliases data_pie
 #' @export
+
 distribution_pie <- function(
   x,
   i = 1,
@@ -18,8 +19,8 @@ distribution_pie <- function(
   values = NULL,
   ...
 ) {
-  dwtable <- datawizard::data_tabulate(x)
-  tablelist <- as.table(dwtable)
+  dwtable <- datawizard::data_tabulate(x, verbose = FALSE)
+  tablelist <- as.table(dwtable, verbose = FALSE)
   table <- tablelist[[i]]
   graphics::pie(table, labels = labels, main = title)
 }
