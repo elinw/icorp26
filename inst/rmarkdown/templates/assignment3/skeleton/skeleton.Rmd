@@ -3,7 +3,6 @@ title: "Assignment 3"
 author: "Your Name"
 date: Sys.Date()
 output: 
-output: 
   word_document: default
   html_document: default
   pdf_document:
@@ -94,7 +93,7 @@ and hit enter.  You will see how this function lets
 you avoid typing all of the labels!!
 
 ```{r}
-data_groupmeans_bar(summary_by_region)
+plot(summary_by_region)
 
 ```
 Let's try something more interesting. 
@@ -107,7 +106,7 @@ datawizard::means_by_group(to_numeric(rss7$LIF_GENERAL),
 
 summary_by_homeownership 
 
-data_groupmeans_bar(summary_by_homeownership) 
+plot(summary_by_homeownership) 
 ```
 
 
@@ -127,20 +126,29 @@ Make sure you look at the variable definitions before you
 make interpretations that could be backwards!
 
 
-```{r}
-data_groupmeans_ci(summary_by_homeownership, 
-                   title = "Confidence intervals for life dissatisfaction")
-
-```
-```{r}
-plot.dw_groupmeans(summary_by_homeownership)
-```
 
 ```{r}
-plot.dw_group_means(summary_by_homeownership, title = "Life dissatisfaction by owning or renting") +
-     ylim(c(1,4))
+rss7 |> data_filter(P_SEX == "Male") -> rss7.males
+datawizard::means_by_group(to_numeric(rss7.males$LIF_GENERAL), 
+                           by = rss7.males$P_HOMEOWN_R ) -> summary_by_homeownership.males
+
+
+plot(summary_by_homeownership.males, 
+     title = "Life in general-Males") 
 ```
 
+```{r}
+rss7 |> data_filter(P_SEX == "Female") -> rss7.females
+datawizard::means_by_group(to_numeric(rss7.females$LIF_GENERAL), 
+                           by = rss7.females$P_HOMEOWN_R ) -> summary_by_homeownership.females
+
+
+plot(summary_by_homeownership.females, 
+     title = "Life in general-Females") 
+```
+
+
+----
 
 Now you repeat the same kind of analyses but with 
 your chosen variables from your chosen data sets.
