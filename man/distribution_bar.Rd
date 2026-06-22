@@ -5,15 +5,7 @@
 \alias{data_bar}
 \title{Make a barplot}
 \usage{
-distribution_bar(
-  x,
-  i = 1,
-  xlab = NULL,
-  ylab = NULL,
-  title = NULL,
-  values = NULL,
-  ...
-)
+distribution_bar(x, i = 1, xlab = NULL, ylab = NULL, title = NULL, ...)
 }
 \arguments{
 \item{x}{A vector.}
@@ -27,10 +19,10 @@ Defaults to 1.}
 
 \item{title}{A string to be used as the graph title}
 
+\item{...}{Additional options}
+
 \item{values}{A vector of labels to use for labelling the slices.
 Must match the numerical order of the variable.}
-
-\item{...}{Additional options}
 }
 \description{
 Make a barplot

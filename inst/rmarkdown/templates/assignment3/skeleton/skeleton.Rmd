@@ -133,7 +133,7 @@ data_groupmeans_ci(summary_by_homeownership,
 
 ```
 ```{r}
-plot.dw_group_means(summary_by_homeownership)
+plot.dw_groupmeans(summary_by_homeownership)
 ```
 
 ```{r}

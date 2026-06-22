@@ -7,7 +7,7 @@
 #'
 #' @export
 
-plot.dw_group_means <- function(x, title = NULL, caption = TRUE) {
+plot.dw_groupmeans <- function(x, title = NULL, caption = TRUE) {
   if (caption == TRUE) {
     caption <- paste0(
       "\nAnova: R2=",
