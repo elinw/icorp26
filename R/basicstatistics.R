@@ -7,8 +7,8 @@
 #'                   should be coerced to numeric.
 #'
 #' @export
-distribution_mean <- function(x, remove_na = TRUE, to_numeric = FALSE) {
-  if (is.factor(x)) {
+distribution_mean <- function(x, remove_na = TRUE, convert_to_numeric = FALSE) {
+  if (is.factor(x) && convert_to_numeric == TRUE) {
     x <- datawizard::to_numeric(x)
   }
   mean(x, na.rm = remove_na)

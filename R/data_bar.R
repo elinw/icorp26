@@ -18,21 +18,18 @@ distribution_bar <- function(
   xlab = NULL,
   ylab = NULL,
   title = NULL,
-  values = NULL,
   ...
 ) {
-  dwtable <- datawizard::data_tabulate(x)
+  dwtable <- datawizard::data_tabulate(x, verbose = FALSE)
   tablelist <- as.table(dwtable)
   table1 <- tablelist[[i]]
-  table1 <- as.vector(table1)
+  table1 <- as.data.frame(table1)
+  labels <- table1$category
+  p <- ggplot(table1, aes(x = Var1, y = Freq)) +
+    geom_col() +
+    labs(title = title, x = xlab, y = ylab)
 
-  graphics::barplot(
-    height = table1,
-    xlab = xlab,
-    ylab = ylab,
-    main = title,
-    names.arg = values
-  )
+  p
 }
 
 #' Make a barplot for group means
@@ -52,11 +49,6 @@ data_groupmeans_bar <- function(
   means <- x$Mean
   names(means) <- x$Category
   means <- means[1:(length(means) - 1)]
-
-  graphics::barplot(
-    height = means,
-    xlab = xlab,
-    ylab = ylab,
-    main = title
-  )
+  ggplot(means, x = Mean) +
+    geom_bar()
 }

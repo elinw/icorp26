@@ -1,33 +1,25 @@
 ---
 title: "Assignment 2"
 author: "Your Name"
-date: Sys.Date()
-output: 
-output: 
-  word_document: default
-  html_document: default
-  pdf_document:
-    latex_engine: xelatex
+date: "The Date"
+output: output_format
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = "")
 ```
-As usual, load the packages
-```{r}
-library(icorp26)
+
+
+```{r libraries, include=FALSE}
 library(easystats)
+library(icorp26)
 library(ggplot2)
 ```
-
-
-
 Assignment 2 asks you to do the following things:
 
 1. get means on outcome variables for *8* groups  
 2. Using SPSS or Excel _or R_, graphically display them on 
 a well-labeled barchart  
-
 
 The first thing that you need to do is to decide on your
 variables and these fall into two groups:
@@ -40,108 +32,120 @@ Because Prof. Battle asked you to get the means, the outcome
 variables must be appropriate for calculating a mean.
 That means that they should be _numeric_ also known as _interval_.
 However, it is sometimes okay to treat _ordinal_ variables
-as though they are numbers.  This is probably what you will
-need to do.
+as though they are numbers.
 
-As an example let's use variables from rss7. You need to pick different
-variables.
+You need to pick 2 outcome variables that are ordinal
+or interval.
 
+By groups, the assignment means people who have two different characterstics in common.  
+
+So, for example, it could mean "women who are over 70",
+which combines gender and age to create a group. Or
+"Black people who live in the south
 
 *Make a list of your outcome variables here*
 
 
-*Make a list of your group variables here*
-Note that grouping variables have different numbers of
-categories. To get 8 groups you might need between 2 and 
-8 variables.
+*Make a list of your groups here*
+
+*What are the variable names of the variables you will
+be using?*
 
 
 
-Also note that we have access to _all_ of the RSS data sets.
-Use the one that has the variables you are interested in.
+For the examples we'll use `rss1$SUN_CLOUDY`
+and `rss1$SUN_NOHARM`
 
-```{r}
-library(icorp26)
-library(easystats)
-```
+In creating grouping, you can decide to pair up some
+combinations so that they differ in just one way.
 
-There are many ways to approach this. You can choose one.
+For the groups we'll use: 
+Males over 70  (P_GENDER, P_AGEC_R)
+Females over 70 (P_GENDER, P_AGEC_R)
 
-One way would be to get the means for all of the 
-categories of a variable. 
+Language used with doctor is Spanish and Hispanic (P_RACE_R, LAN_DOCTOR) 
+Language used with doctor is English and Hispanic
+(P_RACE_R, LAN_DOCTOR)
+Language used with doctor is Spanish and Male (P_GENDER, )
+Language used with doctor is Spanish and Female (P_GENDER, )
 
-In rss7 let's say I choose to compare people 
-who live in different regions of the country in terms
-of the outcome variable `LIF_GENERAL`  which
-is an ordinals scale that goes from "Very satisfied" to
-"Very dissatisfied".
+People who live in the South who live in metropolitan areas (P_REGION & PMETRO_R).  
+People who live in the Northeast who live in metropolitan areas (P_REGION & PMETRO_R).  
+People who live in the Northeast who live in metropolitan
+areas.  
 
-```{r}
+Notice that this means that we are _excluding_ certain
+groups. For example:
+* people who are under 70  
+* people who are not Hispanic  
+* people who don't use Spanish with their doctors 
+* people who live in the Midwest and West and who no not
+live in metropolitan areas (cities).
 
- 
-datawizard::means_by_group( to_numeric(rss7$LIF_GENERAL), 
-                           by = rss7$DEM_REGION) -> summary_by_region
-
-summary_by_region
-```
-
-When we make our plot we will also see this clearly.
-
-If you round you can see that the means are all 1.9!
-
-Also in the console try typing `summary_by_region$Category` 
-and hit enter.  You will see how this function lets 
-you avoid typing all of the labels!!
+First let's look at the dependent variables.
 
 ```{r}
-data_groupmeans_bar(summary_by_region)
-
-```
-Let's try something more interesting. 
-
-Are home owners more satisfied with life than renters?
-
-```{r}
-datawizard::means_by_group(to_numeric(rss7$LIF_GENERAL), 
-                           by = rss7$P_HOMEOWN_R ) -> summary_by_homeownership
-
-summary_by_homeownership 
-
-data_groupmeans_bar(summary_by_homeownership) 
+data_tabulate(c(rss1$SUN_NOHARM))
+data_tabulate(c(rss1$SUN_CLOUDY))
 ```
 
 
-In this case, we can see that there is a difference
-2.07  - 1.82 =  0.25.  So on average, renters
-are higher on life satisfaction by about .25. 
-Wait, does that make sense? If we look at the rss7
-codebook, we can see that Very Satisfied is given 
-a 1 and very dissatisfied is given a 4. So 
-a higher score means that someone is more dissatisfied.
-We can think of it as a life _dissatisfaction_ measure.
-
-So overall renters are more _dissatisfied with life_.
-Still, both groups are largely satisied. 
-
-Make sure you look at the variable definitions before you 
-make interpretations that could be backwards!
+First, let's do a little trick to make the 
+two variables numeric because if we don't calculating
+the mean can't work! 
 
 
 ```{r}
-data_groupmeans_ci(summary_by_homeownership, 
-                   title = "Confidence intervals for life dissatisfaction")
-
-```
-```{r}
-plot.dw_group_means(summary_by_homeownership)
+distribution_mean(rss1$SUN_NOHARM)
+distribution_mean(rss1$SUN_CLOUDY)
 ```
 
 ```{r}
-plot.dw_group_means(summary_by_homeownership, title = "Life dissatisfaction by owning or renting") +
-     ylim(c(1,4))
+distribution_mean(rss1$SUN_NOHARM, convert_to_numeric = TRUE)
+distribution_mean(rss1$SUN_CLOUDY, convert_to_numeric = TRUE)
 ```
 
+Since we are going to calculate a lot of mean, it 
+makes sense to make a change by creating 
+temporary numeric versions of the variables.
 
-Now you repeat the same kind of analyses but with 
-your chosen variables from your chosen data sets.
+```{r}
+rss1$SUN_CLOUDY_N <- to_numeric(rss1$SUN_CLOUDY)
+rss1$SUN_NOHARM_N <- to_numeric(rss1$SUN_NOHARM)
+```
+
+```{r}
+distribution_mean(rss1$SUN_NOHARM_N)
+distribution_mean(rss1$SUN_CLOUDY_N)
+```
+
+Now we need to subset the data to get our groups.
+
+```{r}
+data_filter(rss1, P_GENDER == "Male" & 
+                 P_AGEC_R == "70+") -> temp1m 
+data_filter(rss1, P_GENDER == "Female" & 
+                 P_AGEC_R == "70+") -> temp1f 
+distribution_mean(temp1m$SUN_CLOUDY_N)
+distribution_mean(temp1f$SUN_CLOUDY_N)
+distribution_bar(temp1f$SUN_CLOUDY_N,
+                 title = "Sun's danger ")
+distribution_bar(temp1f$SUN_CLOUDY_N,
+                 title = "Sun's danger ")
+
+                 
+                 
+
+```
+
+```{r}
+data_filter(rss1, P_GENDER == "Female" & 
+                 P_AGEC_R == "70+") -> temp 
+distribution_mean(temp$SUN_NOHARM_N)
+distribution_mean(temp$SUN_CLOUDY_N)
+
+```
+```{r}
+distribution_mean(temp$SUN_NOHARM_N)
+```
 
