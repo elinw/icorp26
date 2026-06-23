@@ -571,3 +571,57 @@ graphs?
 Yes.
 
 Next week we will look at some more efficient approaches.
+
+## Bonus example
+
+``` r
+
+pfemalenoharm <- distribution_bar(temp1f$SUN_NOHARM,
+                 title = 
+                 "Females") +
+           theme(axis.text.x = element_text(angle = 90))
+pmalenoharm <- distribution_bar(temp1m$SUN_NOHARM,
+                 title = 
+                 "Males)") +
+          theme(axis.text.x = element_text(angle = 90))
+
+pfemalecloudy <- distribution_bar(temp1f$SUN_CLOUDY,
+                 title = 
+                 "Cloudy  (females)") +
+          theme(axis.text.x = element_text(angle = 90))
+pmalecloudy <- distribution_bar(temp1m$SUN_CLOUDY,
+                 title = 
+                 "Cloudy  (males)") +
+          theme(axis.text.x = element_text(angle = 90))
+
+
+
+plots(pfemalenoharm, pmalenoharm,
+      pfemalecloudy, pmalecloudy,
+      n_columns = 2,
+      title = "Sunburn is not harmful in long run",
+      subtitle = "People over 70")  
+```
+
+![](Assignment2example_files/figure-html/unnamed-chunk-19-1.png)
+
+``` r
+
+# Put the two data sets together
+rbind(temp1m, temp1f) |>
+     # group the data by gender
+     data_group(P_GENDER) |>
+     #calculate all of the statistics
+     data_summary(
+      Mean_Cloudy = distribution_mean(SUN_CLOUDY_N),
+      Median_Cloudy = distribution_median(SUN_CLOUDY_N),
+      Mean_No_Harm = distribution_mean(SUN_NOHARM_N),
+      Median_No_Harm = distribution_median(SUN_NOHARM_N)
+      ) |>
+     print_html()
+```
+
+| P_GENDER | Mean_Cloudy | Median_Cloudy | Mean_No_Harm | Median_No_Harm |
+|----------|-------------|---------------|--------------|----------------|
+| Male     | 1.83        | 2             | 1.63         | 1              |
+| Female   | 1.63        | 1             | 1.48         | 1              |
