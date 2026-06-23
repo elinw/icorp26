@@ -4,7 +4,7 @@
 \alias{plot.dw_groupmeans}
 \title{Plot confidence intervals for group means}
 \usage{
-\method{plot}{dw_groupmeans}(x, title = NULL, caption = TRUE)
+\method{plot}{dw_groupmeans}(x, title = NULL, caption = TRUE, ci = TRUE)
 }
 \arguments{
 \item{x}{A dw_groupmeans data frame.}
@@ -13,6 +13,9 @@
 
 \item{caption}{Logical indicating if a caption summarizing
 the anova results should be included.}
+
+\item{ci}{Logical indicating if the confidence interval
+should be shown.}
 }
 \description{
 Plot confidence intervals for group means
