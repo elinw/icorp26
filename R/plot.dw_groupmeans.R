@@ -1,4 +1,4 @@
-#' Plot confidence intervals for group means
+#' Plot group means
 #'
 #' @param x  A dw_groupmeans data frame.
 #' @param title A string to be used as the graph title
