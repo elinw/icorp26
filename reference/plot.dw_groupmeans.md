@@ -6,7 +6,7 @@ Plot confidence intervals for group means
 
 ``` r
 # S3 method for class 'dw_groupmeans'
-plot(x, title = NULL, caption = TRUE)
+plot(x, title = NULL, caption = TRUE, ci = TRUE)
 ```
 
 ## Arguments
@@ -23,3 +23,7 @@ plot(x, title = NULL, caption = TRUE)
 
   Logical indicating if a caption summarizing the anova results should
   be included.
+
+- ci:
+
+  Logical indicating if the confidence interval should be shown.
