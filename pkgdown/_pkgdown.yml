@@ -20,7 +20,7 @@ reference:
            - data_groupmeans_bar
            - data_groupmeans_ci
            - basicplots
-           - plot.dw_group_means
+           - plot.dw_groupmeans
            - getstarted
            - assignment1
         - title: Datasets
