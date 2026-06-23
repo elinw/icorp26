@@ -74,7 +74,7 @@ get you started.
   : Plot confidence intervals for group means
 - [`basicplots()`](https://github.com/elinw/icorp26/reference/basicplots.md)
   : Create basic one variable plots
-- [`plot(`*`<dw_group_means>`*`)`](https://github.com/elinw/icorp26/reference/plot.dw_group_means.md)
+- [`plot(`*`<dw_groupmeans>`*`)`](https://github.com/elinw/icorp26/reference/plot.dw_groupmeans.md)
   : Plot confidence intervals for group means
 - [`getstarted()`](https://github.com/elinw/icorp26/reference/getstarted.md)
   : Create a project and some starting files

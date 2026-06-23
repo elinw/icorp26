@@ -5,15 +5,7 @@ Make a barplot
 ## Usage
 
 ``` r
-distribution_bar(
-  x,
-  i = 1,
-  xlab = NULL,
-  ylab = NULL,
-  title = NULL,
-  values = NULL,
-  ...
-)
+distribution_bar(x, i = 1, xlab = NULL, ylab = NULL, title = NULL, ...)
 ```
 
 ## Arguments
@@ -38,11 +30,11 @@ distribution_bar(
 
   A string to be used as the graph title
 
+- ...:
+
+  Additional options
+
 - values:
 
   A vector of labels to use for labelling the slices. Must match the
   numerical order of the variable.
-
-- ...:
-
-  Additional options
