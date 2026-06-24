@@ -594,12 +594,10 @@ pmalecloudy <- distribution_bar(temp1m$SUN_CLOUDY,
                  "Cloudy  (males)") +
           theme(axis.text.x = element_text(angle = 90))
 
-
-
 plots(pfemalenoharm, pmalenoharm,
       pfemalecloudy, pmalecloudy,
       n_columns = 2,
-      title = "Sunburn is not harmful in long run",
+      title = "Responses to sunburn questions",
       subtitle = "People over 70")  
 ```
 
@@ -618,10 +616,10 @@ rbind(temp1m, temp1f) |>
       Mean_No_Harm = distribution_mean(SUN_NOHARM_N),
       Median_No_Harm = distribution_median(SUN_NOHARM_N)
       ) |>
-     print_html()
+     display()
 ```
 
 | P_GENDER | Mean_Cloudy | Median_Cloudy | Mean_No_Harm | Median_No_Harm |
-|----------|-------------|---------------|--------------|----------------|
-| Male     | 1.83        | 2             | 1.63         | 1              |
-| Female   | 1.63        | 1             | 1.48         | 1              |
+|:---------|------------:|--------------:|-------------:|---------------:|
+| Male     |        1.83 |             2 |         1.63 |              1 |
+| Female   |        1.63 |             1 |         1.48 |              1 |
