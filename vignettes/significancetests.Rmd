@@ -1,0 +1,30 @@
+---
+title: "Significance tests"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Significance tests}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(icorp26)
+library(easystats)
+```
+
+So far we have been looking at statistics that describe 
+people in the RSS sample. 
+However, in the social sciences we are almost always interested
+in whether we can draw any conclusions (make an _inference about_)
+the larger population.
+
+
+
+
