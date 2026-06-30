@@ -4,7 +4,7 @@
 \alias{plot.datawizard_crosstab}
 \title{Plot method for crosstabs}
 \usage{
-\method{plot}{datawizard_crosstab}(x)
+\method{plot}{datawizard_crosstab}(x, y, ...)
 }
 \arguments{
 \item{x}{An object returned from \code{datawizard::datawizard_crosstab()}.}
