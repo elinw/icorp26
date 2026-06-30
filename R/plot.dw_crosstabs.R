@@ -5,8 +5,8 @@
 #' @param x  An object returned from `datawizard::datawizard_crosstab()`.
 #' @param y  Not currently used
 #' @param ... Not currently used
-#' @exportS3Method
-plot.datawizard_crosstab <- function(x) {
+#' @export
+plot.datawizard_crosstab <- function(x, y, ...) {
   proportion_type <- attr(x, "proportions")
   if (is.null(proportion_type)) {
     x_long <- datawizard::data_to_long(
