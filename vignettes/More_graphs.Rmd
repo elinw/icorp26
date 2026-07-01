@@ -22,7 +22,7 @@ library(ggplot2)
 
 ```{r}
 
-correlation(rss1,
+correlation::correlation(rss1,
             select =
               c("PAY_PAYWORRY",
              "HIS_GENERAL"),
