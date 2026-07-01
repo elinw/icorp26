@@ -1,8 +1,26 @@
 #' Plot method for crosstabs
 #'
-#' The `plot()` method for `datawizard_crosstab` objects
+#' The `plot()` method for `dw_crosstabs` objects.
+#' These objects are lists of `dw_crosstab`objects.
 #'
-#' @param x  An object returned from `datawizard::datawizard_crosstab()`.
+#' @details
+#' There is no standard way to plot a cross tabulation.
+#' For these plot functions the format respond to the value
+#' selected for the proportions argument of `data_tabulate()`
+#' from the `datawizard` package. Those options are "row" "column" and "full"
+#' along with NULL for no percentages (numbers only).
+#'
+#' For "row" and "column" percentages, stacked bar plots of the respective
+#' row and colum npercentages are displayed. For row percentages the bars
+#' display horizontally
+#'
+#' For tables with no percentage--raw numbers only--a heat map
+#' describes the size of the cells.
+#'
+#' For tables with "all" percents, i.e. with values representing
+#' the percentag of the whole sample
+#'
+#' @param x  A datawizard_crosstabs object`.
 #' @param y  Not currently used
 #' @param ... Not currently used
 #' @export
@@ -21,7 +39,6 @@ plot.datawizard_crosstab <- function(x, y, ...) {
   p <- ggplot2::ggplot(x_long)
   plotlist <- list()
   if (is.null(proportion_type)) {
-    x_long
     plotlist[[1]] <- ggplot2::aes(
       x = .data$row_var,
       y = .data$name,
@@ -59,7 +76,29 @@ plot.datawizard_crosstab <- function(x, y, ...) {
       high = "green"
     )
   }
-
+  print(attr(x, "df") == TRUE)
   p <- p + plotlist
+
+  if (attr(x, "df") == TRUE) {
+    return(print(p))
+  }
   p
+}
+
+#' Plot method for crosstabs
+#'
+#' The `plot()` method for `datawizard_crosstab` objects
+#'
+#' @param x  An object returned from `datawizard::datawizard_crosstab()`.
+#' @param y  Not currently used
+#' @param ... Not currently used
+#' @export
+plot.datawizard_crosstabs <- function(x, y, ...) {
+  if (length(x) == 0 | is.null(length(x))) {
+    stop("x must be a list of at least length 1")
+  }
+  if (length(x) == 1) {
+    attr(x[[1]], "df") <- TRUE
+    return(plot(x[[1]]))
+  }
 }

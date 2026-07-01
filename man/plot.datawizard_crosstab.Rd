@@ -7,12 +7,30 @@
 \method{plot}{datawizard_crosstab}(x, y, ...)
 }
 \arguments{
-\item{x}{An object returned from \code{datawizard::datawizard_crosstab()}.}
+\item{x}{A datawizard_crosstabs object`.}
 
 \item{y}{Not currently used}
 
 \item{...}{Not currently used}
 }
 \description{
-The \code{plot()} method for \code{datawizard_crosstab} objects
+The \code{plot()} method for \code{dw_crosstabs} objects.
+These objects are lists of \code{dw_crosstab}objects.
+}
+\details{
+There is no standard way to plot a cross tabulation.
+For these plot functions the format respond to the value
+selected for the proportions argument of \code{data_tabulate()}
+from the \code{datawizard} package. Those options are "row" "column" and "full"
+along with NULL for no percentages (numbers only).
+
+For "row" and "column" percentages, stacked bar plots of the respective
+row and colum npercentages are displayed. For row percentages the bars
+display horizontally
+
+For tables with no percentage--raw numbers only--a heat map
+describes the size of the cells.
+
+For tables with "all" percents, i.e. with values representing
+the percentag of the whole sample
 }
