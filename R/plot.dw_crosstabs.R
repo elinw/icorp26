@@ -15,10 +15,17 @@
 #' display horizontally
 #'
 #' For tables with no percentage--raw numbers only--a heat map
-#' describes the size of the cells.
+#' describes the number of observations in each cell.
 #'
 #' For tables with "all" percents, i.e. with values representing
-#' the percentag of the whole sample
+#' the percentage of the whole sample the graph is a mosaic
+#' plot where the size and color represent the proportion of the
+#' whole sample falls in each cell.
+#'
+#' To remove missing values from the plots, the data_tabulate
+#' object should be created with the `remove_na` argument of TRUE.
+#'
+#' The plots can be modified using ggplot2 syntax and options.
 #'
 #' @param x  A datawizard_crosstabs object`.
 #' @param y  Not currently used
@@ -46,7 +53,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
     )
     plotlist[[2]] <- ggplot2::geom_tile()
     plotlist[[3]] <- ggplot2::scale_fill_gradient(
-      low = "yellow",
+      low = "white",
       high = "green"
     )
   } else if (proportion_type == "row") {
