@@ -83,10 +83,10 @@ plot.datawizard_crosstab <- function(x, y, ...) {
       high = "green"
     )
   }
-  print(attr(x, "df") == TRUE)
+
   p <- p + plotlist
 
-  if (attr(x, "df") == TRUE) {
+  if (!is.null(attr(x, "df"))) {
     return(print(p))
   }
   p
@@ -101,7 +101,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
 #' @param ... Not currently used
 #' @export
 plot.datawizard_crosstabs <- function(x, y, ...) {
-  if (length(x) == 0 | is.null(length(x))) {
+  if (is.null(length(x) | length(x) == 0)) {
     stop("x must be a list of at least length 1")
   }
   if (length(x) == 1) {
