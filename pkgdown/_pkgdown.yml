@@ -21,7 +21,8 @@ reference:
            - data_groupmeans_ci
            - basicplots
            - plot.dw_groupmeans
-           - plot.dw_crosstab
+           - plot.datawizard_crosstab
+           - plot.datawizard_crosstabs
            - getstarted
            - assignment1
         - title: Datasets
