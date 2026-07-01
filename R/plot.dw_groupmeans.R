@@ -5,9 +5,7 @@
 #' @param x  An object returned `datawizard::means_by_group.data()`.
 #' @param y  Not currently used
 #' @param ... Additional options. Acceptable values include `title`
-#' with a string to use as a title, `ci` for if confidence intervals
-#' (if present in the object should be graphed), and `caption` for if
-#' a caption summarizing ANOVA results should be included.
+#' with a string to use as a title.
 #'
 #' @details
 #'
@@ -29,12 +27,12 @@
 #'
 #' group_means_object <- datawizard::means_by_group(
 #'   iris$Sepal.Width, iris$Species)
-#' )
 #' plot(group_means_object, title = "group means")
 #'
 #' @export
 plot.dw_groupmeans <- function(
   x,
+  y,
   ...
 ) {
   .data <- NULL

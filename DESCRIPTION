@@ -20,7 +20,8 @@ Depends:
 Imports:
   rmarkdown,
   here,
-  easystats,
+  correlation,
+  datawizard,
   insight,
   usethis
 Suggests:
@@ -28,11 +29,12 @@ Suggests:
   utils,
   dplyr (>= 1.0.0),
   ggplot2,
-  easystats,
   tidyr,
   likert,
   gt,
-  pkgdown
+  easystats,
+  pkgdown,
+  testthat
 VignetteBuilder: 
     knitr
 Roxygen: list(markdown = TRUE)

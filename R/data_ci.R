@@ -24,9 +24,12 @@ data_groupmeans_ci <- function(
     "\n"
   )
   x |>
-    data_filter(Category != "Total") |>
-    ggplot(aes(x = Category, y = Mean)) +
-    geom_point() +
-    geom_linerange(aes(ymin = CI_low, ymax = CI_high)) +
-    labs(title = title, caption = caption)
+    datawizard::data_filter(Category != "Total") |>
+    ggplot2::ggplot(ggplot2::aes(x = .data$Category, y = .data$Mean)) +
+    ggplot2::geom_point() +
+    ggplot2::geom_linerange(ggplot2::aes(
+      ymin = .data$CI_low,
+      ymax = .data$CI_high
+    )) +
+    ggplot2::labs(title = title, caption = caption)
 }

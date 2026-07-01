@@ -18,6 +18,7 @@ distribution_bar <- function(
   xlab = NULL,
   ylab = NULL,
   title = NULL,
+  values = NULL,
   ...
 ) {
   dwtable <- datawizard::data_tabulate(x, verbose = FALSE)
@@ -25,9 +26,9 @@ distribution_bar <- function(
   table1 <- tablelist[[i]]
   table1 <- as.data.frame(table1)
   labels <- table1$category
-  p <- ggplot(table1, aes(x = Var1, y = Freq)) +
-    geom_col() +
-    labs(title = title, x = xlab, y = ylab)
+  p <- ggplot2::ggplot(table1, ggplot2::aes(x = .data$Var1, y = .data$Freq)) +
+    ggplot2::geom_col() +
+    ggplot2::labs(title = title, x = xlab, y = ylab)
 
   p
 }
@@ -49,6 +50,7 @@ data_groupmeans_bar <- function(
   means <- x$Mean
   names(means) <- x$Category
   means <- means[1:(length(means) - 1)]
-  ggplot(means, x = Mean) +
-    geom_bar()
+  means <- as.data.frame(means)
+  ggplot2::ggplot(means, ggplot2::aes(x = .data$Mean)) +
+    ggplot2::geom_bar()
 }

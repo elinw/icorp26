@@ -4,17 +4,15 @@
 \alias{plot.dw_groupmeans}
 \title{Plot method for grouped means}
 \usage{
-\method{plot}{dw_groupmeans}(x, ...)
+\method{plot}{dw_groupmeans}(x, y, ...)
 }
 \arguments{
 \item{x}{An object returned \code{datawizard::means_by_group.data()}.}
 
-\item{...}{Additional options. Acceptable values include \code{title}
-with a string to use as a title, \code{ci} for if confidence intervals
-(if present in the object should be graphed), and \code{caption} for if
-a caption summarizing ANOVA results should be included.}
-
 \item{y}{Not currently used}
+
+\item{...}{Additional options. Acceptable values include \code{title}
+with a string to use as a title.}
 }
 \description{
 The \code{plot()} method for the \code{datawizard::means_by_group()} function
@@ -38,7 +36,6 @@ plot(group_means_object, title = "group means")
 
 group_means_object <- datawizard::means_by_group(
   iris$Sepal.Width, iris$Species)
-)
 plot(group_means_object, title = "group means")
 
 }

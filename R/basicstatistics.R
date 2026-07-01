@@ -3,7 +3,7 @@
 #' @param x   A vector
 #' @param remove_na Logical indicating if NAs should be removed.
 #' Defaults to TRUE
-#' @param to_numeric Logical indicating if non numeric vectors
+#' @param convert_to_numeric Logical indicating if non numeric vectors
 #'                   should be coerced to numeric.
 #'
 #' @export
