@@ -29,8 +29,15 @@ row and colum npercentages are displayed. For row percentages the bars
 display horizontally
 
 For tables with no percentage--raw numbers only--a heat map
-describes the size of the cells.
+describes the number of observations in each cell.
 
 For tables with "all" percents, i.e. with values representing
-the percentag of the whole sample
+the percentage of the whole sample the graph is a mosaic
+plot where the size and color represent the proportion of the
+whole sample falls in each cell.
+
+To remove missing values from the plots, the data_tabulate
+object should be created with the \code{remove_na} argument of TRUE.
+
+The plots can be modified using ggplot2 syntax and options.
 }
