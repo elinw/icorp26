@@ -49,7 +49,7 @@ articles:
           - Poster
           - Assignment2example
           - significancetests
-          - crosstabs
+          - Cross_tabs
        - title: Codebooks
          navbar: ~
          contents:
