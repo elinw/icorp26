@@ -2,7 +2,7 @@
 title: "Cross tabs"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Cross_tabs}
+  %\VignetteIndexEntry{Cross tabs}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

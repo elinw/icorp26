@@ -30,7 +30,7 @@
 #'
 #' The plots can be modified using ggplot2 syntax and options.
 #'
-#' @param x  A datawizard_crosstabs object`.
+#' @param x  A `datawizard_crosstabs` object.
 #' @param y  Not currently used
 #' @param ... Arguments to pass on. Currently accepts "title"
 #' as the graph title.
