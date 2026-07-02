@@ -3,6 +3,9 @@
 #' The `plot()` method for `dw_crosstabs` objects.
 #' These objects are lists of `dw_crosstab`objects.
 #'
+#' @returns A ggplot2 representation of a datawizard
+#' cross tabulation.
+#'
 #' @details
 #' There is no standard way to plot a cross tabulation.
 #' For these plot functions the format respond to the value
@@ -18,8 +21,8 @@
 #' describes the number of observations in each cell.
 #'
 #' For tables with "all" percents, i.e. with values representing
-#' the percentage of the whole sample the graph is a mosaic
-#' plot where the size and color represent the proportion of the
+#' the percentage of the whole sample the graph is a variation of a mosaic
+#' plot where the size of each rectangle represents the proportion of the
 #' whole sample falls in each cell.
 #'
 #' To remove missing values from the plots, the data_tabulate
@@ -29,7 +32,8 @@
 #'
 #' @param x  A datawizard_crosstabs object`.
 #' @param y  Not currently used
-#' @param ... Not currently used
+#' @param ... Arguments to pass on. Currently accepts "title"
+#' as the graph title.
 #' @export
 plot.datawizard_crosstab <- function(x, y, ...) {
   proportion_type <- attr(x, "proportions")
@@ -46,6 +50,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
   p <- ggplot2::ggplot(x_long)
   plotlist <- list()
   if (is.null(proportion_type)) {
+    # Plain numbers
     plotlist[[1]] <- ggplot2::aes(
       x = .data$row_var,
       y = .data$name,
@@ -57,6 +62,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
       high = "green"
     )
   } else if (proportion_type == "row") {
+    #row percents are horizontal
     plotlist[[1]] <- ggplot2::aes(
       x = .data$row_var,
       y = .data$value,
@@ -65,6 +71,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
     plotlist[[2]] <- ggplot2::geom_col()
     plotlist[[3]] <- ggplot2::coord_flip()
   } else if (proportion_type == "column") {
+    # column percents are vertical
     plotlist[[1]] <- ggplot2::aes(
       x = .data$name,
       y = .data$value,
@@ -72,16 +79,18 @@ plot.datawizard_crosstab <- function(x, y, ...) {
     )
     plotlist[[2]] <- ggplot2::geom_col()
   } else if (proportion_type == "full") {
+    # full percents
     plotlist[[1]] <- ggplot2::aes(
-      x = .data$row_var,
+      x = .data$row,
       y = .data$name,
-      fill = .data$value
+      width = 1.8 * sqrt(.data$total_proportion),
+      height = 1.8 * sqrt(.data$total_proportion),
+      fill = .data$row
     )
-    plotlist[[2]] <- ggplot2::geom_tile()
-    plotlist[[3]] <- ggplot2::scale_fill_gradient(
-      low = "white",
-      high = "green"
-    )
+    plotlist[[2]] <- ggplot2::geom_rect(color = "black")
+    plotlist[[3]] <- ggplot2::geom_text(aes(
+      label = 100 * round(total_proportion, 2)
+    ))
   }
 
   p <- p + plotlist
@@ -98,7 +107,8 @@ plot.datawizard_crosstab <- function(x, y, ...) {
 #'
 #' @param x  An object returned from `datawizard::datawizard_crosstab()`.
 #' @param y  Not currently used
-#' @param ... Not currently used
+#' @param ... Additional options. a `title` attribute will
+#' make an overall title for the graph
 #' @export
 plot.datawizard_crosstabs <- function(x, y, ...) {
   if (is.null(length(x) | length(x) == 0)) {
