@@ -23,8 +23,8 @@ data_groupmeans_ci <- function(
     insight::format_p(attributes(x)$p.value, whitespace = FALSE),
     "\n"
   )
-  x |>
-    datawizard::data_filter(Category != "Total") |>
+
+  datawizard::data_filter(x$Category != "Total") |>
     ggplot2::ggplot(ggplot2::aes(x = .data$Category, y = .data$Mean)) +
     ggplot2::geom_point() +
     ggplot2::geom_linerange(ggplot2::aes(

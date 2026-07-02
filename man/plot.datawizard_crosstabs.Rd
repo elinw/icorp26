@@ -11,8 +11,10 @@
 
 \item{y}{Not currently used}
 
-\item{...}{Not currently used}
+\item{...}{Additional options. a \code{title} attribute will
+make an overall title for the graph}
 }
 \description{
 The \code{plot()} method for \code{datawizard_crosstab} objects
+which are lists.
 }

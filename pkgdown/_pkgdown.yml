@@ -48,7 +48,8 @@ articles:
           - More_graphs
           - Poster
           - Assignment2example
-            significancetests
+          - significancetests
+          - crosstabs
        - title: Codebooks
          navbar: ~
          contents:

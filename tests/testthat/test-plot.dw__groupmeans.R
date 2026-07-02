@@ -17,6 +17,7 @@ test_that("`plot.dw_groupmeans_list()` works with a list of length 2", {
     "Species"
   )
   expect_no_error(p <- plot(x))
+  p <- plot(x)
   expect_s3_class(p, "gg")
   expect_identical(length(p), 1L)
   expect_identical(
@@ -31,7 +32,8 @@ test_that("`plot.dw_groupmeans()` with no dots arguments works", {
   data(iris)
   x <- datawizard::means_by_group(iris$Sepal.Width, iris$Species)
   expect_no_error(p <- plot(x))
-  expect_s3_class(p, "gg")
+  p <- plot(x)
+  expect_contains(class(p), "gg")
   expect_equal(
     attr(p, "labels")[[2]],
     "\nAnova: R2=0.401; adj.R2=0.393; F=49.160; p<.001"

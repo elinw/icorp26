@@ -1,5 +1,6 @@
 library(ggplot2)
 library(datawizard)
+library(see)
 data(iris)
 iris_c <- iris
 iris_c$Sepal.Width_c <- cut(iris$Sepal.Length, quantile(iris$Sepal.Length))

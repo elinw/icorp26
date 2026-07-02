@@ -11,7 +11,12 @@
 
 \item{y}{Not currently used}
 
-\item{...}{Not currently used}
+\item{...}{Arguments to pass on. Currently accepts "title"
+as the graph title.}
+}
+\value{
+A ggplot2 representation of a datawizard
+cross tabulation.
 }
 \description{
 The \code{plot()} method for \code{dw_crosstabs} objects.
@@ -32,8 +37,8 @@ For tables with no percentage--raw numbers only--a heat map
 describes the number of observations in each cell.
 
 For tables with "all" percents, i.e. with values representing
-the percentage of the whole sample the graph is a mosaic
-plot where the size and color represent the proportion of the
+the percentage of the whole sample the graph is a variation of a mosaic
+plot where the size of each rectangle represents the proportion of the
 whole sample falls in each cell.
 
 To remove missing values from the plots, the data_tabulate

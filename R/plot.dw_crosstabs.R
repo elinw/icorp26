@@ -37,6 +37,9 @@
 #' @export
 plot.datawizard_crosstab <- function(x, y, ...) {
   proportion_type <- attr(x, "proportions")
+  xlabel <- strsplit(attr(x, "varname"), "$", fixed = "true")[[1]][2]
+  ylabel <- strsplit(attr(x, "by"), "$", fixed = "true")[[1]][2]
+
   if (is.null(proportion_type)) {
     x_long <- datawizard::data_to_long(
       x,
@@ -57,9 +60,15 @@ plot.datawizard_crosstab <- function(x, y, ...) {
       fill = value
     )
     plotlist[[2]] <- ggplot2::geom_tile()
-    plotlist[[3]] <- ggplot2::scale_fill_gradient(
-      low = "white",
-      high = "green"
+    plotlist[[3]] <- ggplot2::scale_fill_gradient()
+    plotlist[[4]] <- ggplot2::geom_text(
+      aes(label = value),
+      color = "white"
+    )
+    plotlist[[5]] <- ggplot2::labs(
+      title = paste0(xlabel, " by ", ylabel),
+      x = xlabel,
+      y = ylabel
     )
   } else if (proportion_type == "row") {
     #row percents are horizontal
@@ -70,6 +79,11 @@ plot.datawizard_crosstab <- function(x, y, ...) {
     )
     plotlist[[2]] <- ggplot2::geom_col()
     plotlist[[3]] <- ggplot2::coord_flip()
+    plotlist[[5]] <- ggplot2::labs(
+      title = paste0(xlabel, " by ", ylabel),
+      x = xlabel,
+      y = ylabel
+    )
   } else if (proportion_type == "column") {
     # column percents are vertical
     plotlist[[1]] <- ggplot2::aes(
@@ -81,16 +95,22 @@ plot.datawizard_crosstab <- function(x, y, ...) {
   } else if (proportion_type == "full") {
     # full percents
     plotlist[[1]] <- ggplot2::aes(
-      x = .data$row,
+      x = .data$row_var,
       y = .data$name,
-      width = 1.8 * sqrt(.data$total_proportion),
-      height = 1.8 * sqrt(.data$total_proportion),
-      fill = .data$row
+      width = 1.8 * sqrt(.data$value),
+      height = 1.8 * sqrt(.data$value),
+      fill = interaction(.data$name, .data$row_var)
     )
-    plotlist[[2]] <- ggplot2::geom_rect(color = "black")
+    plotlist[[2]] <- ggplot2::geom_rect(color = "black", show.legend = FALSE)
     plotlist[[3]] <- ggplot2::geom_text(aes(
-      label = 100 * round(total_proportion, 2)
+      label = paste0(100 * round(.data$value, 2), "%")
     ))
+    plotlist[[4]] <- ggplot2::coord_fixed()
+    plotlist[[5]] <- ggplot2::labs(
+      title = paste0(xlabel, " by ", ylabel),
+      x = xlabel,
+      y = ylabel
+    )
   }
 
   p <- p + plotlist
@@ -104,6 +124,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
 #' Plot method for crosstabs
 #'
 #' The `plot()` method for `datawizard_crosstab` objects
+#' which are lists.
 #'
 #' @param x  An object returned from `datawizard::datawizard_crosstab()`.
 #' @param y  Not currently used
