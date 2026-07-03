@@ -27,7 +27,11 @@
 - [`basicplots()`](https://github.com/elinw/icorp26/reference/basicplots.md)
   : Create basic one variable plots
 - [`plot(`*`<dw_groupmeans>`*`)`](https://github.com/elinw/icorp26/reference/plot.dw_groupmeans.md)
-  : Plot confidence intervals for group means
+  : Plot method for grouped means
+- [`plot(`*`<datawizard_crosstab>`*`)`](https://github.com/elinw/icorp26/reference/plot.datawizard_crosstab.md)
+  : Plot method for crosstabs
+- [`plot(`*`<datawizard_crosstabs>`*`)`](https://github.com/elinw/icorp26/reference/plot.datawizard_crosstabs.md)
+  : Plot method for crosstabs
 - [`getstarted()`](https://github.com/elinw/icorp26/reference/getstarted.md)
   : Create a project and some starting files
 - [`assignment1()`](https://github.com/elinw/icorp26/reference/assignment1.md)

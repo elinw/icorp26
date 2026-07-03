@@ -1,29 +1,61 @@
-# Plot confidence intervals for group means
+# Plot method for grouped means
 
-Plot confidence intervals for group means
+The [`plot()`](https://rdrr.io/r/graphics/plot.default.html) method for
+the
+[`datawizard::means_by_group()`](https://easystats.github.io/datawizard/reference/means_by_group.html)
+function
 
 ## Usage
 
 ``` r
 # S3 method for class 'dw_groupmeans'
-plot(x, title = NULL, caption = TRUE, ci = TRUE)
+plot(x, y, ...)
 ```
 
 ## Arguments
 
 - x:
 
-  A dw_groupmeans data frame.
+  An object returned `datawizard::means_by_group.data()`.
 
-- title:
+- y:
 
-  A string to be used as the graph title
+  Not currently used
 
-- caption:
+- ...:
 
-  Logical indicating if a caption summarizing the anova results should
-  be included.
+  Additional options. Acceptable values include `title` with a string to
+  use as a title.
 
-- ci:
+## Details
 
-  Logical indicating if the confidence interval should be shown.
+Produces a faceted plot when there is more than one means-table in the
+list. If there is a single item a standard plot is returned.
+
+## Examples
+
+``` r
+group_means_object <-  datawizard::means_by_group(iris$Sepal.Width, iris$Species)
+plot(group_means_object, title = "group means", ci = FALSE, caption = FALSE)
+
+
+group_means_object <- datawizard::means_by_group(
+  iris,
+  c("Sepal.Width", "Petal.Width"),
+  "Species"
+)
+
+plot(group_means_object, title = "group means")
+#> Warning: Removed 3 rows containing missing values or values outside the scale range
+#> (`geom_segment()`).
+#> Warning: Removed 3 rows containing missing values or values outside the scale range
+#> (`geom_segment()`).
+
+
+group_means_object <- datawizard::means_by_group(
+  iris$Sepal.Width, iris$Species)
+plot(group_means_object, title = "group means")
+#> Warning: Removed 3 rows containing missing values or values outside the scale range
+#> (`geom_segment()`).
+
+```

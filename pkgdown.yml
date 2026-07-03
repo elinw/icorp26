@@ -4,6 +4,7 @@ pkgdown_sha: ~
 articles:
   Assignment2example: Assignment2example.html
   basic_plots: basic_plots.html
+  Cross_tabs: Cross_tabs.html
   first_analysis: first_analysis.html
   introduction: introduction.html
   More_graphs: More_graphs.html
@@ -13,11 +14,12 @@ articles:
   articles/rss3_codebook: rss3_codebook.html
   articles/rss4_codebook: rss4_codebook.html
   articles/rss5_codebook: rss5_codebook.html
-  rss6_codebook: rss6_codebook.html
-  rss7_codebook: rss7_codebook.html
+  articles/rss6_codebook: rss6_codebook.html
+  articles/rss7_codebook: rss7_codebook.html
+  significancetests: significancetests.html
   two_variables: two_variables.html
   your_project: your_project.html
-last_built: 2026-06-24T18:06Z
+last_built: 2026-07-03T00:53Z
 urls:
   reference: https://github.com/elinw/icorp26/reference
   article: https://github.com/elinw/icorp26/articles
