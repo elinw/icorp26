@@ -96,6 +96,11 @@ plot.datawizard_crosstab <- function(x, y, ...) {
       fill = .data$row_var
     )
     plotlist[[2]] <- ggplot2::geom_col()
+    plotlist[[3]] <- ggplot2::labs(
+      title = paste0(ylabel, " by ", xlabel),
+      x = xlabel,
+      y = ylabel
+    )
   } else if (proportion_type == "full") {
     # full percents
     plotlist[[1]] <- ggplot2::aes(
