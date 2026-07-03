@@ -13,10 +13,12 @@ Howeve, we often are interested in how the two variables relate to each
 other. For example, are people who get small coffees different than
 people who get large coffees?
 
-This can be tricky because there are different numbers of orders in each
-group.
+This can be tricky because there are different numbers of coffee orders
+in each group.
 
 One way to understand this would be to break our table into parts.
+
+## Rows
 
 | Size   | Milk | No Milk | Total |
 |--------|------|---------|-------|
@@ -85,8 +87,22 @@ data_tabulate(penguins$year, by = penguins$species,
               proportions = "row",
               remove_na = TRUE) -> table
 table |> print_md()
+```
+
+| penguins\$year | Adelie     | Chinstrap  | Gentoo     | Total |
+|:---------------|:-----------|:-----------|:-----------|------:|
+| 2007           | 50 (45.5%) | 26 (23.6%) | 34 (30.9%) |   110 |
+| 2008           | 50 (43.9%) | 18 (15.8%) | 46 (40.4%) |   114 |
+| 2009           | 52 (43.3%) | 24 (20.0%) | 44 (36.7%) |   120 |
+|                |            |            |            |       |
+| Total          | 152        | 68         | 124        |   344 |
+
+``` r
+
 table |> plot() 
 ```
+
+![](Cross_tabs2_files/figure-html/unnamed-chunk-2-1.png)
 
 The percentage of penguins who are Adelie was pretty stable over the
 three years. However, compared to 2007, in 2008 the percentage of
@@ -152,8 +168,8 @@ Putting the table back together we can easily see how they compare.
 | Total  | 30   | 35      |
 
 Looking at it from this perspective, we can see that people who ordered
-coffee without milk, generally ordered larger coffees than those who
-ordered with milk.
+coffee without milk, generally speaking, ordered larger coffees than
+those who ordered with milk.
 
 Now looking at the penguin data column percent, we can look at how year
 is distributed for each species.
@@ -164,5 +180,25 @@ data_tabulate(penguins$year, by = penguins$species,
               proportions = "column",
               remove_na = TRUE) -> table
 table |> print_md()
+```
+
+| penguins\$year | Adelie     | Chinstrap  | Gentoo     | Total |
+|:---------------|:-----------|:-----------|:-----------|------:|
+| 2007           | 50 (32.9%) | 26 (38.2%) | 34 (27.4%) |   110 |
+| 2008           | 50 (32.9%) | 18 (26.5%) | 46 (37.1%) |   114 |
+| 2009           | 52 (34.2%) | 24 (35.3%) | 44 (35.5%) |   120 |
+|                |            |            |            |       |
+| Total          | 152        | 68         | 124        |   344 |
+
+``` r
+
 table |> plot() 
 ```
+
+![](Cross_tabs2_files/figure-html/unnamed-chunk-3-1.png)
+
+The Adelie were evenly divided over the three years. Among the
+Chinstraps, a smaller percentage of observations were from 2008 than
+other species. Among Gentoo, 2007 was the smallest year.
+
+## Choosing a type of percentage
