@@ -99,7 +99,7 @@ up the values in each row give you 100.
 
 Using the penguins data we can get row percents.
 
-```{r}
+```{r eval=FALSE}
 data_tabulate(penguins$year, by = penguins$species,
               proportions = "row",
               remove_na = TRUE) -> table
@@ -187,7 +187,7 @@ ordered larger coffees than those who ordered with milk.
 Now looking at the penguin data column percent, we can 
 look at how year is distributed for each species.
 
-```{r}
+```{r eval=FALSE}
 data_tabulate(penguins$year, by = penguins$species,
               proportions = "column",
               remove_na = TRUE) -> table
