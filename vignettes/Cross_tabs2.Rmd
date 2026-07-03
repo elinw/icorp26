@@ -1,8 +1,8 @@
 ---
-title: "Cross tabs 2"
+title: "Cross_tabs2"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Cross tabs 2}
+  %\VignetteIndexEntry{Cross_tabs2}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,7 +15,6 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup, message=FALSE}
-library(icorp26)
 library(easystats)
 library(ggplot2)
 ```
