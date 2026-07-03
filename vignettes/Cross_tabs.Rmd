@@ -1,8 +1,8 @@
 ---
-title: "Cross tabs"
+title: "Cross tabs part 1"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Cross tabs}
+  %\VignetteIndexEntry{Cross tabs part 1}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -168,13 +168,14 @@ the size of the percentages.
 ```{r}
 data_tabulate(penguins$year, by = penguins$species,
               proportions = "full",
-              remove_na = TRUE) 
+              remove_na = TRUE) |>
+     print_md()
 ```
 
 ```{r}
 data_tabulate(penguins$year, by = penguins$species,
               proportions = "full",
-              remove_na = TRUE) |> plot() |> print()
+              remove_na = TRUE) |> plot() 
 ```
 
 

@@ -7,7 +7,7 @@
 \method{plot}{datawizard_crosstab}(x, y, ...)
 }
 \arguments{
-\item{x}{A datawizard_crosstabs object`.}
+\item{x}{A \code{datawizard_crosstabs} object.}
 
 \item{y}{Not currently used}
 

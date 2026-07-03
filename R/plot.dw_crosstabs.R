@@ -38,8 +38,11 @@
 plot.datawizard_crosstab <- function(x, y, ...) {
   proportion_type <- attr(x, "proportions")
   xlabel <- strsplit(attr(x, "varname"), "$", fixed = "true")[[1]][2]
-  ylabel <- strsplit(attr(x, "by"), "$", fixed = "true")[[1]][2]
-
+  if (!is.null(attr(x, "by"))) {
+    ylabel <- strsplit(attr(x, "by"), "$", fixed = "true")[[1]][2]
+  } else {
+    ylabel <- ""
+  }
   if (is.null(proportion_type)) {
     x_long <- datawizard::data_to_long(
       x,
@@ -70,6 +73,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
       x = xlabel,
       y = ylabel
     )
+    plotlist[[6]] <- ggplot2::coord_fixed()
   } else if (proportion_type == "row") {
     #row percents are horizontal
     plotlist[[1]] <- ggplot2::aes(
