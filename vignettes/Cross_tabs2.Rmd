@@ -27,11 +27,12 @@ relate to each other.  For example, are people who get
 small coffees different than people who get large coffees?
 
 This can be tricky because there are different numbers of 
-orders in each group.
+coffee orders in each group.
 
 One way to understand this would be to break our table
 into parts.
 
+## Rows
 
 |Size       |  Milk | No Milk  | Total
 |-----------|-------|-------|----------
@@ -43,9 +44,11 @@ into parts.
 |-----------|-------|-------|
 |Small      | 10    |  9    | 19
 
+
 |Size       |  Milk | No Milk  | Total
 |-----------|-------|-------|----------
 |Medium     |  8    | 11    | 19
+
 
 
 |Size       |  Milk | No Milk  | Total
@@ -58,9 +61,11 @@ Now we can calculate the percentages for each coffee size.
 |-----------|-------|-------|
 |Small      | 53%    |  47%    | 19
 
+
 |Size       |  Milk | No Milk  | Total
 |-----------|-------|-------|----------
 |Medium     |  42%   | 58%    | 19
+
 
 |Size       |  Milk | No Milk  | Total
 |-----------|-------|-------|----------
@@ -98,7 +103,7 @@ up the values in each row give you 100.
 
 Using the penguins data we can get row percents.
 
-```{r eval=FALSE}
+```{r}
 data_tabulate(penguins$year, by = penguins$species,
               proportions = "row",
               remove_na = TRUE) -> table
@@ -180,16 +185,27 @@ compare.
 Total       | 30   |  35
 
 Looking at it from this perspective, we can see that 
-people who ordered coffee without milk, generally 
+people who ordered coffee without milk, generally speaking,
 ordered larger coffees than those who ordered with milk.
 
 Now looking at the penguin data column percent, we can 
 look at how year is distributed for each species.
 
-```{r eval=FALSE}
+```{r}
 data_tabulate(penguins$year, by = penguins$species,
               proportions = "column",
               remove_na = TRUE) -> table
 table |> print_md()
 table |> plot() 
 ```
+
+The Adelie were evenly divided over the three years. 
+Among the Chinstraps, a smaller percentage of observations were from 2008 than other species.
+Among Gentoo, 2007 was the smallest year.
+
+## Choosing a type of percentage
+
+
+
+
+
