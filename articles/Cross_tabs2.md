@@ -202,3 +202,11 @@ Chinstraps, a smaller percentage of observations were from 2008 than
 other species. Among Gentoo, 2007 was the smallest year.
 
 ## Choosing a type of percentage
+
+With a two variable table, we have see 4 possible ways to present the
+data:
+
+- The plain numbers
+- The total percents
+- The row percents
+- the column percents
