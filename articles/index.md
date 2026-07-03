@@ -20,6 +20,7 @@
   tests](https://github.com/elinw/icorp26/articles/significancetests.md):
 - [Cross tabs part
   1](https://github.com/elinw/icorp26/articles/Cross_tabs.md):
+- [Cross_tabs2](https://github.com/elinw/icorp26/articles/Cross_tabs2.md):
 
 ### Codebooks
 
