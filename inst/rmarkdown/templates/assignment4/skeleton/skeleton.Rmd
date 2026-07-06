@@ -1,0 +1,72 @@
+---
+title: "Assignment 4"
+author: "Your Name"
+  word_document: default
+  html_document: default
+  pdf_document:
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r packages, message=FALSE}
+library(icorp26)
+library(easystats)
+library(ggplot2)
+```
+
+This week's homework is to get down to work on your poster.
+Remember that you need to have your poster for *August 4* and
+that you need to make sure you are able to attend.
+
+Also, to get your poster printed in time you will need to 
+submit it by July 30.  You should share drafts of the poster
+earlier with the RAs.
+
+July 21 we have our Lehman in person day including working 
+on your literature review and creating your poster.
+
+
+Here is what the assignment says.
+
+ - Run T-Test for your poster
+ - From the chalkboard, watch videos on how to construct a poster
+begin to assemble poster
+ - Appropriate Header
+ - Lit Review (at least 5 sources)
+ - Theoretical Framework
+ - Methods & Findings (with one data graphic)
+ - Discussion, Conclusions, Limitations, and/or Future Research
+ - At least one ‘content’ graphic/image
+ - QR Code
+ - Ideally your picture next to QR Code
+
+
+For your poster you should already have a file called
+poster.rmd in your rmarkdown folder.
+
+*Do not use AI to do any of the writing.*   
+
+## Must do this week
+
+1. Edit your poster file and change the information at the 
+top to be your name and information.  Your department 
+should be whatever your major is.  
+
+2. In the introduction section write a description of your 
+topic.  This should include your population of interest and 
+your dependent and independent variables. (All of this is a first
+draft so it will get revised. This version will be very rough at this point.).
+
+3. In the methods section write 1-2 sentences describing 
+the RSS data. You can get the information you need from the links
+on the icorp26 website. https://elinw.github.io/icorp26/
+
+4. In the results section put the code to generate your 
+tables and graphs.
+
+5. Write some sentences summarizing the results.
+
+
+
