@@ -1,5 +1,5 @@
 ---
-title: "Knowledge of sunburn risks"
+title: "Knowledge of sunburn risks and use of sunscreen"
 author:
   - name: "Elin Waring"
     affil: 1
@@ -91,7 +91,11 @@ risks of sunburn.
 
 # Results
 
-The RSS data on knowledge of the suns data
+The RSS data on knowledge of the potential for sun to 
+damage the skin and cause other harms.  The dependent
+variables are how often you use sunscreen on either your 
+face or other areas of your skin. 
+
 ```{r}
 # Students: Notice that here I realized that to have the graph make sense
 # I had to say that the group variable was numeric because it 
@@ -116,7 +120,7 @@ means_by_group(to_numeric(rss1$SUN_USEFACE),
 ```
 
 
-Overall Hypothesis 1 is generally supported. For example,
+Hypothesis 1 is generally supported. For example,
 those who agreed more that there is no risk from the sun 
 on cloudy days uses sun screen on their face or skin less often and the result was statistically
 significant at the .001 level. 
@@ -128,13 +132,13 @@ The unexpectedly high sun screen use for this group should be invetigated furthe
 
 ```{r}
 means_by_group( to_numeric(rss1$SUN_NOHARM), by =rss1$P_RACE_R) |>
-     plot() + labs(title = "Sunscreen Misinformation by Race/Ethnicity", xlab = "Ageement that there is no long term risk")
+     plot() + labs(title = "Sunscreen Misinformation by Race/Ethnicity", xlab = "Ageement that there is no long term risk from sun burn")
 
 
 
 means_by_group(to_numeric(rss1$SUN_CLOUDY), 
                by =rss1$P_RACE_R) |>
-     plot() + labs(title = "Sunscreen Misinformation by Race", xlab = "Ageement that there is no risk")
+     plot() + labs(title = "Sunscreen Misinformation by Race", xlab = "Ageement that there is no risk on cloudy days")
 ```
 
 <br/>
@@ -186,10 +190,8 @@ cancer among African Americans, and to a lesser extent Hispanics, will require
 addressing the structural issues of a racialized health care system.
 
 
-# Key References
+# References and other information
 
-```{r, include=FALSE}
-knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
-```
+
 Your QR Code and photo
 
