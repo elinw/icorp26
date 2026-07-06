@@ -310,10 +310,11 @@ values in each row give you 100.</p>
 <code class="sourceCode R"><span><span class="va">table</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <p><img src="Cross_tabs2_files/figure-html/unnamed-chunk-2-1.png" class="r-plt" alt="" width="700"></p>
 <p>The percentage of penguins who are Adelie was pretty stable over the
-three years. However, compared to 2007, in 2008 the percentage of
-penguins who are Chinstrap dropped substantially It then then recovered
-slightly in 2009. This means that the percent who are Gentoo increased,
-since the percentagess have to add up to 100 within each row.</p>
+three years. However, among those measured in 2008 the percentage of
+penguins who are Chinstrap dropped substantially compared to those from
+2007. This recovered slightly among the observations in 2009. This means
+that the percent who are Gentoo increased, since the percentagess have
+to add up to 100 within each row.</p>
 </div>
 <div class="section level2">
 <h2 id="columns">Columns<a class="anchor" aria-label="anchor" href="#columns"></a>
@@ -409,7 +410,7 @@ since the percentagess have to add up to 100 within each row.</p>
 </tr>
 </tbody>
 </table>
-<p>Calculating the percentages base on the column totals</p>
+<p>Next, we calculate the percentages base on the column totals.</p>
 <table class="table">
 <thead><tr class="header">
 <th>Size</th>
@@ -577,6 +578,23 @@ data:</p>
 <li>The row percents</li>
 <li>the column percents</li>
 </ul>
+<p>Which one you should report depends on what question you to answer
+or, more generally, what your purpose is.</p>
+<p>If you want to make comparisons, you most likely want to use the
+percents <em>within</em> the groups you want to compare.</p>
+<p>If you want to know if the distribution of species changed from year
+to you, use the percentage calculated within the years; in the tables
+here that would be the row percentages.</p>
+<p>If you want to know if the three species had different distributions
+of years, you would want the column percents.</p>
+<p>If you want to know if any of the combinations of year and species is
+over or underrepresented in the sample, you want the total percents.</p>
+<p>But, if you want to know how many of something there are, you need to
+use the actual numbers. Thinking about our coffee shop example. In the
+end, we probably want to be able to predict how many of each kind of
+order we will get next week. That will let us be sure to have enough
+coffee, milk and cups. In that case you need numbers and not
+percents.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
