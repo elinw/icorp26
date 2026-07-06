@@ -41,16 +41,21 @@ into parts.
 |Medium     |  8    | 11    | 19
 |Large      | 12    | 15    | 27
 
+### Just the small
+
 |Size       |  Milk | No Milk  | Total
 |-----------|-------|-------|
 |Small      | 10    |  9    | 19
 
+
+### Just the medium
 
 |Size       |  Milk | No Milk  | Total
 |-----------|-------|-------|----------
 |Medium     |  8    | 11    | 19
 
 
+### Just the large.
 
 |Size       |  Milk | No Milk  | Total
 |-----------|-------|-------|----------
@@ -58,15 +63,19 @@ into parts.
 
 Now we can calculate the percentages for each coffee size.
 
+*Small*  
+
 |Size       |  Milk | No Milk  | Total
 |-----------|-------|-------|
 |Small      | 53%    |  47%    | 19
 
+*Medium*
 
 |Size       |  Milk | No Milk  | Total
 |-----------|-------|-------|----------
 |Medium     |  42%   | 58%    | 19
 
+*Large*
 
 |Size       |  Milk | No Milk  | Total
 |-----------|-------|-------|----------
