@@ -4,6 +4,7 @@
 
 library(easystats)
 library(ggplot2)
+library(icorp26)
 ```
 
 So far we’ve looked at how two variables are distributed across every
