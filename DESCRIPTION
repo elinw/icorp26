@@ -36,7 +36,6 @@ Suggests:
   pkgdown,
   testthat,
   remotes
-Remotes: "brentthorne/posterdown"
 VignetteBuilder: 
     knitr
 Roxygen: list(markdown = TRUE)
