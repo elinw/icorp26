@@ -43,6 +43,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
   } else {
     ylabel <- ""
   }
+
   if (is.null(proportion_type)) {
     x_long <- datawizard::data_to_long(
       x,
@@ -52,6 +53,12 @@ plot.datawizard_crosstab <- function(x, y, ...) {
   } else {
     x_long <- attr(x, "prop_table") |>
       datawizard::data_to_long(rows_to = "row_var")
+  }
+  if (is.numeric(x_long$name)) {
+    x_long$name <- as.character(x_long$name)
+  }
+  if (is.numeric(x_long$row_var)) {
+    x_long$row_var <- as.character(x_long$row_var)
   }
   p <- ggplot2::ggplot(x_long)
   plotlist <- list()
