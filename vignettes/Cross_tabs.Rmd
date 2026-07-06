@@ -12,12 +12,13 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-library(easystats)
-library(ggplot2)
+
+
 ```
 
 ```{r setup}
 library(icorp26)
+library(ggplot2)
 library(easystats)
 ```
 
