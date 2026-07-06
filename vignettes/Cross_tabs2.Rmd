@@ -113,9 +113,11 @@ table |> plot()
 
 
 The percentage of penguins who are Adelie was pretty
-stable over the three years. However, compared to 2007, in 2008 the 
+stable over the three years. However, among those measured in
+2008 the 
 percentage of penguins who are Chinstrap dropped 
-substantially It then then recovered slightly in 2009. This
+substantially compared to those from 2007.  This recovered
+slightly among the observations in 2009. This
 means that the percent who are Gentoo increased, since the 
 percentagess have to add up to 100 within each row.
 
@@ -151,7 +153,7 @@ We can do the same kind of process with columns.
 |Total       | 35    | 
 
 
-Calculating the percentages base on the column totals
+Next, we calculate the percentages base on the column totals.
 
 
 |Size       |  Milk  
@@ -212,6 +214,31 @@ to present the data:
  - The total percents
  - The row percents
  - the column percents
+
+Which one you should report depends on what question 
+you to answer or, more generally, what your purpose is.
+
+If you want to make comparisons, you most likely want to 
+use the percents _within_ the groups you want to compare. 
+
+If you want to know if the distribution of species changed
+from year to you, use the percentage calculated within the years;
+in the tables here that would be the row percentages.
+
+If you want to know if the three species had different 
+distributions of years, you would want the column percents.
+
+If you want to know if any of the combinations of year and 
+species is over or underrepresented in the sample, you 
+want the total percents.
+
+But, if you want to know how many of something there are, you 
+need to use the actual numbers. Thinking about our coffee shop
+example. In the end, we probably want to be able to predict
+how many of each kind of order we will get next week. That will 
+let us be sure to have enough coffee, milk and cups. In that
+case you need numbers and not percents.  
+
 
 
 
