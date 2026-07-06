@@ -26,6 +26,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 library(easystats)
 library(icorp26)
 library(ggplot2)
+library(sjPlot)
 ```
 
 # Introduction
@@ -38,7 +39,7 @@ and location of the cancer across racial and ethnic groups. Hispanic and Black A
 are more likely to be diagnosed at late stages of skin cancer than
 white Americans (Skin Cancer Foundation).
 
-There are known effective ways to prevent sun cancer, but these
+There are known effective ways to lower the risk of skin cancer, but these
 often require individuals to take various steps to avoid exposure 
 of their skin to to UV rays. These include covering the skin,
 correct use of effective sunscreens and not using tanning beds.
@@ -47,10 +48,21 @@ Although people of all races get skin cancer, reseearchers have found
 that medical text books and educational materials for the public often focus exclusively on "fair" (i.e. white) skin (Rodini and Kowalsky 2021). This may lead both doctors and patients to 
 ignore the risk of UV rays to to those with darker skin.
 
+There is also some research which indicates that some people
+believe that people with dark skin cannot get sun burned or
+in some cases can't get skin cancer.  While melanin does provide
+protection, it does not provide total protection. In particular,
+soles of the feet and nail beds have higher risk than the rest
+of the body.
 
 ## Objectives
 
-1. To determine the relationship of 
+1. To determine the relationship of knowledge of the dangers
+of sun exposure to racial and ethnic identity.
+
+2. To assess the extent to which knowledge of the dangers of sun
+exposure relate to changes in the use of sunscreen.
+
 
 
 # Methods
@@ -79,15 +91,7 @@ risks of sunburn.
 
 # Results
 
-The RSS data on know
-
-```{r eval=FALSE}
-data_tabulate(c(rss1$SUN_CLOUDY), by =  rss1$P_RACE_R, proportions = "column", remove_na = TRUE)
-data_tabulate(c(rss1$SUN_NOHARM), by =  rss1$P_RACE_R, proportions = "column", remove_na = TRUE)
-
-data_tabulate(rss1$SUN_USESKIN, by =  rss1$SUN_CLOUDY, proportions = "column", remove_na = TRUE)
-data_tabulate(rss1$SUN_USESKIN, by =  rss1$SUN_NOHARM, proportions = "column", remove_na = TRUE)
-```
+The RSS data on knowledge of the suns data
 ```{r}
 # Students: Notice that here I realized that to have the graph make sense
 # I had to say that the group variable was numeric because it 
@@ -96,17 +100,25 @@ data_tabulate(rss1$SUN_USESKIN, by =  rss1$SUN_NOHARM, proportions = "column", r
 # numeric
 
 means_by_group(to_numeric(rss1$SUN_USESKIN), by= to_numeric(rss1$SUN_NOHARM)) |>
-     plot() + labs(title = "Use of Sunscreen by Misinformation (SUN_NOHARM", xlab = "Ageement that there is no long term risk")
-```
-```{r}
+     plot() + labs(title = "Frequency of Use of Sunscreen on the skin ", xlab = "Ageement that there is no long term risk of harm from sun burn")
+
 means_by_group(to_numeric(rss1$SUN_USESKIN), by=to_numeric(rss1$SUN_CLOUDY)) |>
      plot() + labs(title = "Use of Sunscreen by Misinformation (SUN_CLOUDY", xlab = "Ageement that there is no risk")
 
 ```
+```{r}
+means_by_group(to_numeric(rss1$SUN_USEFACE), by=to_numeric(rss1$SUN_CLOUDY)) |>
+     plot() + labs(title = "Frequency of Use of Sunscreen on Face", xlab = "Ageement that there is no risk on cloudy days")
+
+means_by_group(to_numeric(rss1$SUN_USEFACE), 
+               by= to_numeric(rss1$SUN_NOHARM)) |>
+     plot() + labs(title = "Frequency of Use of Sunscreen on Face", xlab = "Ageement that there is no long term risk")
+```
+
 
 Overall Hypothesis 1 is generally supported. For example,
 those who agreed more that there is no risk from the sun 
-on cloudy days uses sun screen less often and the result was statistically
+on cloudy days uses sun screen on their face or skin less often and the result was statistically
 significant at the .001 level. 
 
 However the results for disagreeing that "sunburn is not harmful in long run"
@@ -116,15 +128,39 @@ The unexpectedly high sun screen use for this group should be invetigated furthe
 
 ```{r}
 means_by_group( to_numeric(rss1$SUN_NOHARM), by =rss1$P_RACE_R) |>
-     plot() + labs(title = "Sunscreen Misinformation by Race/Ethnicity (SUN_NOHARM", xlab = "Ageement that there is no long term risk")
+     plot() + labs(title = "Sunscreen Misinformation by Race/Ethnicity", xlab = "Ageement that there is no long term risk")
 
+
+
+means_by_group(to_numeric(rss1$SUN_CLOUDY), 
+               by =rss1$P_RACE_R) |>
+     plot() + labs(title = "Sunscreen Misinformation by Race", xlab = "Ageement that there is no risk")
 ```
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div style="clear: both;"></div>
+
+### Regression
+
+Regression analysis indicates that these variables remain 
+important predictors even when combined into a single
+model. That is, each one has its own separate effect.
+
 ```{r}
+result <-  lm(to_numeric(SUN_USESKIN) ~  
+                   to_numeric(SUN_CLOUDY) + 
+                   to_numeric(SUN_NOHARM) +
+                   P_RACE_R + P_GENDER 
+              , data=rss1)
+result |> tab_model()
 
-means_by_group(to_numeric(rss1$SUN_CLOUDY), by =rss1$P_RACE_R) |>
-     plot() + labs(title = "Sunscreen Misinformation by Race (SUN_CLOUDY", xlab = "Ageement that there is no risk")
+
 ```
-
 
 # Next Steps
 
@@ -155,5 +191,5 @@ addressing the structural issues of a racialized health care system.
 ```{r, include=FALSE}
 knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
 ```
-
+Your QR Code and photo
 
