@@ -27,13 +27,19 @@ One way to understand this would be to break our table into parts.
 | Medium | 8    | 11      | 19    |
 | Large  | 12   | 15      | 27    |
 
+### Just the small
+
 | Size  | Milk | No Milk |
 |-------|------|---------|
 | Small | 10   | 9       |
 
+### Just the medium
+
 | Size   | Milk | No Milk | Total |
 |--------|------|---------|-------|
 | Medium | 8    | 11      | 19    |
+
+### Just the large.
 
 | Size  | Milk | No Milk | Total |
 |-------|------|---------|-------|
@@ -41,13 +47,19 @@ One way to understand this would be to break our table into parts.
 
 Now we can calculate the percentages for each coffee size.
 
+*Small*
+
 | Size  | Milk | No Milk |
 |-------|------|---------|
 | Small | 53%  | 47%     |
 
+*Medium*
+
 | Size   | Milk | No Milk | Total |
 |--------|------|---------|-------|
 | Medium | 42%  | 58%     | 19    |
+
+*Large*
 
 | Size  | Milk | No Milk | Total |
 |-------|------|---------|-------|
