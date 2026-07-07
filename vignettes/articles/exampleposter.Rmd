@@ -63,8 +63,6 @@ of sun exposure to racial and ethnic identity.
 2. To assess the extent to which knowledge of the dangers of sun
 exposure relate to changes in the use of sunscreen.
 
-
-
 # Methods
 
 The RSS surveys are topical surveys administered to US adults. 
@@ -96,13 +94,7 @@ damage the skin and cause other harms.  The dependent
 variables are how often you use sunscreen on either your 
 face or other areas of your skin. 
 
-```{r}
-# Students: Notice that here I realized that to have the graph make sense
-# I had to say that the group variable was numeric because it 
-# didn't automatically go in the right order in the graph.
-# Also to get a mean I needed to make the dependent variable
-# numeric
-
+```{r fig.height=4}
 means_by_group(to_numeric(rss1$SUN_USESKIN), by= to_numeric(rss1$SUN_NOHARM)) |>
      plot() + labs(title = "Frequency of Use of Sunscreen on the skin ", xlab = "Ageement that there is no long term risk of harm from sun burn")
 
@@ -110,7 +102,7 @@ means_by_group(to_numeric(rss1$SUN_USESKIN), by=to_numeric(rss1$SUN_CLOUDY)) |>
      plot() + labs(title = "Use of Sunscreen by Misinformation (SUN_CLOUDY", xlab = "Ageement that there is no risk")
 
 ```
-```{r}
+```{r fig.height=4}
 means_by_group(to_numeric(rss1$SUN_USEFACE), by=to_numeric(rss1$SUN_CLOUDY)) |>
      plot() + labs(title = "Frequency of Use of Sunscreen on Face", xlab = "Ageement that there is no risk on cloudy days")
 
@@ -130,7 +122,7 @@ are less clear. Those who "strongly agree" with the misinformation
 have similar sun screen use to those who "strongly disagree." 
 The unexpectedly high sun screen use for this group should be invetigated further.
 
-```{r}
+```{r fig.height=4}
 means_by_group( to_numeric(rss1$SUN_NOHARM), by =rss1$P_RACE_R) |>
      plot() + labs(title = "Sunscreen Misinformation by Race/Ethnicity", xlab = "Ageement that there is no long term risk from sun burn")
 
@@ -141,6 +133,7 @@ means_by_group(to_numeric(rss1$SUN_CLOUDY),
      plot() + labs(title = "Sunscreen Misinformation by Race", xlab = "Ageement that there is no risk on cloudy days")
 ```
 
+<br/>
 <br/>
 <br/>
 <br/>
@@ -189,9 +182,7 @@ about the dangers of UV rays is clear, success at reducing skin
 cancer among African Americans, and to a lesser extent Hispanics, will require
 addressing the structural issues of a racialized health care system.
 
+# Supplemental materials
 
-# References and other information
-
-
-Your QR Code and photo
-
+![QR code to supplemental materials](images/qrcode_docs.google.com.png){ width=25% }
+![Elin Waring head shot](images/profilie.jpg){ width=25% }
