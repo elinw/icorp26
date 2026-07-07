@@ -48,6 +48,13 @@ poster.rmd in your rmarkdown folder.
 
 *Do not use AI to do any of the writing.*   
 
+Example rmarkdown file for the poster:
+https://github.com/elinw/icorp26/blob/main/vignettes/articles/exampleposter.Rmd
+
+Look in Discord or on Brightspace for a pdf of that as of Monday the 6th.
+
+
+
 ## Must do this week
 
 1. Edit your poster file and change the information at the 
@@ -68,5 +75,7 @@ tables and graphs.
 
 5. Write some sentences summarizing the results.
 
+6. Knit your poster (html is okay) and then save it as PDF.
+Upload to bright space.
 
 
