@@ -56,4 +56,4 @@ articles:
          contents:
             - ends_with("codebook")
 includes:
-  after_navbar: exampleposter.html
+          after_navbar: <a href="exampleposter.html">Example Poster</a>
