@@ -1,0 +1,187 @@
+---
+title: "Knowledge of sunburn risks and use of sunscreen"
+author:
+  - name: "Elin Waring"
+    affil: 1
+affiliation:
+  - num: 1
+    address: Dept. of Sociology, Lehman College
+column_numbers: 3 
+logoright_name: https&#58;//raw.githubusercontent.com/elinw/icorp26/refs/heads/main/inst/images/LehmanLogo_White_Vertical.png
+logoleft_name: https&#58;//raw.githubusercontent.com/elinw/icorp26/c34a9b74b3fbd736b667872fdc52af1767f56654/inst/images/icorplogo.jpg
+output: 
+  posterdown::posterdown_html:
+    self_contained: false
+primary_colour: "#00365B"
+secondary_colour: "#ffffff"
+accent_colour: "#0061A0"
+sectitle_bgcol: "#00365B"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+```
+```{r}
+library(easystats)
+library(icorp26)
+library(ggplot2)
+library(sjPlot)
+```
+
+# Introduction
+
+Skin cancer is the most common cancer in the United States.
+According to the Centers for Disease Control "Most skin cancers are caused by too much exposure to ultraviolet (UV) light. Protection from UV rays is important all year." (CDC) More than 
+1 in every 5 Americans experience at least one diagnosis of skin cancer by the age of 70. 
+There are major differences in the rates and types of skin cancer
+and location of the cancer across racial and ethnic groups. Hispanic and Black Americans 
+are more likely to be diagnosed at late stages of skin cancer than
+white Americans (Skin Cancer Foundation).
+
+There are known effective ways to lower the risk of skin cancer, but these
+often require individuals to take various steps to avoid exposure 
+of their skin to to UV rays. These include covering the skin,
+correct use of effective sunscreens and not using tanning beds.
+
+Although people of all races get skin cancer, reseearchers have found
+that medical text books and educational materials for the public often focus exclusively on "fair" (i.e. white) skin (Rodini and Kowalsky 2021). This may lead both doctors and patients to 
+ignore the risk of UV rays to to those with darker skin.
+
+There is also some research which indicates that some people
+believe that people with dark skin cannot get sun burned or
+in some cases can't get skin cancer.  While melanin does provide
+protection, it does not provide total protection. In particular,
+soles of the feet and nail beds have higher risk than the rest
+of the body.
+
+## Objectives
+
+1. To determine the relationship of knowledge of the dangers
+of sun exposure to racial and ethnic identity.
+
+2. To assess the extent to which knowledge of the dangers of sun
+exposure relate to changes in the use of sunscreen.
+
+# Methods
+
+The RSS surveys are topical surveys administered to US adults. 
+The first round of RSS included a set of questions about sun bur risks
+and sun screen use. 
+
+Hypothesis 1: People who have more _incorrect_ information
+about sun burn will use sunscreen less often than those with
+correct information.  
+
+Rationale: Using sunscreen requires taking an action and 
+also expenses. If someone does not think sun burn is a problem, 
+they won't make the effort or spend the money.
+
+Hypothesis 2: People racialized as white will be less likely
+to agree with misinformation than those racialized as Black or Hispanic.
+
+Rationale: Racialized information on skin cancer, emphasizing 
+the risks of fair skin, leads both the general population
+and doctors to minimize the risks among people with 
+darker skin. Therefore we expect that groups that on average have
+darker skin will tend to have less accurate information on the 
+risks of sunburn.
+
+# Results
+
+The RSS data on knowledge of the potential for sun to 
+damage the skin and cause other harms.  The dependent
+variables are how often you use sunscreen on either your 
+face or other areas of your skin. 
+
+```{r fig.height=4}
+means_by_group(to_numeric(rss1$SUN_USESKIN), by= to_numeric(rss1$SUN_NOHARM)) |>
+     plot() + labs(title = "Frequency of Use of Sunscreen on the skin ", xlab = "Ageement that there is no long term risk of harm from sun burn")
+
+means_by_group(to_numeric(rss1$SUN_USESKIN), by=to_numeric(rss1$SUN_CLOUDY)) |>
+     plot() + labs(title = "Use of Sunscreen by Misinformation (SUN_CLOUDY", xlab = "Ageement that there is no risk")
+
+```
+```{r fig.height=4}
+means_by_group(to_numeric(rss1$SUN_USEFACE), by=to_numeric(rss1$SUN_CLOUDY)) |>
+     plot() + labs(title = "Frequency of Use of Sunscreen on Face", xlab = "Ageement that there is no risk on cloudy days")
+
+means_by_group(to_numeric(rss1$SUN_USEFACE), 
+               by= to_numeric(rss1$SUN_NOHARM)) |>
+     plot() + labs(title = "Frequency of Use of Sunscreen on Face", xlab = "Ageement that there is no long term risk")
+```
+
+
+Hypothesis 1 is generally supported. For example,
+those who agreed more that there is no risk from the sun 
+on cloudy days uses sun screen on their face or skin less often and the result was statistically
+significant at the .001 level. 
+
+However the results for disagreeing that "sunburn is not harmful in long run"
+are less clear. Those who "strongly agree" with the misinformation 
+have similar sun screen use to those who "strongly disagree." 
+The unexpectedly high sun screen use for this group should be invetigated further.
+
+```{r fig.height=4}
+means_by_group( to_numeric(rss1$SUN_NOHARM), by =rss1$P_RACE_R) |>
+     plot() + labs(title = "Sunscreen Misinformation by Race/Ethnicity", xlab = "Ageement that there is no long term risk from sun burn")
+
+
+
+means_by_group(to_numeric(rss1$SUN_CLOUDY), 
+               by =rss1$P_RACE_R) |>
+     plot() + labs(title = "Sunscreen Misinformation by Race", xlab = "Ageement that there is no risk on cloudy days")
+```
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div style="clear: both;"></div>
+
+### Regression
+
+Regression analysis indicates that these variables remain 
+important predictors even when combined into a single
+model. That is, each one has its own separate effect.
+
+```{r}
+result <-  lm(to_numeric(SUN_USESKIN) ~  
+                   to_numeric(SUN_CLOUDY) + 
+                   to_numeric(SUN_NOHARM) +
+                   P_RACE_R + P_GENDER 
+              , data=rss1)
+result |> tab_model()
+
+
+```
+
+# Next Steps
+
+The next steps for this research will be to incorporate 
+other variables, such as age, level of education, language and
+whether a person has a doctor. Research using other data sets has found that people get most of their health information
+from lay sources (Ford and Kaphingst 2009), including 
+community organizations, friends, family and the media. They
+found that this related to beliefs that the risks of cancer 
+are modifiable. There are some items in the RSS that might
+allow examination of this. 
+
+The issue of the unexpected results for the "strongly agree" 
+group requires further investigation.
+
+# Conclusion
+
+Overall, these findings support sociological research that has 
+identified ways in which medical information is almost always
+shown in reference to white bodies. While the need for education
+about the dangers of UV rays is clear, success at reducing skin
+cancer among African Americans, and to a lesser extent Hispanics, will require
+addressing the structural issues of a racialized health care system.
+
+# Supplemental materials
+
+![QR code to supplemental materials](images/qrcode_docs.google.com.png){ width=25% }
+![Elin Waring head shot](images/profilie.jpg){ width=25% }
