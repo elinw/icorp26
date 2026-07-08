@@ -1,5 +1,6 @@
 url: https://github.com/elinw/icorp26
 template:
+  bootstrap: 5
   bootswatch: yeti
 
 home:
