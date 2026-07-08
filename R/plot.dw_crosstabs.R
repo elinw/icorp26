@@ -50,6 +50,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
       rows_to = "row_var",
       select = names(x)[-1]
     )
+    proportion_type <- "none"
   } else {
     x_long <- attr(x, "prop_table") |>
       datawizard::data_to_long(rows_to = "row_var")
@@ -62,72 +63,83 @@ plot.datawizard_crosstab <- function(x, y, ...) {
   }
   p <- ggplot2::ggplot(x_long)
   plotlist <- list()
-  if (is.null(proportion_type)) {
-    # Plain numbers
-    plotlist[[1]] <- ggplot2::aes(
-      x = .data$row_var,
-      y = .data$name,
-      fill = value
-    )
-    plotlist[[2]] <- ggplot2::geom_tile()
-    plotlist[[3]] <- ggplot2::scale_fill_gradient()
-    plotlist[[4]] <- ggplot2::geom_text(
-      aes(label = value),
-      color = "white"
-    )
-    plotlist[[5]] <- ggplot2::labs(
-      title = paste0(xlabel, " by ", ylabel),
-      x = xlabel,
-      y = ylabel
-    )
-    plotlist[[6]] <- ggplot2::coord_fixed()
-  } else if (proportion_type == "row") {
-    #row percents are horizontal
-    plotlist[[1]] <- ggplot2::aes(
-      x = .data$row_var,
-      y = .data$value,
-      fill = name
-    )
-    plotlist[[2]] <- ggplot2::geom_col()
-    plotlist[[3]] <- ggplot2::coord_flip()
-    plotlist[[5]] <- ggplot2::labs(
-      title = paste0(xlabel, " by ", ylabel),
-      x = xlabel,
-      y = ylabel
-    )
-  } else if (proportion_type == "column") {
-    # column percents are vertical
-    plotlist[[1]] <- ggplot2::aes(
-      x = .data$name,
-      y = .data$value,
-      fill = .data$row_var
-    )
-    plotlist[[2]] <- ggplot2::geom_col()
-    plotlist[[3]] <- ggplot2::labs(
-      title = paste0(ylabel, " by ", xlabel),
-      x = xlabel,
-      y = ylabel
-    )
-  } else if (proportion_type == "full") {
-    # full percents
-    plotlist[[1]] <- ggplot2::aes(
-      x = .data$row_var,
-      y = .data$name,
-      width = 1.8 * sqrt(.data$value),
-      height = 1.8 * sqrt(.data$value),
-      fill = interaction(.data$name, .data$row_var)
-    )
-    plotlist[[2]] <- ggplot2::geom_rect(color = "black", show.legend = FALSE)
-    plotlist[[3]] <- ggplot2::geom_text(aes(
-      label = paste0(100 * round(.data$value, 2), "%")
-    ))
-    plotlist[[4]] <- ggplot2::coord_fixed()
-    plotlist[[5]] <- ggplot2::labs(
-      title = paste0(xlabel, " by ", ylabel),
-      x = xlabel,
-      y = ylabel
-    )
-  }
+
+  plotlist <- switch(
+    proportion_type,
+    "none" = {
+      # Plain numbers
+      plotlist[[1]] <- ggplot2::aes(
+        x = .data$row_var,
+        y = .data$name,
+        fill = value
+      )
+      plotlist[[2]] <- ggplot2::geom_tile()
+      plotlist[[3]] <- ggplot2::scale_fill_gradient()
+      plotlist[[4]] <- ggplot2::geom_text(
+        aes(label = value),
+        color = "white"
+      )
+      plotlist[[5]] <- ggplot2::labs(
+        title = paste0(xlabel, " by ", ylabel),
+        x = xlabel,
+        y = ylabel
+      )
+      plotlist[[6]] <- ggplot2::coord_fixed()
+      plotlist
+    },
+    "row" = {
+      #row percents are horizontal
+      plotlist[[1]] <- ggplot2::aes(
+        x = .data$row_var,
+        y = .data$value,
+        fill = name
+      )
+      plotlist[[2]] <- ggplot2::geom_col()
+      plotlist[[3]] <- ggplot2::coord_flip()
+      plotlist[[5]] <- ggplot2::labs(
+        title = paste0(xlabel, " by ", ylabel),
+        x = xlabel,
+        y = ylabel
+      )
+      plotlist
+    },
+    "column" = {
+      # column percents are vertical
+      plotlist[[1]] <- ggplot2::aes(
+        x = .data$name,
+        y = .data$value,
+        fill = .data$row_var
+      )
+      plotlist[[2]] <- ggplot2::geom_col()
+      plotlist[[3]] <- ggplot2::labs(
+        title = paste0(ylabel, " by ", xlabel),
+        x = xlabel,
+        y = ylabel
+      )
+      plotlist
+    },
+    "full" = {
+      # full percents
+      plotlist[[1]] <- ggplot2::aes(
+        x = .data$row_var,
+        y = .data$name,
+        width = 1.8 * sqrt(.data$value),
+        height = 1.8 * sqrt(.data$value),
+        fill = interaction(.data$name, .data$row_var)
+      )
+      plotlist[[2]] <- ggplot2::geom_rect(color = "black", show.legend = FALSE)
+      plotlist[[3]] <- ggplot2::geom_text(aes(
+        label = paste0(100 * round(.data$value, 2), "%")
+      ))
+      plotlist[[4]] <- ggplot2::coord_fixed()
+      plotlist[[5]] <- ggplot2::labs(
+        title = paste0(xlabel, " by ", ylabel),
+        x = xlabel,
+        y = ylabel
+      )
+      plotlist
+    }
+  )
 
   p <- p + plotlist
 
