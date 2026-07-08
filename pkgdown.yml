@@ -1,5 +1,5 @@
 pandoc: 3.8.3
-pkgdown: 2.2.0
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   Assignment2example: Assignment2example.html
@@ -20,7 +20,7 @@ articles:
   significancetests: significancetests.html
   two_variables: two_variables.html
   your_project: your_project.html
-last_built: 2026-07-06T02:16Z
+last_built: 2026-07-08T13:06Z
 urls:
   reference: https://github.com/elinw/icorp26/reference
   article: https://github.com/elinw/icorp26/articles
