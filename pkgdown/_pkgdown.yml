@@ -1,6 +1,6 @@
 url: https://github.com/elinw/icorp26
 template:
-  yeti
+  bootswatch: yeti
 
 home:
         text: "Home"
