@@ -55,4 +55,3 @@ articles:
          navbar: ~
          contents:
             - ends_with("codebook")
-            - exampleposter
