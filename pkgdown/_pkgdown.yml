@@ -51,7 +51,6 @@ articles:
           - significancetests
           - Cross_tabs
           - Cross_tabs2
-          - exampleposter
        - title: Codebooks
          navbar: ~
          contents:
