@@ -10,9 +10,11 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = ""
 )
 ```
+
+
 
 Work in Progress
 
@@ -46,7 +48,8 @@ It turns out that there are patterns in this and we can leverage
 them. Over the last 200 years statisticians have developed
 several approaches to this.
 
-One approach to  this is called Null Hypothesis 
+One approach to  this is called Null Hypothesis Significance Testing. 
+
 
 
 

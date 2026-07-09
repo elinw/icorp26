@@ -16,6 +16,8 @@ primary_colour: "#00365B"
 secondary_colour: "#ffffff"
 accent_colour: "#0061A0"
 sectitle_bgcol: "#00365B"
+poster_height: 36in
+poster_width: 48in
 ---
 
 ```{r setup, include=FALSE}
@@ -183,5 +185,5 @@ addressing the structural issues of a racialized health care system.
 
 # Supplemental materials
 
-![QR code to supplemental materials](images/qrcode_docs.google.com.png){ width=25% }
-![Elin Waring head shot](images/profilie.jpg){ width=25% }
+![QR code to supplemental materials](images/qrcode_docs.google.com.png){ width=35% }
+![Elin Waring head shot](images/profilie.jpg){ width=35% }
