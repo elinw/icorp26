@@ -1,0 +1,28 @@
+---
+title: "References"
+bibliography: packages.bib
+output: word_document
+---
+
+
+
+```{r setup, include=FALSE}
+#This template helps you generate a reference list
+# of the packages you use.  Update the list of 
+# packages in the second code chunk. 
+# Knit to Word and download the file.
+# Then you can copy and paste the results into your 
+# supplemental materials.
+
+knitr::opts_chunk$set(echo = FALSE, message = FALSE,  comment = NA)
+library(knitcitations)
+library(knitr)
+```
+
+```{r}
+# create a bibfile with packages you have used. "base" refers 
+# to base R.
+write_bib(c('base', 'knitr','rmarkdown','posterdown','pagedown', 'easystats', 'icorp26', 'ggplot2', 'sjPlot'), 'packages.bib')
+
+knitcitations::read.bibtex(file = 'packages.bib')  
+```

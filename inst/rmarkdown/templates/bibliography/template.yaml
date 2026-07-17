@@ -1,0 +1,4 @@
+name: bibliography
+description: >
+   Render a bibtext file to a word document
+create_dir: FALSE
