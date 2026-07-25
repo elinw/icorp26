@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">icorp26</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,14 +95,20 @@
 RSS sample. However, in the social sciences we are almost always
 interested in whether we can draw any conclusions (make an <em>inference
 about</em>) the larger population.</p>
-<p>The <em>sample</em> is drawn from a larger population. In the case of
-the RSS the populaton of interest is the whole adult population of the
+<p>The <em>sample</em> is drawn from a population. In the case of the
+RSS the populaton of interest is the whole adult population of the
 United States, about 253 million people. The rss1 data set has 7599
 observations. That’s a big number, but just 0.003% of the total
 population.</p>
+<p>Why would we think we can use such a small number of people to
+represent a whole population?</p>
 <p>Even with the very best samplng procedures it is extremely unlikely
-that a sample will match the population exactly. And it is possible that
-a sample could be very inaccurate.</p>
+that a sample will match the population <em>exactly</em>. And it is
+possible that a sample could be very inaccurate.</p>
+<p>Let’s look at why that is using Statkey</p>
+<p><a href="https://www.lock5stat.com/StatKey/" class="external-link uri">https://www.lock5stat.com/StatKey/</a></p>
+<p>What is interesting and useful is that over <em>many</em> samples
+there are certain patterns that emerge in the results.</p>
 <p>Statisticians have come up with many different ways to address this
 problem. Some of these involve <em>how the sample is selected</em>.
 Others involve how to calculate statistics that are based on samples
@@ -112,6 +118,31 @@ this and we can leverage them. Over the last 200 years statisticians
 have developed several approaches to this.</p>
 <p>One approach to this is called Null Hypothesis Significance
 Testing.</p>
+<p>Some of the most commonly used NHST are the t test, the F test and
+the Chi Square test. The choice of tests depends on the variables and
+assumptions we are willing to make. However they all follow the same
+logic.</p>
+<p>A null hypothesis takes the form:</p>
+<p>There is no relationship between variable A and variable B.</p>
+<p>Here are some examples of what this could mean:</p>
+<p>The mean of sun screen misinformation is the same for all racial and
+ethnic groups.</p>
+<p>The proportion of people who use sunscreen most of the time is the
+same for all racial/ethnic groups.</p>
+<div class="section level2">
+<h2 id="important-points-to-remember">Important points to remember<a class="anchor" aria-label="anchor" href="#important-points-to-remember"></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>Statistically significant does not mean <em>important</em>.<br>
+</li>
+<li>We never accept hypotheses, we just either reject or fail to reject
+the <em>null hypothesis</em> of no difference.<br>
+</li>
+<li>Tests assume random sampling with replacement.</li>
+<li>Statistical significance is <em>not</em> about the probability that
+a hypothesis is true.</li>
+</ol>
+</div>
   </main>
 </div>
 
