@@ -1,7 +1,7 @@
 Package: icorp26
 Type: Package
 Title: Supports summer 2026 ICORP SROP
-Version: 0.2.6
+Version: 0.2.7
 Authors@R: c(
     person(
       "Elin", "Waring",

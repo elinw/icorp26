@@ -1,0 +1,115 @@
+---
+title: "ICORP Cookbook"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Significance tests}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(icorp26)
+library(easystats)
+library(ggplot2)
+```
+This document shows how to do a number of tasks
+you may want to do in your poster.
+
+Remember  that have _data frames_ and then _variables_ within the data frame.
+We generally refer to one variable in a dataframe as
+`data_frame_name$variable_name`. Both must be spelled exactly
+correctly and with the right upper and lower case letters.
+
+You also need to make sure that you are using numeric variables
+when you need numbers. 
+
+Get means for groups with an F test.
+```{r}
+means_by_group(to_numeric(rss1$SUN_USEFACE), 
+               by =rss1$P_GENDER)
+```
+
+Plot the means by group with an F test
+
+```{r}
+means_by_group(to_numeric(rss1$SUN_USEFACE), 
+               by =rss1$P_GENDER) |> plot()
+```
+
+Make a frequency table
+
+```{r}
+data_tabulate(rss1$SUN_CLOUDY, metrics = c("N", "valid"), 
+              remove_na = TRUE)
+```
+
+Make a cross tabulation
+
+```{r}
+data_tabulate(rss1$SUN_USEFACE,rss1$P_GENDER , 
+              remove_na = TRUE, proportions = "column") |>
+     print_md()
+```
+
+Visualize a cross tab
+
+```{r}
+data_tabulate(rss1$SUN_USEFACE,rss1$P_GENDER , 
+              remove_na = TRUE, proportions = "column") |> plot() +
+     labs(title = "Use of Sun Screen on face by Gender",
+          x = "Gender", y = "How often")
+```
+
+Get the chi square for a cross tab.
+
+```{r}
+data_tabulate(rss1$SUN_USEFACE,rss1$P_GENDER , 
+              remove_na = TRUE, proportions = "column") |> 
+     data_chisq()
+```
+
+Basic bar chart of one variable.
+
+```{r}
+distribution_bar(rss1$SUN_CLOUDY)
+```
+
+
+Compare a lot of categorical/nominal variables
+that all have the same responses 
+in a compact way.
+
+```{r}
+library(dplyr)
+library(tidyr)
+rss1 |> select("SUN_NOHARM", "SUN_CLOUDY") |>
+     pivot_longer(cols = c("SUN_NOHARM", "SUN_CLOUDY"), 
+                  names_to = "variable",  
+                  values_to = "response") |>
+     data_tabulate( "variable", by = "response", 
+                    proportions = "row", remove_na = TRUE) |>
+     plot() -> p
+  plot + 
+ labs(title = "Response to misinformation",
+                   y ="Item"
+                   )
+```
+
+
+
+How to summarize the variables in your dataset.
+
+The easiest way is to use the table1 package.
+
+```{r}
+library(gtsummary)
+mtcars |> tbl_summary()
+```
+
+Or if you just want to include some of the variables
+
+```{r}
+mtcars |> tbl_summary(include = c(disp, hp, drat)) 
+```
+
