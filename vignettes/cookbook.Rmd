@@ -12,6 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(icorp26)
 library(easystats)
 library(ggplot2)
+library(gtsummary)
+library(table1)
 ```
 This document shows how to do a number of tasks
 you may want to do in your poster.
@@ -78,7 +80,8 @@ distribution_bar(rss1$SUN_CLOUDY)
 
 Compare a lot of categorical/nominal variables
 that all have the same responses 
-in a compact way.
+in a compact way. There  are alot ofpossivllwe ways to
+do this.
 
 ```{r}
 library(dplyr)
@@ -90,7 +93,7 @@ rss1 |> select("SUN_NOHARM", "SUN_CLOUDY") |>
      data_tabulate( "variable", by = "response", 
                     proportions = "row", remove_na = TRUE) |>
      plot() -> p
-  plot + 
+  p + 
  labs(title = "Response to misinformation",
                    y ="Item"
                    )
@@ -110,6 +113,14 @@ mtcars |> tbl_summary()
 Or if you just want to include some of the variables
 
 ```{r}
-mtcars |> tbl_summary(include = c(disp, hp, drat)) 
+mtcars |> data_codebook(include = c(disp, hp, drat)) |>
+     display()
+```
+
+```{r}
+table1::table1(~., data = mtcars, 
+               caption = "MT cars Variables") |> 
+     t1flex() 
+
 ```
 

@@ -4,10 +4,12 @@
 \alias{data_chisq}
 \title{Calculate chi square test for tabulate}
 \usage{
-data_chisq(dwtable, ...)
+data_chisq(dwtable, show_table = TRUE, ...)
 }
 \arguments{
 \item{dwtable}{A dwtable object.}
+
+\item{show_table}{Should the table be shown with the chi sqare}
 
 \item{...}{Other options}
 }
