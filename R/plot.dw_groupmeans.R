@@ -119,6 +119,10 @@ plot.dw_groupmeans_list <- function(
   x_long <- do.call(rbind, x)
 
   trimmed <- datawizard::data_filter(x_long, Category != "Total")
+  trimmed$Category <- factor(
+    trimmed$Category,
+    levels = unique(trimmed$Category)
+  )
 
   if ("CI_low" %in% names(trimmed)) {
     lower_lim <- .9 * min(trimmed$CI_low)

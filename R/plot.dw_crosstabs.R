@@ -32,10 +32,11 @@
 #'
 #' @param x  A `datawizard_crosstabs` object.
 #' @param y  Not currently used
+#' @param chisq Should  results of a chi square test be shown.
 #' @param ... Arguments to pass on. Currently accepts "title"
 #' as the graph title.
 #' @export
-plot.datawizard_crosstab <- function(x, y, ...) {
+plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
   proportion_type <- attr(x, "proportions")
   xlabel <- strsplit(attr(x, "varname"), "$", fixed = "true")[[1]][2]
   if (!is.null(attr(x, "by"))) {
@@ -55,10 +56,10 @@ plot.datawizard_crosstab <- function(x, y, ...) {
       datawizard::data_to_long(rows_to = "row_var")
   }
   if (is.numeric(x_long$name)) {
-    x_long$name <- as.character(x_long$name)
+    x_long$name <- factor(x_long$name, levels = unique(x_long$name))
   }
   if (is.numeric(x_long$row_var)) {
-    x_long$row_var <- as.character(x_long$row_var)
+    x_long$row_var <- factor(x_long$row_var, levels = unique(x_long$row_var))
   }
   p <- ggplot2::ggplot(x_long)
   plotlist <- list()
@@ -72,7 +73,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
     plotlist[[2]] <- ggplot2::geom_tile()
     plotlist[[3]] <- ggplot2::scale_fill_gradient()
     plotlist[[4]] <- ggplot2::geom_text(
-      aes(label = value),
+      ggplot2::aes(label = value),
       color = "white"
     )
     plotlist[[5]] <- ggplot2::labs(
@@ -118,7 +119,7 @@ plot.datawizard_crosstab <- function(x, y, ...) {
       fill = interaction(.data$name, .data$row_var)
     )
     plotlist[[2]] <- ggplot2::geom_rect(color = "black", show.legend = FALSE)
-    plotlist[[3]] <- ggplot2::geom_text(aes(
+    plotlist[[3]] <- ggplot2::geom_text(ggplot2::aes(
       label = paste0(100 * round(.data$value, 2), "%")
     ))
     plotlist[[4]] <- ggplot2::coord_fixed()
@@ -127,6 +128,21 @@ plot.datawizard_crosstab <- function(x, y, ...) {
       x = xlabel,
       y = ylabel
     )
+  }
+
+  if (chisq == TRUE) {
+    chi2 <- data_chisq(x)
+
+    caption <-
+      paste(
+        chi2$method,
+        "\n",
+        chi2$statistic,
+        ", Degrees of freedom = ",
+        chi2$parameter,
+        sep = " "
+      )
+    plotlist[[6]] <- ggplot2::labs(caption = caption)
   }
 
   p <- p + plotlist
