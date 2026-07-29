@@ -44,7 +44,10 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
   } else {
     xlabel <- ""
   }
+  # Need the levels to maintain the ordering
   xlevels <- names(x)[-1]
+  ylevels <- levels(x[[1]])
+
   if (is.null(proportion_type)) {
     x_long <- datawizard::data_to_long(
       x,
@@ -55,14 +58,12 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
     x_long <- attr(x, "prop_table") |>
       datawizard::data_to_long(rows_to = "row_var")
   }
-  row_levels <- levels(x_long[[1]])
+
   x_long$name <- factor(
     x_long$name,
-    levels = levels(xlevels)
+    levels = xlevels,
+    ordered = TRUE
   )
-
-  x_long["name"] <- factor(x_long["name"], levels = xlevels)
-
   p <- ggplot2::ggplot(x_long)
   plotlist <- list()
   if (is.null(proportion_type)) {
@@ -84,21 +85,24 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
       y = ylabel
     )
     plotlist[[6]] <- ggplot2::coord_fixed()
+    plotlist[[7]] <- guides(fill = FALSE)
   } else if (proportion_type == "row") {
+    x_long$row_var <- factor(x_long$row_var, levels = ylevels, ordered = TRUE)
     #row percents are horizontal
     plotlist[[1]] <- ggplot2::aes(
       x = .data$row_var,
       y = .data$value,
-      fill = name
+      fill = .data$name
     )
     plotlist[[2]] <- ggplot2::geom_col()
     plotlist[[3]] <- ggplot2::coord_flip()
     plotlist[[5]] <- ggplot2::labs(
       title = paste0(xlabel, " by ", ylabel),
-      x = xlabel,
-      y = ylabel
+      x = ylabel,
+      y = xlabel
     )
   } else if (proportion_type == "column") {
+    x_long$row_var <- factor(x_long$row_var, levels = ylevels, ordered = TRUE)
     # column percents are vertical
     plotlist[[1]] <- ggplot2::aes(
       x = .data$name,
@@ -112,20 +116,32 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
       y = ylabel
     )
   } else if (proportion_type == "full") {
+    x_long$row_var <- factor(x_long$row_var, levels = ylevels, ordered = TRUE)
+
     # full percents
     plotlist[[1]] <- ggplot2::aes(
-      x = .data$row_var,
-      y = .data$name,
+      y = .data$row_var,
+      x = .data$name,
       width = 1.8 * sqrt(.data$value),
       height = 1.8 * sqrt(.data$value),
       fill = interaction(.data$name, .data$row_var)
     )
+
     plotlist[[2]] <- ggplot2::geom_rect(color = "black", show.legend = FALSE)
     plotlist[[3]] <- ggplot2::geom_text(ggplot2::aes(
       label = paste0(100 * round(.data$value, 2), "%")
     ))
+
     plotlist[[4]] <- ggplot2::coord_fixed()
-    plotlist[[5]] <- ggplot2::labs(
+
+    plotlist[[5]] <- ggplot2::scale_y_discrete(
+      limits = levels(x_long$name),
+      drop = FALSE
+    )
+    plotlist[[6]] <- ggplot2::scale_x_discrete(
+      drop = FALSE
+    )
+    plotlist[[7]] <- ggplot2::labs(
       title = paste0(xlabel, " by ", ylabel),
       x = xlabel,
       y = ylabel
