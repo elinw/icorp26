@@ -4,12 +4,14 @@
 \alias{plot.datawizard_crosstab}
 \title{Plot method for crosstabs}
 \usage{
-\method{plot}{datawizard_crosstab}(x, y, ...)
+\method{plot}{datawizard_crosstab}(x, y, chisq = TRUE, ...)
 }
 \arguments{
 \item{x}{A \code{datawizard_crosstabs} object.}
 
 \item{y}{Not currently used}
+
+\item{chisq}{Should  results of a chi square test be shown.}
 
 \item{...}{Arguments to pass on. Currently accepts "title"
 as the graph title.}

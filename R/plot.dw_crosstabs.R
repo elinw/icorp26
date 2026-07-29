@@ -38,13 +38,13 @@
 #' @export
 plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
   proportion_type <- attr(x, "proportions")
-  xlabel <- strsplit(attr(x, "varname"), "$", fixed = "true")[[1]][2]
+  ylabel <- strsplit(attr(x, "varname"), "$", fixed = "true")[[1]][2]
   if (!is.null(attr(x, "by"))) {
-    ylabel <- strsplit(attr(x, "by"), "$", fixed = "true")[[1]][2]
+    xlabel <- strsplit(attr(x, "by"), "$", fixed = "true")[[1]][2]
   } else {
-    ylabel <- ""
+    xlabel <- ""
   }
-
+  xlevels <- names(x)[-1]
   if (is.null(proportion_type)) {
     x_long <- datawizard::data_to_long(
       x,
@@ -55,19 +55,21 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
     x_long <- attr(x, "prop_table") |>
       datawizard::data_to_long(rows_to = "row_var")
   }
-  if (is.numeric(x_long$name)) {
-    x_long$name <- factor(x_long$name, levels = unique(x_long$name))
-  }
-  if (is.numeric(x_long$row_var)) {
-    x_long$row_var <- factor(x_long$row_var, levels = unique(x_long$row_var))
-  }
+  row_levels <- levels(x_long[[1]])
+  x_long$name <- factor(
+    x_long$name,
+    levels = levels(xlevels)
+  )
+
+  x_long["name"] <- factor(x_long["name"], levels = xlevels)
+
   p <- ggplot2::ggplot(x_long)
   plotlist <- list()
   if (is.null(proportion_type)) {
     # Plain numbers
     plotlist[[1]] <- ggplot2::aes(
-      x = .data$row_var,
-      y = .data$name,
+      x = .data$name,
+      y = .data[[attr(x, "varname")]],
       fill = value
     )
     plotlist[[2]] <- ggplot2::geom_tile()
@@ -137,10 +139,14 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
       paste(
         chi2$method,
         "\n",
-        chi2$statistic,
+        "Chi square = ",
+        round(chi2$statistic, 1),
         ", Degrees of freedom = ",
         chi2$parameter,
-        sep = " "
+        "\n",
+        "p value: ",
+        ifelse(chi2$p.value < .001, "<.001", chi2$p.value),
+        "\n"
       )
     plotlist[[6]] <- ggplot2::labs(caption = caption)
   }
@@ -148,7 +154,7 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
   p <- p + plotlist
 
   if (!is.null(attr(x, "df"))) {
-    return(print(p))
+    return(p)
   }
   p
 }
