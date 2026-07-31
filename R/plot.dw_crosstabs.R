@@ -46,30 +46,39 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
   }
   # Need the levels to maintain the ordering
   xlevels <- names(x)[-1]
+  xlevels <- xlevels[xlevels != "NA"]
   ylevels <- levels(x[[1]])
 
   if (is.null(proportion_type)) {
     x_long <- datawizard::data_to_long(
       x,
-      rows_to = "row_var",
+      names_to = "x_var",
+      rows_to = "y_var",
       select = names(x)[-1]
     )
   } else {
     x_long <- attr(x, "prop_table") |>
-      datawizard::data_to_long(rows_to = "row_var")
+      datawizard::data_to_long(rows_to = "y_var", names_to = "x_var")
   }
+  x_long |>
+    data_filter(!is.na(y_var)) |>
+    data_filter(!is.na(x_var)) |>
+    data_filter(y_var != "NA") |>
+    data_filter(x_var != "NA") -> x_long
 
-  x_long$name <- factor(
-    x_long$name,
+  x_long$x_var <- factor(
+    x_long$x_var,
     levels = xlevels,
     ordered = TRUE
   )
+  x_long$y_var <- factor(x_long$y_var, levels = ylevels, ordered = TRUE)
+
   p <- ggplot2::ggplot(x_long)
   plotlist <- list()
   if (is.null(proportion_type)) {
     # Plain numbers
     plotlist[[1]] <- ggplot2::aes(
-      x = .data$name,
+      x = .data$x_var,
       y = .data[[attr(x, "varname")]],
       fill = value
     )
@@ -87,12 +96,11 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
     plotlist[[6]] <- ggplot2::coord_fixed()
     plotlist[[7]] <- guides(fill = FALSE)
   } else if (proportion_type == "row") {
-    x_long$row_var <- factor(x_long$row_var, levels = ylevels, ordered = TRUE)
     #row percents are horizontal
     plotlist[[1]] <- ggplot2::aes(
-      x = .data$row_var,
+      x = .data$y_var,
       y = .data$value,
-      fill = .data$name
+      fill = .data$x_var
     )
     plotlist[[2]] <- ggplot2::geom_col()
     plotlist[[3]] <- ggplot2::coord_flip()
@@ -102,12 +110,12 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
       y = xlabel
     )
   } else if (proportion_type == "column") {
-    x_long$row_var <- factor(x_long$row_var, levels = ylevels, ordered = TRUE)
+    x_long$y_var <- factor(x_long$y_var, levels = ylevels, ordered = TRUE)
     # column percents are vertical
     plotlist[[1]] <- ggplot2::aes(
-      x = .data$name,
+      x = .data$x_var,
       y = .data$value,
-      fill = .data$row_var
+      fill = .data$y_var
     )
     plotlist[[2]] <- ggplot2::geom_col()
     plotlist[[3]] <- ggplot2::labs(
@@ -116,15 +124,15 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
       y = ylabel
     )
   } else if (proportion_type == "full") {
-    x_long$row_var <- factor(x_long$row_var, levels = ylevels, ordered = TRUE)
+    x_long$y_var <- factor(x_long$y_var, levels = ylevels, ordered = TRUE)
 
     # full percents
     plotlist[[1]] <- ggplot2::aes(
-      y = .data$row_var,
-      x = .data$name,
+      y = .data$y_var,
+      x = .data$x_var,
       width = 1.8 * sqrt(.data$value),
       height = 1.8 * sqrt(.data$value),
-      fill = interaction(.data$name, .data$row_var)
+      fill = interaction(.data$x_var, .data$y_var)
     )
 
     plotlist[[2]] <- ggplot2::geom_rect(color = "black", show.legend = FALSE)
@@ -135,7 +143,7 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
     plotlist[[4]] <- ggplot2::coord_fixed()
 
     plotlist[[5]] <- ggplot2::scale_y_discrete(
-      limits = levels(x_long$name),
+      limits = levels(x_long$x_var),
       drop = FALSE
     )
     plotlist[[6]] <- ggplot2::scale_x_discrete(
