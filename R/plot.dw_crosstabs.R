@@ -75,6 +75,8 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
 
   p <- ggplot2::ggplot(x_long)
   plotlist <- list()
+
+  # no proportions
   if (is.null(proportion_type)) {
     # Plain numbers
     plotlist[[1]] <- ggplot2::aes(
@@ -95,12 +97,14 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
     )
     plotlist[[6]] <- ggplot2::coord_fixed()
     plotlist[[7]] <- guides(fill = FALSE)
+
+    # row proportion
   } else if (proportion_type == "row") {
     #row percents are horizontal
     plotlist[[1]] <- ggplot2::aes(
       x = .data$y_var,
       y = .data$value,
-      fill = .data$x_var
+      fill = factor(.data$x_var, levels = levels(x_var))
     )
     plotlist[[2]] <- ggplot2::geom_col()
     plotlist[[3]] <- ggplot2::coord_flip()
@@ -109,13 +113,14 @@ plot.datawizard_crosstab <- function(x, y, chisq = TRUE, ...) {
       x = ylabel,
       y = xlabel
     )
+    #column
   } else if (proportion_type == "column") {
     x_long$y_var <- factor(x_long$y_var, levels = ylevels, ordered = TRUE)
     # column percents are vertical
     plotlist[[1]] <- ggplot2::aes(
       x = .data$x_var,
       y = .data$value,
-      fill = .data$y_var
+      fill = factor(.data$y_var, ylevels)
     )
     plotlist[[2]] <- ggplot2::geom_col()
     plotlist[[3]] <- ggplot2::labs(
