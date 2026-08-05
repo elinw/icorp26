@@ -60,7 +60,9 @@ It turns out that there are patterns in this and we can leverage
 them. Over the last 200 years statisticians have developed
 several approaches to this.
 
-One approach to  this is called Null Hypothesis Significance Testing.
+One approach to  this is called Null Hypothesis Significance Testing. This is usually the first approach
+that students learn, and it is the one you most often 
+see in publications, especially older ones.
 
 Some of the most commonly used NHST are the t test, the F test and 
 the Chi Square test. The choice of tests depends on the variables
@@ -76,11 +78,20 @@ Here are some examples of what this could mean:
 The mean of sun screen misinformation is the same
 for all racial and ethnic groups.  
 
-The proportion of people who use sunscreen most of the time is
+The proportion of people in our population of interest
+who use sunscreen most of the time is
 the same for all racial/ethnic groups.  
 
+The "alternative hypothesis" is that there _is_ a
+relationship between the variables in the population.
+
+*Challenge*: When we take random samples of a population
+the relationships in the _sample_ may not match what is in
+the _population._  
 
 
+
+## Step one 
 
 
 
