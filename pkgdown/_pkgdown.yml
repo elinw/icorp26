@@ -24,6 +24,8 @@ reference:
            - plot.dw_groupmeans
            - plot.datawizard_crosstab
            - plot.datawizard_crosstabs
+           - resize_image
+           - posterpdf
            - getstarted
            - assignment1
         - title: Datasets
