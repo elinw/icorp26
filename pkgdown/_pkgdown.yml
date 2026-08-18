@@ -54,6 +54,7 @@ articles:
           - significancetests
           - Cross_tabs
           - Cross_tabs2
+          - cookbook
        - title: Codebooks
          navbar: ~
          contents:
