@@ -32,6 +32,7 @@ Suggests:
   tidyr,
   likert,
   gt,
+  gtsummary,
   easystats,
   pkgdown,
   testthat,
