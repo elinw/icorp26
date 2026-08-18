@@ -1,3 +1,5 @@
+#' Resize image for poster
+#'
 #' @param templatefolder The name of the folder the template is in, which
 #' contains the images folder holding images.
 #' @param image  The full file name of the image
