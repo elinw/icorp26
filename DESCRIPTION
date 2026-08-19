@@ -35,6 +35,7 @@ Suggests:
   gtsummary,
   easystats,
   pkgdown,
+  table1,
   testthat,
   remotes
 VignetteBuilder: 
