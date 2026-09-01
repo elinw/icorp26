@@ -9,7 +9,7 @@ These objects are lists of dw_crosstabobjects."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">icorp26</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.5</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,6 +31,7 @@ These objects are lists of dw_crosstabobjects."></head><body>
     <li><a class="dropdown-item" href="../articles/significancetests.html">Significance tests</a></li>
     <li><a class="dropdown-item" href="../articles/Cross_tabs.html">Cross tabs part 1</a></li>
     <li><a class="dropdown-item" href="../articles/Cross_tabs2.html">Cross_tabs2</a></li>
+    <li><a class="dropdown-item" href="../articles/cookbook.html">Cookbook</a></li>
     <li><a class="dropdown-item" href="../articles/rss1_codebook.html">rss1_codebook</a></li>
     <li><a class="dropdown-item" href="../articles/rss2_codebook.html">rss2 Codebook</a></li>
     <li><a class="dropdown-item" href="../articles/rss3_codebook.html">rss3 Codebook</a></li>
@@ -64,7 +65,7 @@ These objects are lists of <code>dw_crosstab</code>objects.</p>
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for class 'datawizard_crosstab'</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, chisq <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -77,6 +78,10 @@ These objects are lists of <code>dw_crosstab</code>objects.</p>
 
 <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
 <dd><p>Not currently used</p></dd>
+
+
+<dt id="arg-chisq">chisq<a class="anchor" aria-label="anchor" href="#arg-chisq"></a></dt>
+<dd><p>Should  results of a chi square test be shown.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>

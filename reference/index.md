@@ -32,6 +32,10 @@
   : Plot method for crosstabs
 - [`plot(`*`<datawizard_crosstabs>`*`)`](https://github.com/elinw/icorp26/reference/plot.datawizard_crosstabs.md)
   : Plot method for crosstabs
+- [`resize_image()`](https://github.com/elinw/icorp26/reference/resize_image.md)
+  : Resize image for poster
+- [`posterpdf()`](https://github.com/elinw/icorp26/reference/posterpdf.md)
+  : create a copy of the ICORP pdf poster file
 - [`getstarted()`](https://github.com/elinw/icorp26/reference/getstarted.md)
   : Create a project and some starting files
 - [`assignment1()`](https://github.com/elinw/icorp26/reference/assignment1.md)

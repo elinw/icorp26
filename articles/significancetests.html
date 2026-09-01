@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">icorp26</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.5</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,6 +44,7 @@
     <li><a class="dropdown-item" href="../articles/significancetests.html">Significance tests</a></li>
     <li><a class="dropdown-item" href="../articles/Cross_tabs.html">Cross tabs part 1</a></li>
     <li><a class="dropdown-item" href="../articles/Cross_tabs2.html">Cross_tabs2</a></li>
+    <li><a class="dropdown-item" href="../articles/cookbook.html">Cookbook</a></li>
     <li><a class="dropdown-item" href="../articles/rss1_codebook.html">rss1_codebook</a></li>
     <li><a class="dropdown-item" href="../articles/rss2_codebook.html">rss2 Codebook</a></li>
     <li><a class="dropdown-item" href="../articles/rss3_codebook.html">rss3 Codebook</a></li>
@@ -85,12 +86,14 @@
 <p>Work in Progress</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(icorp26)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># Attaching packages: easystats 0.7.6</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># Attaching packages: easystats 0.7.6 (red = needs update)</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>✔ bayestestR  <span class="dv">0</span>.<span class="fl">18.1</span>   ✔ correlation <span class="dv">0</span>.<span class="fl">8.8</span> </span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>✔ datawizard  <span class="dv">1</span>.<span class="fl">3.1</span>    ✔ effectsize  <span class="dv">1</span>.<span class="fl">0.3</span> </span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>✔ insight     <span class="dv">1</span>.<span class="fl">5.2</span>    ✔ modelbased  <span class="dv">0</span>.<span class="fl">16.0</span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>✔ performance <span class="dv">0</span>.<span class="fl">17.1</span>   ✔ parameters  <span class="dv">0</span>.<span class="fl">29.2</span></span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>✔ report      <span class="dv">0</span>.<span class="fl">6.4</span>    ✔ see         <span class="dv">0</span>.<span class="fl">14.1</span></span></code></pre></div>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>✔ insight     <span class="dv">1</span>.<span class="fl">5.3</span>    ✔ modelbased  <span class="dv">0</span>.<span class="fl">17.0</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>✖ performance <span class="dv">0</span>.<span class="fl">18.0</span>   ✔ parameters  <span class="dv">0</span>.<span class="fl">29.2</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>✔ report      <span class="dv">0</span>.<span class="fl">6.4</span>    ✖ see         <span class="dv">0</span>.<span class="fl">14.1</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>Restart the R<span class="sc">-</span>Session and update packages with <span class="st">`</span><span class="at">easystats::easystats_update()</span><span class="st">`</span>.</span></code></pre></div>
 <p>So far we have been looking at statistics that describe people in the
 RSS sample. However, in the social sciences we are almost always
 interested in whether we can draw any conclusions (make an <em>inference
@@ -116,8 +119,9 @@ instead of populations. A third approach focuses on the math of how
 samples relate to populations. It turns out that there are patterns in
 this and we can leverage them. Over the last 200 years statisticians
 have developed several approaches to this.</p>
-<p>One approach to this is called Null Hypothesis Significance
-Testing.</p>
+<p>One approach to this is called Null Hypothesis Significance Testing.
+This is usually the first approach that students learn, and it is the
+one you most often see in publications, especially older ones.</p>
 <p>Some of the most commonly used NHST are the t test, the F test and
 the Chi Square test. The choice of tests depends on the variables and
 assumptions we are willing to make. However they all follow the same
@@ -127,8 +131,17 @@ logic.</p>
 <p>Here are some examples of what this could mean:</p>
 <p>The mean of sun screen misinformation is the same for all racial and
 ethnic groups.</p>
-<p>The proportion of people who use sunscreen most of the time is the
-same for all racial/ethnic groups.</p>
+<p>The proportion of people in our population of interest who use
+sunscreen most of the time is the same for all racial/ethnic groups.</p>
+<p>The “alternative hypothesis” is that there <em>is</em> a relationship
+between the variables in the population.</p>
+<p><em>Challenge</em>: When we take random samples of a population the
+relationships in the <em>sample</em> may not match what is in the
+<em>population.</em></p>
+<div class="section level2">
+<h2 id="step-one">Step one<a class="anchor" aria-label="anchor" href="#step-one"></a>
+</h2>
+</div>
 <div class="section level2">
 <h2 id="important-points-to-remember">Important points to remember<a class="anchor" aria-label="anchor" href="#important-points-to-remember"></a>
 </h2>
@@ -143,7 +156,8 @@ the <em>null hypothesis</em> of no difference.<br>
 a hypothesis is true.</li>
 </ol>
 </div>
-  </main>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 

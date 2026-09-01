@@ -21,6 +21,7 @@
 - [Cross tabs part
   1](https://github.com/elinw/icorp26/articles/Cross_tabs.md):
 - [Cross_tabs2](https://github.com/elinw/icorp26/articles/Cross_tabs2.md):
+- [Cookbook](https://github.com/elinw/icorp26/articles/cookbook.md):
 
 ### Codebooks
 

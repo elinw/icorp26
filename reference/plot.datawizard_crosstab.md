@@ -7,7 +7,7 @@ The [`plot()`](https://rdrr.io/r/graphics/plot.default.html) method for
 
 ``` r
 # S3 method for class 'datawizard_crosstab'
-plot(x, y, ...)
+plot(x, y, chisq = TRUE, ...)
 ```
 
 ## Arguments
@@ -19,6 +19,10 @@ plot(x, y, ...)
 - y:
 
   Not currently used
+
+- chisq:
+
+  Should results of a chi square test be shown.
 
 - ...:
 

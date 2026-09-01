@@ -5,12 +5,14 @@ Work in Progress
 ``` r
 library(icorp26)
 library(easystats)
-# Attaching packages: easystats 0.7.6
+# Attaching packages: easystats 0.7.6 (red = needs update)
 ✔ bayestestR  0.18.1   ✔ correlation 0.8.8 
 ✔ datawizard  1.3.1    ✔ effectsize  1.0.3 
-✔ insight     1.5.2    ✔ modelbased  0.16.0
-✔ performance 0.17.1   ✔ parameters  0.29.2
-✔ report      0.6.4    ✔ see         0.14.1
+✔ insight     1.5.3    ✔ modelbased  0.17.0
+✖ performance 0.18.0   ✔ parameters  0.29.2
+✔ report      0.6.4    ✖ see         0.14.1
+
+Restart the R-Session and update packages with `easystats::easystats_update()`.
 ```
 
 So far we have been looking at statistics that describe people in the
@@ -47,6 +49,8 @@ leverage them. Over the last 200 years statisticians have developed
 several approaches to this.
 
 One approach to this is called Null Hypothesis Significance Testing.
+This is usually the first approach that students learn, and it is the
+one you most often see in publications, especially older ones.
 
 Some of the most commonly used NHST are the t test, the F test and the
 Chi Square test. The choice of tests depends on the variables and
@@ -62,8 +66,16 @@ Here are some examples of what this could mean:
 The mean of sun screen misinformation is the same for all racial and
 ethnic groups.
 
-The proportion of people who use sunscreen most of the time is the same
-for all racial/ethnic groups.
+The proportion of people in our population of interest who use sunscreen
+most of the time is the same for all racial/ethnic groups.
+
+The “alternative hypothesis” is that there *is* a relationship between
+the variables in the population.
+
+*Challenge*: When we take random samples of a population the
+relationships in the *sample* may not match what is in the *population.*
+
+## Step one
 
 ## Important points to remember
 
