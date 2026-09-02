@@ -1,8 +1,8 @@
 ---
-title: "Significance tests"
+title: "Significance_tests"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{significancetests}
+  %\VignetteIndexEntry{Significance_tests}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

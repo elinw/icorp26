@@ -2,7 +2,7 @@
 title: "Cookbook"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{cookbook}
+  %\VignetteIndexEntry{Cookbook}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
