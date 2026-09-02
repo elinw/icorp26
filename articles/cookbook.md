@@ -218,4 +218,4 @@ table1::table1(~., data = mtcars,
 
 [TABLE]
 
-MT cars Variables {.table .cl-37e1d8ea quarto-disable-processing="true"}
+MT cars Variables {.table .cl-55ee97c0 quarto-disable-processing="true"}

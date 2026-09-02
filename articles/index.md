@@ -16,8 +16,7 @@
 - [Poster](https://github.com/elinw/icorp26/articles/Poster.md):
 - [Assignment2
   example](https://github.com/elinw/icorp26/articles/Assignment2example.md):
-- [Significance
-  tests](https://github.com/elinw/icorp26/articles/significancetests.md):
+- [Significance_tests](https://github.com/elinw/icorp26/articles/significancetests.md):
 - [Cross tabs part
   1](https://github.com/elinw/icorp26/articles/Cross_tabs.md):
 - [Cross_tabs2](https://github.com/elinw/icorp26/articles/Cross_tabs2.md):
